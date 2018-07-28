@@ -1,0 +1,42 @@
+-- NORMAS PARA LA CARPETA DE SCRIPT --
+
+1. Todos los scripts que se generen deben de ir precedidos de un índice único y colocados en la carpeta 
+destinada a ellos, ya sea script o rollback.
+2. Cualquier cambio en un script NO modificará el script ya subido. Para ello se creará un nuevo script 
+que haga la modificación deseada.
+3. Para cada script que se genere deberá complementarse con el respectivo rollback.
+4. Los nuevos scripts deben ser probados ANTES de hacer el commit (el script y su correspondioente rollback).
+5. Todos los scripts deben de seguir la nomenclatura estandarizada. En formato será:
+
+XXX_[Create|Update|Delete|Alter|Insert|Otro]_[BBDD|User|Table|Data|Trigger|Function|Procedure|Constraint|Otro]_TP_[NombreObjeto]
+
+Por ejemplo:
+000_Create_BBDD_TP_TravelPlanner.sql
+001_Create_Table_TP_D_USER.sql
+002_Insert_Data_TP_Usuarios.sql
+
+
+Para los rollback el nombre será el mismo pero con "Rollback_" delante, por ejemplo:
+Rollback_000_Create_BBDD_TP_TravelPlanner.sql
+Rollback_001_Create_Table_TP_D_USER.sql
+Rollback_002_Insert_Data_TP_Usuarios.sql
+
+
+-- NOMENCLATURA DE LAS TABLAS SEGÚN SU FUNCIONALIDAD --
+
+D: Tabla de datos. Por ejemplo son aquellas tablas con datos activos de la aplicación.
+P: Tabla paramétrica. Por ejemplo son aquellas tablas de configuración, códigos postales, acrónimos, etc.
+H: Tabla histórica. Contiene información antigua.
+R: Tabla relacional. Son tablas resultantes de una relación múltiple N:M.
+A: Tabla auxiliar. Son tablas temporales utilizadas para almacenar información mientras se realiza
+algún tipo de cálculo, como por ejemplo información estadísticas por usuario, generación de report, etc. 
+M: Tabla maestra. Son tablas que contiene datos maestros necesario para el uso de la aplicación, por ejemplo las ciudades que existen.  
+
+-- NOMENCLATURA DE LAS COLUMNAS SEGÚN SU TIPO --
+ID: Clave primaria
+TX: Varchar 
+NU: Integer
+LG: Boolean (BOOL)
+LB: Campo de contenido LOB (BLOB, CLOB,..)
+DT: Fecha
+DS: Descripción
