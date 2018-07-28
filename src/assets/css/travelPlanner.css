@@ -1,24 +1,53 @@
+/**
+Para los class: .
+Para los id: #
+**/
+
+.clr_orange{
+    background:#F58A07;
+}
+
+.clr_pink{
+    background:#D7263D;
+}
+
+.clr_blue_dark{
+    background:#02182B;
+}
+
+.clr_blue{
+    background:#2C99DF;
+}
+
+.clr_blue_ligth{
+    background: #448FA3;
+}
+
 .container{
     min-height: 100%;
     min-width: 100%;
     position: absolute;
     padding: 3%;
-    color:white;
 }
 
-#container_index{
-    background-size: cover;
-    background-image: url(../images/background.jpg);
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-color: black;
+.content{
+ margin: 3em 2em 2em 2em;
+}
+
+#div_imagen_logo{
+    text-align: center;
 }
 
 #imagen_logo{
+    width: 30em;
+}
+
+#div_bot_index{
+    margin-top: 2.5em; 
     text-align: center;
 }
 
-#login{
-    text-align: center;
-    font-size: 80px;
+.btn_inicio{
+    color: white;
+    
 }
