@@ -5,8 +5,10 @@ Es una aplicación para ayudar a los usuarios a planificar sus viajes, dependien
 Los pasos a seguir para la correcta instalación del repositorio son:
 1. Clonar el repositorio con el comando git clone https://github.com/Rumi18/Travel-Planner.git
 2. Acceder a la carpeta Travel-Planer
-3. Ejecutar el comando npm run node_module. Este comando solo se tendrá que ejecutar la primera vez, cuando se hace la conación del proyecto.
-4. Ejecutar el comando npm start. Levanta el servidor para correr la aplicación.
+3. Bajar la rama dev mediante el comando git branch dev remotes/origin/dev
+4. Moverse a dicha rama mediante el comando git checkout dev
+5. Ejecutar el comando npm run node_module. Este comando solo se tendrá que ejecutar la primera vez, cuando se hace la conación del proyecto.
+6. Ejecutar el comando npm start. Levanta el servidor para correr la aplicación.
 
 Tras finalizar estos pasos se observa que la aplicación ya se encuentra corriendo en la dirección http://localhost:4200
 
