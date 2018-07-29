@@ -26,8 +26,6 @@ Además de estas dos ramas, por cada tarea realizada se tendrá que crear una nu
 
 # Multi idioma
 
-1. Instalar ngx-translate
-    npm install @ngx-translate/core --save
-    npm install @ngx-translate/http-loader --save
+1. Instalar ngx-translate, para ello ejecutar los comandos npm install @ngx-translate/core --save y posteriormente npm install @ngx-translate/http-loader --save
 
 2. En la carpeta src/assert/i18n crear tantos ficheros .json como idiomas se desee tener
