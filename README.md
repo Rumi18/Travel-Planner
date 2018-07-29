@@ -23,3 +23,11 @@ Contiene la versión estable que se despliega en el servidor de Azure. Cada cier
 Contiene la versión en desarrollo del proyecto. Las nuevas tareas que se hayan realizado junto con su correspondiente batería de pruebas se subirán a esta rama. Cuando se realice la validación del documento de batería de pruebas por parte de otra persona ajena al desarrollo de la tarea será cuando se realice el merge con la rama master, para que quede integrado en la nueva versión.
 
 Además de estas dos ramas, por cada tarea realizada se tendrá que crear una nueva rama de desarrollo para esa tarea, y una vez completado el desarrollo será cuando se realice el pull request a la rama dev.
+
+# Multi idioma
+
+1. Instalar ngx-translate
+    npm install @ngx-translate/core --save
+    npm install @ngx-translate/http-loader --save
+
+2. En la carpeta src/assert/i18n crear tantos ficheros .json como idiomas se desee tener
