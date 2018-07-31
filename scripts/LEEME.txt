@@ -13,13 +13,13 @@ XXX_[Create|Update|Delete|Alter|Insert|Otro]_[BBDD|User|Table|Data|Trigger|Funct
 Por ejemplo:
 000_Create_BBDD_TP_TravelPlanner.sql
 001_Create_Table_TP_D_USER.sql
-002_Insert_Data_TP_Usuarios.sql
+002_Insert_Data_TP_TP_D_Usuarios.sql
 
 
 Para los rollback el nombre será el mismo pero con "Rollback_" delante, por ejemplo:
 Rollback_000_Create_BBDD_TP_TravelPlanner.sql
 Rollback_001_Create_Table_TP_D_USER.sql
-Rollback_002_Insert_Data_TP_Usuarios.sql
+Rollback_002_Insert_Data_TP_TP_D_Usuarios.sql
 
 
 -- NOMENCLATURA DE LAS TABLAS SEGÚN SU FUNCIONALIDAD --
