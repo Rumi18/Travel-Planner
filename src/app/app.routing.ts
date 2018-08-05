@@ -2,10 +2,12 @@ import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 // Componentes
-import { RegistroComponent } from './components/registro.component';
+import { InicioComponent } from './components/inicio.component';
 
 const appRoutes: Routes = [
-    {path: 'registro', component: RegistroComponent}
+    {path:'', component: InicioComponent},
+    {path:'inicio', component: InicioComponent},
+    {path:'**', component: InicioComponent}
 ];
 
 export const appRoutingProviders: any[] = [];
