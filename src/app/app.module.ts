@@ -1,43 +1,36 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
-import { routing, appRoutingProviders } from './app.routing';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
-// Dependencias para el idioma
-import { TranslateModule, TranslateLoader } from "@ngx-translate/core";
+// Traductor
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { HttpClient, HttpClientModule } from "@angular/common/http";
 
 // Componentes
 import { AppComponent } from './app.component';
-import { RegistroComponent } from './components/registro.component';
+import { InicioComponent } from './components/inicio.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    RegistroComponent
+    InicioComponent
   ],
   imports: [
-    HttpClientModule, 
     BrowserModule,
-    FormsModule,
-    HttpModule,
-    routing,    
+    HttpClientModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
         useFactory: (createTranslateLoader),
         deps: [HttpClient]
       }
-    })   
+    })
   ],
-  providers: [appRoutingProviders],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
 
-// Función que obtiene los ficheros json de las traducciones desde el directorio ./src/assets/i18n
 export function createTranslateLoader(http: HttpClient) {
-  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+  return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
 }
