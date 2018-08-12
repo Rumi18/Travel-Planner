@@ -12,7 +12,7 @@ export class InicioComponent implements OnInit {
         private _translateService: TranslateService
     ) {
         this.titulo = 'Página principal';
-        this._translateService.setDefaultLang('en');
+        this._translateService.setDefaultLang('es');
     }
 
     ngOnInit() {

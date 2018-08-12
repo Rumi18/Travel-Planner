@@ -9,24 +9,32 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 // Componentes
 import { AppComponent } from './app.component';
 import { InicioComponent } from './components/inicio.component';
+import { MenuComponent } from './components/menu.component';
+
+// Rutas
+import { routing, appRoutingProviders } from './app.routing';
 
 @NgModule({
   declarations: [
     AppComponent,
-    InicioComponent
+    InicioComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule,
+    HttpClientModule,    
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
         useFactory: (createTranslateLoader),
         deps: [HttpClient]
       }
-    })
+    }),
+    routing
   ],
-  providers: [],
+  providers: [
+    appRoutingProviders
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
