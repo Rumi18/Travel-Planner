@@ -12,6 +12,10 @@
         "email": "Email",
         "label_email": "Enter your email address to retrieve your password",
         "recuperar":"Recover",
-        "volver": "Return"
+        "volver": "Return",
+        "nombre": "Name",
+        "apellidos": "Surname",
+        "contraseña": "Password",
+        "repetir_contraseña": "Repeat password"
     }
   }
