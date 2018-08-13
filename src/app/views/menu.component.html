@@ -1,21 +1,23 @@
 <div class="menu-principal">
-    <a id="cerrar-sesion" href="#">
-        <i class="ion-heart"></i>
+    <a id="cerrar-sesion" [routerLink]="['/']">
+        <img src="../assets/images/cerrar-sesion.png">
     </a>
-    <a id="configuracion" href="#">
-        <i class="ion-wrench"></i>
+    <a id="config-ruta" [routerLink]="['/configurar']">
+        <img src="../assets/images/config-ruta.png">
     </a>
-    <a id="rutas-pendientes" href="#">
-        <i class="ion-edit"></i>
+    <a id="rutas-pendientes" [routerLink]="['/rutasPendientes']">
+        <img src="../assets/images/rutas-pendientes.png">
     </a>
-    <a id="historial" href="#">
-        <i class="ion-gear-a"></i>
+    <a id="historial" [routerLink]="['/historial']">
+        <img src="../assets/images/historial-ruta.png">
     </a>
-    <a id="tienda" href="#">
-        <i class="ion-email"></i>
+    <a id="perfil" [routerLink]="['/perfil']">
+            <img src="../assets/images/perfil.png">
+        </a>
+    <a id="tienda"[routerLink]="['/tienda']">
+        <img src="../assets/images/tienda.png">
     </a>
-    <a id="perfil" href="#">
-        <i class="ion-help"></i>
-    </a>
-    <span class="logo-travelPlanner"> </span>
+    <span class="logo-travelPlanner">
+        <img src="../assets/images/logo-menu.png">
+    </span>
 </div>

@@ -10,6 +10,11 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { AppComponent } from './app.component';
 import { InicioComponent } from './components/inicio.component';
 import { MenuComponent } from './components/menu.component';
+import { PerfilComponent } from './components/perfil.component';
+import { HistorialComponent } from './components/historial.component';
+import { RutasPendientesComponent } from './components/rutasPendientes.component';
+import { ConfiguracionComponent } from './components/configuracion.component';
+import { TiendaComponent } from './components/tienda.component';
 
 // Rutas
 import { routing, appRoutingProviders } from './app.routing';
@@ -18,7 +23,12 @@ import { routing, appRoutingProviders } from './app.routing';
   declarations: [
     AppComponent,
     InicioComponent,
-    MenuComponent
+    MenuComponent,
+    PerfilComponent,
+    HistorialComponent,
+    RutasPendientesComponent,
+    ConfiguracionComponent,
+    TiendaComponent
   ],
   imports: [
     BrowserModule,

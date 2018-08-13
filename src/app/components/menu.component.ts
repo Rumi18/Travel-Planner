@@ -7,7 +7,7 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class MenuComponent implements OnInit {
   
-    constructor(private _translateService: TranslateService) {
+    constructor() {
         
     }
 

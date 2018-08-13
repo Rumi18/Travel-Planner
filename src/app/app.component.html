@@ -1,14 +1,21 @@
 <div id="content">
   <header id="header">
-    <div>
-      <p>
-        {{title}}
-      </p>
+    <div id="cabecera-app">
+      <div id="opcion-atras">
+        <a [routerLink]="['/']">
+          <img src="../assets/images/atras.png">
+        </a>
+      </div>
+      <div id="tituloApp">
+       <span>
+          {{title}}
+        </span>
+      </div>
     </div>
     <hr>
   </header>
   <section id="main">
     <!--Componente actual-->
-    <router-outlet></router-outlet>  
+    <router-outlet></router-outlet>
   </section>
 </div>
