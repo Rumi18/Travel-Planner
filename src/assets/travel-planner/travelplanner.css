@@ -44,6 +44,15 @@
     border-color: white;
 }
 
+/*Vista error.component.html*/
+#error {
+    padding-top: 41px;
+}
+
+#error h4{
+    color: white;
+}
+
 /*Vista inicio.component.html*/
 #inicio {
     padding-top: 41px;
@@ -103,6 +112,11 @@
     float: right;
     margin-top: 20px;
     color: #D7263D;
+}
+
+#form-registro img{
+    width: 30px;
+    height: 30px;
 }
 
 #btn-registrarse{

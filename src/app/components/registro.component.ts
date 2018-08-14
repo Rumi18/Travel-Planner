@@ -4,6 +4,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 // Servicios
 import { UsuarioService } from '../services/usuario.service';
 import { Usuario } from '../models/usuario';
+import { GLOBAL } from '../services/global';
 
 @Component({
     selector: 'registro',
@@ -29,19 +30,25 @@ export class RegistroComponent implements OnInit{
 
     onSubmit(){
         console.log(this.usuario);
-        this._router.navigate(['/inicio']);
-        /*this._usuarioService.addUsuario(this.usuario).subscribe(
-            response => {
-                if(response.code == 200){
-                    this.usuario = response.data;
-                    this._router.navigate(['/inicio']);
-                }else{
-                    console.log(response);
+        
+        if(GLOBAL.url_api != 'prueba'){
+            this._usuarioService.addUsuario(this.usuario).subscribe(
+                response => {
+                    if(response['code']==200){
+                        console.log(response);
+                        this._router.navigate(['/inicio']);
+                    }else{
+                        console.log(response);
+                        this._router.navigate(['/error']);
+                    }
+                },
+                error => {
+                    console.log(<any>error);
                 }
-            },
-            error => {
-                console.log(<any>error);
-            }
-        );*/
+            );
+        }else{
+            this._router.navigate(['/inicio']);
+        }
+        
     }
 }
