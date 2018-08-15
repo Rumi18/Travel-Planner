@@ -1,15 +1,20 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { FormsModule }   from '@angular/forms';
 
 // Traductor
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
+// Rutas
+import { routing, appRoutingProviders } from './app.routing';
+
 // Componentes
 import { AppComponent } from './app.component';
 import { InicioComponent } from './components/inicio.component';
+import { RegistroComponent } from './components/registro.component';
+import { ErrorComponent } from './components/error.component';
 import { MenuComponent } from './components/menu.component';
 import { PerfilComponent } from './components/perfil.component';
 import { HistorialComponent } from './components/historial.component';
@@ -17,13 +22,12 @@ import { RutasPendientesComponent } from './components/rutasPendientes.component
 import { ConfiguracionComponent } from './components/configuracion.component';
 import { TiendaComponent } from './components/tienda.component';
 
-// Rutas
-import { routing, appRoutingProviders } from './app.routing';
-
 @NgModule({
   declarations: [
     AppComponent,
     InicioComponent,
+    RegistroComponent,
+    ErrorComponent,
     MenuComponent,
     PerfilComponent,
     HistorialComponent,
@@ -33,8 +37,8 @@ import { routing, appRoutingProviders } from './app.routing';
   ],
   imports: [
     BrowserModule,
-    HttpClientModule,  
-    FormsModule,  
+    FormsModule,
+    HttpClientModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -44,9 +48,7 @@ import { routing, appRoutingProviders } from './app.routing';
     }),
     routing
   ],
-  providers: [
-    appRoutingProviders
-  ],
+  providers: [appRoutingProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

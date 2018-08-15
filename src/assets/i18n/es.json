@@ -15,6 +15,13 @@
         "volver": "Volver"
     },
     "registro":{
+        "volver": "Volver",
+        "nombre": "Nombre",
+        "apellidos": "Apellidos",
+        "contraseña": "Contraseña",
+        "repetir_contraseña": "Repetir contraseña"
+    },
+    "configuracion":{
         "destino": "Destino",
         "duracion": "Duracion",
         "presupuesto": "Presupuesto",
@@ -22,5 +29,6 @@
         "acompañantes": "Acompañantes",
         "ninios": "Niños",
         "turismo": "Tipo de turismo"
+
     }
   }

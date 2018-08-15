@@ -1,0 +1,126 @@
+/*Paleta de colores*/
+.clr_orange{
+    background:#F58A07;
+}
+
+.clr_pink{
+    background:#D7263D;
+}
+
+.clr_blue_dark{
+    background:#02182B;
+}
+
+.clr_blue{
+    background:#2C99DF;
+}
+
+.clr_blue_ligth{
+    background: #448FA3;
+}
+/*Vista index.html*/
+#body {
+    background: #02182B;
+    padding-top: 41px;
+}
+
+/*Vista app.component.html*/
+#header{
+    width: 100%;
+    height: 53px;
+    background-color: #02182B;
+    top: 0;
+    position: fixed;
+    padding-top: 13px;
+}
+
+#header p{
+    text-align: center; 
+    color: white;
+    font-weight: bold; 
+}
+
+#header hr{
+    border-color: white;
+}
+
+/*Vista error.component.html*/
+#error {
+    padding-top: 41px;
+}
+
+#error h4{
+    color: white;
+}
+
+/*Vista inicio.component.html*/
+#inicio {
+    padding-top: 41px;
+}
+
+#selector-idioma {
+    color: white;
+    text-align: right;
+    margin-top: 0px;
+    margin-right: 20px;
+}
+
+#selector_idioma > label:hover{
+    color: #D7263D;
+    cursor:pointer;
+}
+
+#imagen-logo {
+    text-align: center;
+    margin: 40px;
+    margin-top: 0%;
+}
+
+#imagen-logo img {
+    width:80%;
+    height: auto;
+}
+
+#botones-inicio {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.btn {
+    color: white;
+    width: 75%;
+}
+
+#botones-inicio div {
+    padding: 10px;
+    text-align: center;
+}
+
+/*Vista registro.component.html*/
+#form-registro {
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-top: 20px;
+}
+
+#form-registro label{
+    color:white;
+    margin-top: 20px;
+}
+
+#form-registro p{
+    float: right;
+    margin-top: 20px;
+    color: #D7263D;
+}
+
+#form-registro img{
+    width: 30px;
+    height: 30px;
+}
+
+#btn-registrarse{
+    text-align: center;
+    margin: 40px;
+}
+
