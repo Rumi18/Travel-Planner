@@ -14,6 +14,10 @@
         "recuperar":"Recuperar",
         "volver": "Volver"
     },
+    "error":{
+        "tituloError": "Se ha producido un error",
+        "fraseError": "Por favor, pulse en el logo de Travel Planner para ir al menú"
+    },
     "registro":{
         "volver": "Volver",
         "nombre": "Nombre",

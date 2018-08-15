@@ -56,6 +56,28 @@ form label{
     margin-top: 20px;
 }
 
+/*Vista error.component.html*/
+#logo-error{
+    text-align: center;
+    margin-top: 6em;
+    margin-bottom: 2em;
+}
+
+#logo-error > a > img {
+    width:100%;
+    height: auto;
+}
+
+#texto-error{
+    text-align: center;
+}
+
+
+#texto-error > h5{
+    margin-top: 1em;
+    font-weight: normal !important;
+}
+
 /*Vista inicio.component.html*/
 #cabecera-app{
     width: 100%;
@@ -109,7 +131,7 @@ form label{
 /*Vista menu.component.html*/
 .menu-principal {
     position: absolute;   
-    bottom: 40%;
+    bottom: 45%;
     right: 37%;
     width: 100px;
     height: 100px;
