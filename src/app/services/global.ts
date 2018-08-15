@@ -1,3 +1,4 @@
 export var GLOBAL = { 
-    vistaSeleccionada: ''
+    url_api: "",
+    vistaSeleccionada: ""
  };

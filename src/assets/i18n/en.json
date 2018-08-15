@@ -13,5 +13,14 @@
         "label_email": "Enter your email address to retrieve your password",
         "recuperar":"Recover",
         "volver": "Return"
+    },
+    "registro":{
+        "destino": "Destination",
+        "duracion": "Duration",
+        "presupuesto": "Budget",
+        "mascota": "Pets",
+        "acompañantes": "Partners",
+        "ninios": "Childrem",
+        "turismo": "Type of tourism"
     }
   }

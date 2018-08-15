@@ -131,22 +131,22 @@
     transition: all .7s cubic-bezier(.68, 1, .265, 1);
 }
 
-.menu-principal.open a:nth-child(1) {
+.menu-principal a:nth-child(1) {
     transform: translate(-0.2em,-5.1em);
 }
-.menu-principal.open a:nth-child(2) {
+.menu-principal a:nth-child(2) {
     transform: translate(-5.1em,-2.9em);
 }
-.menu-principal.open a:nth-child(3) {
+.menu-principal a:nth-child(3) {
     transform: translate(4.5em,-2.5em);
 }
-.menu-principal.open a:nth-child(4) {
+.menu-principal a:nth-child(4) {
     transform: translate(4.6em,2.6em);
 }
-.menu-principal.open a:nth-child(5) {
+.menu-principal a:nth-child(5) {
     transform: translate(-5.5em,2.8em);
 }
-.menu-principal.open a:nth-child(6) {
+.menu-principal a:nth-child(6) {
     transform: translate(-0.3em,6em);
 }
 
@@ -168,4 +168,10 @@
 
 #historial> img {
     padding-left: 0.2em;
+}
+
+/*Vista configuracion.component.html*/
+#form-configuracion{
+    color: white;
+    margin: 3em;
 }

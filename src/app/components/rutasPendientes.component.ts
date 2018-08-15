@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
+
+// Servicios
 import { GLOBAL } from '../services/global';
 
 @Component({
@@ -13,6 +14,7 @@ export class RutasPendientesComponent implements OnInit {
         
     }
 
+    // Método que se lanza automáticamente después del constructor del componente 
     ngOnInit() {
         GLOBAL.vistaSeleccionada = this._route.component['name'];    
         console.log('Se ha cargado el componente rutasPendientes.component.ts');       

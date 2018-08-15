@@ -13,5 +13,14 @@
         "label_email": "Introduzca su email para recuperar la contraseña",
         "recuperar":"Recuperar",
         "volver": "Volver"
+    },
+    "registro":{
+        "destino": "Destino",
+        "duracion": "Duracion",
+        "presupuesto": "Presupuesto",
+        "mascota": "Mascotas",
+        "acompañantes": "Acompañantes",
+        "ninios": "Niños",
+        "turismo": "Tipo de turismo"
     }
   }

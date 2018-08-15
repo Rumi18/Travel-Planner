@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import { GLOBAL } from '../app/services/global';
+import { GLOBAL } from './services/global';
 
 @Component({
   selector: 'app-root',
@@ -21,7 +21,7 @@ export class AppComponent {
         break;
 
       case 'PerfilComponent':       
-        this._router.navigate(['/inicio']);
+        this._router.navigate(['/menuOpciones']);
         break;
 
       case 'HistorialComponent':      
