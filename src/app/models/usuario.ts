@@ -1,4 +1,4 @@
-export class Usuario{
+export class Usuario {
 
     constructor(
         public nombre: string,
@@ -6,6 +6,7 @@ export class Usuario{
         public email: string,
         public user_name: string,
         public contrasenia: string,
-        public repeatContrasenia: string
-    ){}
+        public repeatContrasenia: string,
+        public imagen: string
+    ) { }
 }

@@ -9,20 +9,24 @@ import { GLOBAL } from './global';
 import { Usuario } from '../models/usuario';
 
 @Injectable()
-export class UsuarioService{
+export class UsuarioService {
     public url: string;
 
     constructor(
         public _http: HttpClient
-    ){
+    ) {
         this.url = GLOBAL.url_api;
     }
 
-    addUsuario(usuario:Usuario){
+    addUsuario(usuario: Usuario) {
         let json = JSON.stringify(usuario);
-        let params = "json="+json;
-        let headers = new HttpHeaders().set('Content-Type','application/x-www-form-urlencoded');
+        let params = "json=" + json;
+        let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
 
-        return this._http.post(this.url+'usuarios', params, {headers:headers});
+        return this._http.post(this.url + 'usuarios', params, { headers: headers });
+    }
+
+    modifyUsuario(usuario: Usuario) {
+       
     }
 }

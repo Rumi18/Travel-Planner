@@ -7,6 +7,7 @@ import { ConfiguracionService } from '../services/configuracion.service';
 
 // Modelos
 import { Configuracion } from '../models/configuracion';
+import { TipoTurismo } from '../enums/tipoTurismo';
 
 @Component({
     selector: 'configuracion',
@@ -17,8 +18,8 @@ export class ConfiguracionComponent implements OnInit {
     public configuracion: Configuracion;
 
     constructor(
-        private _router: Router, 
-        private _route: ActivatedRoute, 
+        private _router: Router,
+        private _route: ActivatedRoute,
         private _configuracionService: ConfiguracionService
     ) {
 
@@ -28,10 +29,12 @@ export class ConfiguracionComponent implements OnInit {
     ngOnInit() {
         GLOBAL.vistaSeleccionada = this._route.component['name'];
         console.log('Se ha cargado el componente configuracion.component.ts');
+
+        this.configuracion = new Configuracion("Sevilla",0,0,0,false,false,false, TipoTurismo.Cultura);
     }
 
     // Método para persistir en BD una nueva configuración
-    onSubmit(){
+    onSubmit() {
         console.log(this.configuracion);
     }
 }

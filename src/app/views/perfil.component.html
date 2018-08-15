@@ -1,3 +1,40 @@
 <div class="component">
-   
+    <form id="form-perfil" #formPerfil="ngForm">
+        <div id="foto-perfil">
+            <img id="img-perfil" class=".img-fluid" src="../assets/images/fotoPerfil.jpg">
+        </div>
+
+        <div id="infor-usuario">
+            <div id="nombreCompleto-perfil">
+                <strong>{{usuario.nombre}} {{usuario.apellidos}} </strong>
+            </div>
+            <span>{{usuario.user_name}}</span>
+            <div id="infor-email">
+                <span>{{usuario.email}} </span>
+            </div>
+        </div>
+
+        <div id="lbl-cambioPass">
+            <strong>{{'perfil.cambiarPass' | translate}}</strong>
+        </div>
+        <label>{{'perfil.antiguoPass' | translate}}:</label>
+        <input type="password" name="contraseniaAntigua"  class="form-control" required/>
+
+        <label>{{'perfil.nuevaPass' | translate}}:</label>
+        <input type="password" #contrasenia="ngModel" name="contrasenia" [(ngModel)]="usuario.contrasenia" class="form-control" required/>
+
+        <label>{{'perfil.repetirPass' | translate}}:</label>
+        <input type="password" #repeatContrasenia="ngModel" name="repeatContrasenia" [(ngModel)]="usuario.repeatContrasenia" class="form-control"
+            required [pattern]="usuario.contrasenia" />
+
+        <div id="btns-perfil">
+            <div>
+                <div>
+                    <input type="submit" value="{{'formulario.guardar' | translate}}"  class="btn clr_blue_ligth"
+                    />
+                </div>
+
+            </div>
+        </div>
+    </form>
 </div>
