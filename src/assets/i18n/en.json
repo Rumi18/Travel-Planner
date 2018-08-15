@@ -11,7 +11,9 @@
         "fraseError": "Please press the Travel Planner logo to go to the menu"
     },
     "formulario": {
-        "campoObligatorio": "Required field"
+        "campoObligatorio": "Required field",
+        "cancelar": "Cancel",
+        "guardar": "Save"
     },
     "registro": {
         "volver": "Return",
@@ -29,7 +31,7 @@
         "presupuesto": "Budget",
         "mascota": "Pets",
         "acompaniantes": "Partners",
-        "ninios": "Childrem",
+        "ninios": "Children",
         "turismo": "Type of tourism",
         "mostrarRuta":"Show route"
     },

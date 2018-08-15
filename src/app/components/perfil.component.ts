@@ -27,7 +27,7 @@ export class PerfilComponent implements OnInit {
         console.log('Se ha cargado el componente perfil.component.ts');
 
         //Llamamos a base de datos para obtener la información del usuario
-        this.usuario = new Usuario('Gaara', 'Del Desierto', 'realGaara@gmail.com', 'gaaraD', '', '', '');
+        this.usuario = new Usuario('Jon', 'Snow', 'winterIsComing@gmail.com', 'youKnowNothing',"", 'holdTheDoor', '', '');
     }
 
     onSubmit() {

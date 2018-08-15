@@ -227,10 +227,6 @@ form label{
 }
 
 /*Vista perfil.component.html*/
-#btns-perfil{
-    text-align: center;
-    margin-top: 40px;
-}
 
 #foto-perfil {
     text-align: center;
@@ -256,4 +252,10 @@ form label{
 
 #lbl-cambioPass{
     margin-top: 2.5em;  
+    color:#2C99DF !important;
+}
+
+#btns-perfil{
+    text-align: center;
+    margin-top: 40px;
 }

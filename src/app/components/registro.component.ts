@@ -20,7 +20,7 @@ export class RegistroComponent implements OnInit {
         private _route: ActivatedRoute,
         private _router: Router
     ) {
-        this.usuario = new Usuario('Carlos', 'Garcia Montellano', 'cgm@gmail.com', 'carmont87', '123456789', '', '');
+        this.usuario = new Usuario('Carlos', 'Garcia Montellano', 'cgm@gmail.com', 'carmont87','', '123456789', '', '');
     }
 
     ngOnInit() {

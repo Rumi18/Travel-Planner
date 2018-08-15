@@ -5,8 +5,8 @@
         </div>
 
         <div id="infor-usuario">
-            <div id="nombreCompleto-perfil">
-                <strong>{{usuario.nombre}} {{usuario.apellidos}} </strong>
+            <div id="nombreCompleto-perfil" >
+                <strong><h5>{{usuario.nombre}} {{usuario.apellidos}}</h5> </strong>
             </div>
             <span>{{usuario.user_name}}</span>
             <div id="infor-email">
@@ -15,13 +15,13 @@
         </div>
 
         <div id="lbl-cambioPass">
-            <strong>{{'perfil.cambiarPass' | translate}}</strong>
+            <strong >{{'perfil.cambiarPass' | translate}}</strong>
         </div>
         <label>{{'perfil.antiguoPass' | translate}}:</label>
-        <input type="password" name="contraseniaAntigua"  class="form-control" required/>
+        <input type="password" name="contraseniaAntigua" name="contrasenia" [(ngModel)]="usuario.contrasenia"  class="form-control" required/>
 
         <label>{{'perfil.nuevaPass' | translate}}:</label>
-        <input type="password" #contrasenia="ngModel" name="contrasenia" [(ngModel)]="usuario.contrasenia" class="form-control" required/>
+        <input type="password" #contrasenia="ngModel" name="nuevaContrasenia" [(ngModel)]="usuario.nuevaContrasenia" class="form-control" required/>
 
         <label>{{'perfil.repetirPass' | translate}}:</label>
         <input type="password" #repeatContrasenia="ngModel" name="repeatContrasenia" [(ngModel)]="usuario.repeatContrasenia" class="form-control"

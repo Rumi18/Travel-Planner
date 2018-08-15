@@ -5,8 +5,9 @@ export class Usuario {
         public apellidos: string,
         public email: string,
         public user_name: string,
-        public contrasenia: string,
+        public imagen: string,
+        public contrasenia: string,        
         public repeatContrasenia: string,
-        public imagen: string
+        public nuevaContrasenia: string
     ) { }
 }
