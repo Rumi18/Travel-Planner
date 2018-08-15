@@ -9,13 +9,11 @@ import { GLOBAL } from '../services/global';
     templateUrl: '../views/error.component.html'
 })
 export class ErrorComponent implements OnInit{
-    public titulo: string;
 
     constructor(
         private _router: Router, 
         private _route: ActivatedRoute
-    ){
-        this.titulo = 'Error!! Página no encontrada';
+    ){        
     }
 
     ngOnInit(){
