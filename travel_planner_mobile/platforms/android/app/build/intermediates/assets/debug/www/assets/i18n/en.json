@@ -12,10 +12,22 @@
         "email": "Email",
         "label_email": "Enter your email address to retrieve your password",
         "recuperar":"Recover",
+        "volver": "Return"
+    },
+    "registro":{
         "volver": "Return",
         "nombre": "Name",
         "apellidos": "Surname",
         "contraseña": "Password",
         "repetir_contraseña": "Repeat password"
+    },
+    "configuracion":{
+        "destino": "Destination",
+        "duracion": "Duration",
+        "presupuesto": "Budget",
+        "mascota": "Pets",
+        "acompañantes": "Partners",
+        "ninios": "Childrem",
+        "turismo": "Type of tourism"
     }
   }
