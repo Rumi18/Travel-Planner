@@ -1,0 +1,8 @@
+<div id="form-configuracion">
+    <form #formConfiguracion="ngForm">
+
+        <label>{{'registro.nombre' | translate}}:</label>
+        <input type="text" #destino="ngModel" name="destino" [(ngModel)]="configuracion.destino" class="form-control" required/>
+   
+    </form>
+</div>

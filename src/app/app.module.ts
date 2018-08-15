@@ -1,43 +1,60 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
-import { routing, appRoutingProviders } from './app.routing';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
-// Dependencias para el idioma
-import { TranslateModule, TranslateLoader } from "@ngx-translate/core";
+// Traductor
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { HttpClient, HttpClientModule } from "@angular/common/http";
+
+// Rutas
+import { routing, appRoutingProviders } from './app.routing';
 
 // Componentes
 import { AppComponent } from './app.component';
+import { InicioComponent } from './components/inicio.component';
 import { RegistroComponent } from './components/registro.component';
+import { LoginComponent } from './components/login.component';
+import { ErrorComponent } from './components/error.component';
+import { MenuComponent } from './components/menu.component';
+import { PerfilComponent } from './components/perfil.component';
+import { HistorialComponent } from './components/historial.component';
+import { RutasPendientesComponent } from './components/rutasPendientes.component';
+import { ConfiguracionComponent } from './components/configuracion.component';
+import { TiendaComponent } from './components/tienda.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    RegistroComponent
+    InicioComponent,
+    RegistroComponent,
+    LoginComponent,
+    ErrorComponent,
+    MenuComponent,
+    PerfilComponent,
+    HistorialComponent,
+    RutasPendientesComponent,
+    ConfiguracionComponent,
+    TiendaComponent
   ],
   imports: [
-    HttpClientModule, 
     BrowserModule,
     FormsModule,
-    HttpModule,
-    routing,    
+    HttpClientModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
         useFactory: (createTranslateLoader),
         deps: [HttpClient]
       }
-    })   
+    }),
+    routing
   ],
   providers: [appRoutingProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
 
-// Función que obtiene los ficheros json de las traducciones desde el directorio ./src/assets/i18n
 export function createTranslateLoader(http: HttpClient) {
-  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+  return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
 }

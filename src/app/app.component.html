@@ -1,78 +1,22 @@
-<div class="content">
+<div id="content">
+  <header id="header">
 
-  <!--Selector de lenguaje-->
-  <div class="row">     
-    <div id="selector_idioma" class="col-md-12">
-      <label (click)="switchLanguage('es')"> {{ 'home.espaniol' | translate }}</label> | 
-      <label (click)="switchLanguage('en')"> {{ 'home.ingles' | translate }}</label>
-    </div>
-      
-    <!--Logo-->
-    <div id="index_logo" class="col-md-12">
-      <img src="../assets/images/logo.png" class="rounded img-fluid">
-
-    </div>   
-  </div>
- 
-  <!--Botones de inicio-->
-  <div class="row">  
-    <div id="btns_inicio" class="col-md-12"> 
-      <div class="btn_inicio">        
-        <button id="btn_entrar" class="btn btn-lg btn-block clr_orange" onclick="mostrarCamposSesion()">  {{ 'home.iniciar_sesion' | translate }}</button>
+    <div id="cabecera-app">
+      <div id="opcion-atras">        
+        <a (click) = "verComponente()">
+          <img src="assets/images/atras.png">
+        </a>
       </div>
-
-      <div class="btn_inicio"> 
-        <button type="button" class="btn btn-lg btn-block clr_blue_ligth">{{ 'home.registrar' | translate }}</button>
-      </div>    
-    </div>  
-  </div>
-   
-  <!--Campos de sesion-->
-  <div class="row">
-    <div id="camposSesion" class="col-md-12" style=" display: none;">     
-      <form name="formInicioApp" action="post" >              
-        <div>
-          <input type="text" class="form-control" id="usuario" placeholder="{{ 'home.usuario' | translate }}">    
-          <br/>
-          <input type="password" class="form-control" id="contrasenia" placeholder="{{ 'home.contrasenia' | translate }}">       
-        </div>
-
-        <div id="labels_sesion">
-          <a onclick="mostrarOlvidarContrasenia()">{{ 'home.olvidar_contrasenia' | translate }}</a>&nbsp;
-          <a>{{ 'home.sin_registrar' | translate }}</a>
-        </div>
-        
-        <br/><br/>
-       
-        <div class="btn_inicio">
-          <button type="button" class="btn btn-lg btn-block clr_blue">{{ 'home.entrar' | translate }}</button>
-        </div>
-      </form> 
+      <div id="tituloApp">
+       <span>
+          {{title}}
+        </span>
+      </div>
     </div>
-  </div>
-
-  <!--Olvidar contraseña-->
-  <div class="row">  
-    <div id="olvidar_contrasenia" class="col-md-12"  style="display: none;"> 
-      <form name="formOlvidarContrasenia" action="post" >
-        <div>
-          <label>{{ 'home.label_email' | translate }}:</label>
-          <br/>
-          <input type="text" class="form-control" id="email" placeholder="{{ 'home.email' | translate }}">  
-        </div> 
-        
-        <br/>       
-        
-        <div class="btn_inicio">
-          <button type="button" class="btn btn-block btn-lg clr_blue">{{ 'home.recuperar' | translate }}</button>
-        </div>
-
-        <div id="home_volver">   
-          <a href="">{{ 'home.volver' | translate }}</a>
-        </div>
-      </form>
-    </div>  
-  </div>
-
+    <hr>
+  </header>
+  <section id="main">
+    <!--Componente actual-->
+    <router-outlet></router-outlet>
+  </section>
 </div>
-
