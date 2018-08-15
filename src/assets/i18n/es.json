@@ -1,38 +1,46 @@
 {
-    "home": {     
-        "iniciar_sesion": "Iniciar sesión",   
+    "home": {
+        "iniciar_sesion": "Iniciar sesión",
         "entrar": "Entrar",
         "registrar": "Registrarse",
         "espaniol": "es",
-        "ingles": "en",
-        "usuario": "Usuario",
-        "contrasenia": "Contraseña",
-        "olvidar_contrasenia": "¿Olvidaste la contraseña?",
-        "sin_registrar": "¿Aún no estás registrado?",
-        "email": "Email",
-        "label_email": "Introduzca su email para recuperar la contraseña",
-        "recuperar":"Recuperar",
-        "volver": "Volver"
+        "ingles": "en"       
     },
-    "error":{
+    "error": {
         "tituloError": "Se ha producido un error",
         "fraseError": "Por favor, pulse en el logo de Travel Planner para ir al menú"
     },
-    "registro":{
+    "formulario": {
+        "campoObligatorio": "Campo obligatorio",
+        "cancelar": "Cancelar",
+        "guardar": "Guardar"
+    },
+    "registro": {
         "volver": "Volver",
         "nombre": "Nombre",
         "apellidos": "Apellidos",
-        "contraseña": "Contraseña",
-        "repetir_contraseña": "Repetir contraseña"
+        "email": "Email",
+        "usuario": "Usuario",
+        "contrasenia": "Contraseña",
+        "repetir_contrasenia": "Repetir contraseña",
+        "registrarse": "Registrarse"
     },
-    "configuracion":{
+    "configuracion": {
         "destino": "Destino",
         "duracion": "Duracion",
         "presupuesto": "Presupuesto",
         "mascota": "Mascotas",
-        "acompañantes": "Acompañantes",
+        "acompaniantes": "Acompañantes",
         "ninios": "Niños",
-        "turismo": "Tipo de turismo"
-
+        "turismo": "Tipo de turismo",
+        "mostrarRuta":"Mostrar Ruta"
+    },
+    "perfil": {     
+        "email": "Email",
+        "cambiarPass": "Cambiar de contraseña",
+        "antiguoPass": "Contraseña antigua",
+        "nuevaPass": "Nueva contraseña",
+        "repetirPass": "Repetir nueva contraseña",
+        "eliminarCuenta": "Eliminar cuenta"
     }
-  }
+}

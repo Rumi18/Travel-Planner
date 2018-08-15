@@ -1,6 +1,6 @@
 <div id="inicio">
     <div id="selector-idioma">
-        <label (click)="switchLanguage('es')">{{'home.espaniol' | translate}}</label> | 
+        <label (click)="switchLanguage('es')">{{'home.espaniol' | translate}}</label> |
         <label (click)="switchLanguage('en')">{{'home.ingles' | translate}}</label>
     </div>
     <div id="imagen-logo">
@@ -8,7 +8,7 @@
     </div>
     <div id="botones-inicio">
         <div>
-            <a [routerLink]="['/error']" class="btn btn-lg clr_orange">{{'home.iniciar_sesion' | translate}}</a>
+            <a [routerLink]="['/menuOpciones']" class="btn btn-lg clr_orange">{{'home.iniciar_sesion' | translate}}</a>
         </div>
         <div>
             <a [routerLink]="['/registro']" class="btn btn-lg clr_blue_ligth">{{'home.registrar' | translate}}</a>

@@ -14,7 +14,7 @@ export class AppComponent {
 
   constructor(
     private _translateService: TranslateService,
-    private _router: Router, 
+    private _router: Router,
     private _route: ActivatedRoute
   ) {
 

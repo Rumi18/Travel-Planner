@@ -8,15 +8,15 @@ import { GLOBAL } from '../services/global';
     selector: 'error',
     templateUrl: '../views/error.component.html'
 })
-export class ErrorComponent implements OnInit{
+export class ErrorComponent implements OnInit {
 
     constructor(
-        private _router: Router, 
+        private _router: Router,
         private _route: ActivatedRoute
-    ){        
+    ) {
     }
 
-    ngOnInit(){
+    ngOnInit() {
         console.log('Componente error.component.ts cargado');
         GLOBAL.vistaSeleccionada = this._route.component['name'];
     }

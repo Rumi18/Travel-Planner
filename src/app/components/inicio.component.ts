@@ -16,13 +16,13 @@ export class InicioComponent implements OnInit {
         private _translateService: TranslateService,
         private _router: Router,
         private _route: ActivatedRoute) {
-            
-        this.titulo = 'Página principal';       
+
+        this.titulo = 'Página principal';
     }
 
     // Método que se lanza automáticamente después del constructor del componente 
     ngOnInit() {
-        console.log('Componente inicio.component.ts cargado');        
+        console.log('Componente inicio.component.ts cargado');
         GLOBAL.vistaSeleccionada = this._route.component['name'];
     }
 

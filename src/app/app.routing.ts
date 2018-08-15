@@ -13,16 +13,16 @@ import { ConfiguracionComponent } from './components/configuracion.component';
 import { TiendaComponent } from './components/tienda.component';
 
 const appRoutes: Routes = [
-    {path: '', component: InicioComponent},
-    {path: 'inicio', component: InicioComponent},
-    {path: 'registro', component: RegistroComponent},
-    {path: 'menuOpciones', component: MenuComponent},
-    {path: 'perfil', component: PerfilComponent},
-    {path: 'historial', component: HistorialComponent},
-    {path: 'rutasPendientes', component: RutasPendientesComponent},
-    {path: 'configuracion', component: ConfiguracionComponent},
-    {path: 'tienda', component: TiendaComponent},
-    {path: '**', component: ErrorComponent}
+    { path: '', component: InicioComponent },
+    { path: 'inicio', component: InicioComponent },
+    { path: 'registro', component: RegistroComponent },
+    { path: 'menuOpciones', component: MenuComponent },
+    { path: 'perfil', component: PerfilComponent },
+    { path: 'historial', component: HistorialComponent },
+    { path: 'rutasPendientes', component: RutasPendientesComponent },
+    { path: 'configuracion', component: ConfiguracionComponent },
+    { path: 'tienda', component: TiendaComponent },
+    { path: '**', component: ErrorComponent }
 ];
 
 export const appRoutingProviders: any[] = [];

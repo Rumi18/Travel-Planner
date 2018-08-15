@@ -1,5 +1,5 @@
-enum TipoTurismo{
-    Naturaleza,
-    Cultura,
-    Indiferente,
+export enum TipoTurismo {
+    "Naturaleza",
+    "Cultura",
+    "Indiferente"
 }
