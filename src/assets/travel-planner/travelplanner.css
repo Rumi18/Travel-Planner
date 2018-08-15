@@ -18,10 +18,11 @@
 .clr_blue_ligth{
     background: #448FA3;
 }
+
 /*Vista index.html*/
 #body {
-    background: #02182B;
-    padding-top: 41px;
+    background: #02182B;   
+    color: white !important; 
 }
 
 /*Vista app.component.html*/
@@ -31,12 +32,11 @@
     background-color: #02182B;
     top: 0;
     position: fixed;
-    padding-top: 13px;
+    padding-top: 0.7em;
 }
 
 #header span{
     text-align: center; 
-    color: white;
     font-weight: bold; 
 }
 
@@ -44,20 +44,19 @@
     border-color: white;
 }
 
-/*Vista error.component.html*/
-#error {
-    padding-top: 41px;
+#main{
+    margin-top:4em;
 }
 
-#error h4{
-    color: white;
+.component{
+    padding: 0em 2em 0em 2em;
+}
+
+form label{
+    margin-top: 20px;
 }
 
 /*Vista inicio.component.html*/
-#inicio{
-     padding-top: 41px;
-}
-
 #cabecera-app{
     width: 100%;
     display: flex;
@@ -74,9 +73,7 @@
 }
 
 #selector-idioma {
-    color: white;
     text-align: right;
-    margin-top: 0px;
     margin-right: 20px;
 }
 
@@ -88,7 +85,6 @@
 #imagen-logo {
     text-align: center;
     margin: 40px;
-    margin-top: 0%;
 }
 
 #imagen-logo img {
@@ -97,8 +93,7 @@
 }
 
 #botones-inicio {
-    margin-top: 50px;
-    margin-bottom: 50px;
+    margin-bottom: 2em;
 }
 
 .btn {
@@ -113,20 +108,18 @@
 
 /*Vista menu.component.html*/
 .menu-principal {
-    position: absolute;
-    z-index: 2;
+    position: absolute;   
     bottom: 40%;
     right: 37%;
     width: 100px;
     height: 100px;
   }
+  
 .menu-principal span {
     width: 100px;
     height: 100px;
-    display: block;
-    position: absolute;
+    display: block; 
     text-align: center;
-    color: #fff;
     line-height: 100px;
     background: #FFF;
     border-radius: 50%;
@@ -143,11 +136,8 @@
     text-align: center;
     top: 0;
     right: 0;
-    display:block;
-    color:#fff;
     z-index:99;
     font-size:22px;
-    transition: all .7s cubic-bezier(.68, 1, .265, 1);
 }
 
 .menu-principal a:nth-child(1) {
@@ -189,26 +179,9 @@
     padding-left: 0.2em;
 }
 
-/*Vista configuracion.component.html*/
-#form-configuracion{
-    color: white;
-    margin: 3em;
-}
 /*Vista registro.component.html*/
-#form-registro {
-    margin-left: 40px;
-    margin-right: 40px;
-    margin-top: 20px;
-}
-
-#form-registro label{
-    color:white;
-    margin-top: 20px;
-}
-
 #form-registro p{
-    float: right;
-    margin-top: 20px;
+    float: left;
     color: #D7263D;
 }
 

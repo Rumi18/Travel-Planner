@@ -10,7 +10,10 @@ import { GLOBAL } from '../services/global';
 })
 export class PerfilComponent implements OnInit {
 
-    constructor(private _router: Router, private _route: ActivatedRoute) {
+    constructor(
+        private _router: Router, 
+        private _route: ActivatedRoute
+    ) {
 
     }
 

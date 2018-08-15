@@ -16,7 +16,11 @@ import { Configuracion } from '../models/configuracion';
 export class ConfiguracionComponent implements OnInit {
     public configuracion: Configuracion;
 
-    constructor(private _router: Router, private _route: ActivatedRoute, private _configuracionService: ConfiguracionService) {
+    constructor(
+        private _router: Router, 
+        private _route: ActivatedRoute, 
+        private _configuracionService: ConfiguracionService
+    ) {
 
     }
 

@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
+
+//Servicios
 import { GLOBAL } from './services/global';
 
 @Component({
@@ -9,7 +12,13 @@ import { GLOBAL } from './services/global';
 export class AppComponent {
   public title = 'Travel Planner';
 
-  constructor(private _router: Router, private _route: ActivatedRoute) {
+  constructor(
+    private _translateService: TranslateService,
+    private _router: Router, 
+    private _route: ActivatedRoute
+  ) {
+
+    this._translateService.setDefaultLang('es');
   }
 
   verComponente() {

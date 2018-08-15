@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
+
+//Servicios
 import { GLOBAL } from '../services/global';
 
 @Component({
@@ -9,7 +11,10 @@ import { GLOBAL } from '../services/global';
 export class ErrorComponent implements OnInit{
     public titulo: string;
 
-    constructor(private _router: Router, private _route: ActivatedRoute){
+    constructor(
+        private _router: Router, 
+        private _route: ActivatedRoute
+    ){
         this.titulo = 'Error!! Página no encontrada';
     }
 
