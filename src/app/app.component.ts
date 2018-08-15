@@ -8,7 +8,7 @@ import { GLOBAL } from './services/global';
 })
 export class AppComponent {
   public title = 'Travel Planner';
-  
+
   constructor(private _router: Router, private _route: ActivatedRoute) {
   }
 
@@ -17,18 +17,30 @@ export class AppComponent {
 
     //Se compruba a cual es la página que se tiene que redirigir en función de la página en la que está
     switch (GLOBAL.vistaSeleccionada) {
-      case 'MenuComponent':        
+
+      case 'InicioComponent':
         break;
 
-      case 'PerfilComponent':       
+      case 'MenuComponent':
+        break;
+
+      /*case 'LoginComponent':
+        this._router.navigate(['/inicio']);
+        break; */
+
+      case 'RegistroComponent':
+        this._router.navigate(['/inicio']);
+        break;
+
+      case 'PerfilComponent':
         this._router.navigate(['/menuOpciones']);
         break;
 
-      case 'HistorialComponent':      
+      case 'HistorialComponent':
         this._router.navigate(['/menuOpciones']);
         break;
 
-      case 'RutasPendientesComponent':       
+      case 'RutasPendientesComponent':
         this._router.navigate(['/menuOpciones']);
         break;
 
@@ -41,6 +53,11 @@ export class AppComponent {
         break;
 
       default:
+        //Hay que discriminar entre si hay un usuario logueado o no
+        //Logueado
+        //this._router.navigate(['/menuOpciones']);
+
+        //Sin loguear
         this._router.navigate(['/inicio']);
         break;
     }

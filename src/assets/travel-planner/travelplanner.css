@@ -54,6 +54,10 @@
 }
 
 /*Vista inicio.component.html*/
+#inicio{
+     padding-top: 41px;
+}
+
 #cabecera-app{
     width: 100%;
     display: flex;
