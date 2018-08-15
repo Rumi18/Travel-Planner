@@ -1,27 +1,27 @@
 <div id="form-registro">
     <form #formRegistro="ngForm" (ngSubmit)="onSubmit()">
 
-        <label>{{'home.nombre' | translate}}:</label>
+        <label>{{'registro.nombre' | translate}}:</label>
         <p *ngIf="!nombre.valid && nombre.touched">Campo obligatorio</p>
         <input type="text" #nombre="ngModel" name="nombre" [(ngModel)]="usuario.nombre" class="form-control" required/>
 
-        <label>{{'home.apellidos' | translate}}:</label>
+        <label>{{'registro.apellidos' | translate}}:</label>
         <input type="text" #apellidos="ngModel" name="apellidos" [(ngModel)]="usuario.apellidos" class="form-control"/>
 
-        <label>{{'home.email' | translate}}:</label>
+        <label>{{'registro.email' | translate}}:</label>
         <p *ngIf="!email.valid && email.touched">Campo obligatorio</p>
         <input type="email" #email="ngModel" name="email" [(ngModel)]="usuario.email" class="form-control" required pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}"/>
 
-        <label>{{'home.usuario' | translate}}:</label>
+        <label>{{'registro.usuario' | translate}}:</label>
         <p *ngIf="!user_name.valid && user_name.touched">Campo obligatorio</p>
         <input type="text" #user_name="ngModel" name="user_name" [(ngModel)]="usuario.user_name" class="form-control" required/>
 
-        <label>{{'home.contraseña' | translate}}:</label>
+        <label>{{'registro.contraseña' | translate}}:</label>
         <p *ngIf="!contrasenia.valid && contrasenia.touched">Campo obligatorio</p>
         <img *ngIf="usuario.repeatContrasenia == usuario.contrasenia" src="assets/images/ok.png"/>
         <input type="password" #contrasenia="ngModel" name="contrasenia" [(ngModel)]="usuario.contrasenia" class="form-control" required/>
 
-        <label>{{'home.repetir_contraseña' | translate}}:</label>
+        <label>{{'registro.repetir_contraseña' | translate}}:</label>
         <p *ngIf="!repeatContrasenia.valid && repeatContrasenia.touched">Campo obligatorio</p>
         <img *ngIf="usuario.repeatContrasenia == usuario.contrasenia" src="assets/images/ok.png"/>
         <input type="password" #repeatContrasenia="ngModel" name="repeatContrasenia" [(ngModel)]="usuario.repeatContrasenia" class="form-control" required [pattern]="usuario.contrasenia"/>

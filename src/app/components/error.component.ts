@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute, Params } from '@angular/router';
+import { GLOBAL } from '../services/global';
 
 @Component({
     selector: 'error',
@@ -7,11 +9,12 @@ import { Component, OnInit } from '@angular/core';
 export class ErrorComponent implements OnInit{
     public titulo: string;
 
-    constructor(){
+    constructor(private _router: Router, private _route: ActivatedRoute){
         this.titulo = 'Error!! Página no encontrada';
     }
 
     ngOnInit(){
         console.log('Componente error.component.ts cargado');
+        GLOBAL.vistaSeleccionada = this._route.component['name'];
     }
 }

@@ -15,13 +15,25 @@ import { AppComponent } from './app.component';
 import { InicioComponent } from './components/inicio.component';
 import { RegistroComponent } from './components/registro.component';
 import { ErrorComponent } from './components/error.component';
+import { MenuComponent } from './components/menu.component';
+import { PerfilComponent } from './components/perfil.component';
+import { HistorialComponent } from './components/historial.component';
+import { RutasPendientesComponent } from './components/rutasPendientes.component';
+import { ConfiguracionComponent } from './components/configuracion.component';
+import { TiendaComponent } from './components/tienda.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     InicioComponent,
     RegistroComponent,
-    ErrorComponent
+    ErrorComponent,
+    MenuComponent,
+    PerfilComponent,
+    HistorialComponent,
+    RutasPendientesComponent,
+    ConfiguracionComponent,
+    TiendaComponent
   ],
   imports: [
     BrowserModule,
