@@ -18,6 +18,10 @@ export class UsuarioService{
         this.url = GLOBAL.url_api;
     }
 
+    getUsuarios(){
+        return this._http.get(this.url+'usuarios');
+    }
+
     addUsuario(usuario:Usuario){
         let json = JSON.stringify(usuario);
         let params = "json="+json;

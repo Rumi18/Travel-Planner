@@ -12,11 +12,9 @@ import { GLOBAL } from '../services/global';
     providers: [UsuarioService]
 })
 export class RegistroComponent implements OnInit{
-    public titulo: string;
     public usuario: Usuario;
 
     constructor(
-        private _activateRoute: ActivatedRoute,
         private _usuarioService: UsuarioService,
         private _route: ActivatedRoute,
         private _router: Router

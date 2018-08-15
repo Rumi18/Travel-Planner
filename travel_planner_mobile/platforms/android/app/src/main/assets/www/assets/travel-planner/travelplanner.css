@@ -124,3 +124,29 @@
     margin: 40px;
 }
 
+/*Vista login.component.html*/
+#login {
+    padding-top: 41px;
+}
+
+#login p{
+    text-align: center;
+    color: white;
+    margin: 0;
+}
+
+#form-login {
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-top: 70px;
+}
+
+#form-login label{
+    color:white;
+    margin-top: 20px;
+}
+
+#btn-login{
+    text-align: center;
+    margin: 40px;
+}

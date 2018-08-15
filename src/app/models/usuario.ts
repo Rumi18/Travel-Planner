@@ -5,7 +5,7 @@ export class Usuario{
         public apellidos: string,
         public email: string,
         public user_name: string,
-        public contrasenia: string,
+        public user_passwd: string,
         public repeatContrasenia: string
     ){}
 }

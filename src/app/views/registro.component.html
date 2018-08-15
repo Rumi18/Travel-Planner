@@ -17,14 +17,14 @@
         <input type="text" #user_name="ngModel" name="user_name" [(ngModel)]="usuario.user_name" class="form-control" required/>
 
         <label>{{'home.contraseña' | translate}}:</label>
-        <p *ngIf="!contrasenia.valid && contrasenia.touched">Campo obligatorio</p>
-        <img *ngIf="usuario.repeatContrasenia == usuario.contrasenia" src="assets/images/ok.png"/>
-        <input type="password" #contrasenia="ngModel" name="contrasenia" [(ngModel)]="usuario.contrasenia" class="form-control" required/>
+        <p *ngIf="!user_passwd.valid && user_passwd.touched">Campo obligatorio</p>
+        <img *ngIf="usuario.repeatContrasenia == usuario.user_passwd" src="assets/images/ok.png"/>
+        <input type="password" #user_passwd="ngModel" name="user_passwd" [(ngModel)]="usuario.user_passwd" class="form-control" required/>
 
         <label>{{'home.repetir_contraseña' | translate}}:</label>
         <p *ngIf="!repeatContrasenia.valid && repeatContrasenia.touched">Campo obligatorio</p>
-        <img *ngIf="usuario.repeatContrasenia == usuario.contrasenia" src="assets/images/ok.png"/>
-        <input type="password" #repeatContrasenia="ngModel" name="repeatContrasenia" [(ngModel)]="usuario.repeatContrasenia" class="form-control" required [pattern]="usuario.contrasenia"/>
+        <img *ngIf="usuario.repeatContrasenia == usuario.user_passwd" src="assets/images/ok.png"/>
+        <input type="password" #repeatContrasenia="ngModel" name="repeatContrasenia" [(ngModel)]="usuario.repeatContrasenia" class="form-control" required [pattern]="usuario.user_passwd"/>
 
         <div id="btn-registrarse">
             <input type="submit" value="Registrarse" [disabled]="!formRegistro.form.valid" class="btn btn-lg clr_blue_ligth"/>
