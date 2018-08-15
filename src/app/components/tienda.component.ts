@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { Router, ActivatedRoute, Params } from '@angular/router';
+import { GLOBAL } from '../services/global';
 
 @Component({
     selector: 'tienda',
@@ -7,11 +9,12 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class TiendaComponent implements OnInit {
   
-    constructor() {
+    constructor(private _router:Router, private _route:ActivatedRoute) {
         
     }
 
     ngOnInit() {
+        GLOBAL.vistaSeleccionada = this._route.component['name'];    
         console.log('Se ha cargado el componente tienda.component.ts');       
     }    
 }

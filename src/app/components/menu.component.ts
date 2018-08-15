@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { Router, ActivatedRoute, Params } from '@angular/router';
+import { GLOBAL } from '../services/global';
+
 
 @Component({
     selector: 'menuOpciones',
@@ -7,11 +10,12 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class MenuComponent implements OnInit {
   
-    constructor() {
+    constructor(private _router:Router, private _route:ActivatedRoute) {
         
     }
 
     ngOnInit() {
         console.log('Se ha cargado el componente menu.component.ts');       
+        GLOBAL.vistaSeleccionada = this._route.component['name'];    
     }    
 }
