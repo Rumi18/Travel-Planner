@@ -8,8 +8,15 @@ import { GLOBAL } from './services/global';
 })
 export class AppComponent {
   public title = 'Travel Planner';
+  public componentName = '';
 
   constructor(private _router: Router, private _route: ActivatedRoute) {
+    this.componentName = GLOBAL.vistaSeleccionada;
+  }
+
+  ngOnInit(){
+    console.log(this._route);
+    console.log(this.componentName);
   }
 
   verComponente() {

@@ -3,7 +3,7 @@
 
     <div id="cabecera-app">
       <div id="opcion-atras">        
-        <a (click) = "verComponente()">
+        <a *ngIf="conponentName != 'blabla'" (click) = "verComponente()">
           <img src="assets/images/atras.png">
         </a>
       </div>
