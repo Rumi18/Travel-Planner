@@ -18,25 +18,25 @@ export class RegistroComponent implements OnInit{
         private _usuarioService: UsuarioService,
         private _route: ActivatedRoute,
         private _router: Router
-    ){
-        this.usuario = new Usuario('Carlos','Garcia Montellano','cgm@gmail.com','carmont87','123456789','');
+    ) {
+        this.usuario = new Usuario('Carlos', 'Garcia Montellano', 'cgm@gmail.com', 'carmont87','', '123456789', '', '');
     }
 
-    ngOnInit(){
+    ngOnInit() {
         console.log('Componente registro.component.ts cargado');
         GLOBAL.vistaSeleccionada = this._route.component['name'];
     }
 
-    onSubmit(){
+    onSubmit() {
         console.log(this.usuario);
-        
-        if(GLOBAL.url_api != 'prueba'){
+
+        if (GLOBAL.url_api != 'prueba') {
             this._usuarioService.addUsuario(this.usuario).subscribe(
                 response => {
-                    if(response['code']==200){
+                    if (response['code'] == 200) {
                         console.log(response);
                         this._router.navigate(['/inicio']);
-                    }else{
+                    } else {
                         console.log(response);
                         this._router.navigate(['/error']);
                     }
@@ -45,9 +45,9 @@ export class RegistroComponent implements OnInit{
                     console.log(<any>error);
                 }
             );
-        }else{
+        } else {
             this._router.navigate(['/inicio']);
         }
-        
+
     }
 }

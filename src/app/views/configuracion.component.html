@@ -1,8 +1,32 @@
-<div id="form-configuracion">
-    <form #formConfiguracion="ngForm">
+<div class="component">
+    <form id="form-configuracion" #formConfiguracion="ngForm" (ngSubmit)="onSubmit()">
 
-        <label>{{'registro.nombre' | translate}}:</label>
-        <input type="text" #destino="ngModel" name="destino" [(ngModel)]="configuracion.destino" class="form-control" required/>
-   
+        <label>{{'configuracion.destino' | translate}}:</label>
+        <input type="text" class="form-control" #destino="ngModel" name="destino" [(ngModel)]="configuracion.destino"  required/>
+
+        <label>{{'configuracion.duracion' | translate}}:</label>
+        <input type="text" class="form-control"  required/>
+
+        <label>{{'configuracion.presupuesto' | translate}}:</label>
+        <input type="text" class="form-control" required/>
+
+        <label>{{'configuracion.mascota' | translate}}:</label>
+        <input type="text" class="form-control" required/>
+
+        <label>{{'configuracion.acompaniantes' | translate}}:</label>
+        <input type="text" class="form-control" required/>
+
+        <label>{{'configuracion.ninios' | translate}}:</label>
+        <input type="text" class="form-control" required/>
+
+        <label>{{'configuracion.turismo' | translate}}:</label>
+        <input type="text" class="form-control" required/>
+
+        <div id="btn-crearRuta">
+            <input type="submit" value="{{'configuracion.mostrarRuta' | translate}}" [disabled]="!formConfiguracion.form.valid" class="btn btn-lg clr_blue_ligth"
+            />
+         
+        </div>
+
     </form>
 </div>

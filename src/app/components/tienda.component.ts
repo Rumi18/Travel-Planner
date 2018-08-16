@@ -9,14 +9,16 @@ import { GLOBAL } from '../services/global';
     templateUrl: '../views/tienda.component.html'
 })
 export class TiendaComponent implements OnInit {
-  
-    constructor(private _router:Router, private _route:ActivatedRoute) {
-        
+
+    constructor(
+        private _router: Router,
+        private _route: ActivatedRoute) {
+
     }
 
     // Método que se lanza automáticamente después del constructor del componente 
     ngOnInit() {
-        GLOBAL.vistaSeleccionada = this._route.component['name'];    
-        console.log('Se ha cargado el componente tienda.component.ts');       
-    }    
+        GLOBAL.vistaSeleccionada = this._route.component['name'];
+        console.log('Se ha cargado el componente tienda.component.ts');
+    }
 }

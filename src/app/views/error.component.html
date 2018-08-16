@@ -1,3 +1,11 @@
-<div id="error">
-    <h4>{{titulo}}</h4>
+<div class="component">
+    <div id="logo-error">
+        <a [routerLink]="['/menuOpciones']">
+            <img src="assets/images/logo.png">
+        </a>
+    </div>
+    <div id="texto-error">
+        <h4>{{'error.tituloError' | translate}}</h4>
+        <h5>{{'error.fraseError' | translate}}</h5>
+    </div>
 </div>

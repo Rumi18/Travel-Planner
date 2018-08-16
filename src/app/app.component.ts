@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
+
+//Servicios
 import { GLOBAL } from './services/global';
 
 @Component({
@@ -10,13 +13,13 @@ export class AppComponent {
   public title = 'Travel Planner';
   public componentName = '';
 
-  constructor(private _router: Router, private _route: ActivatedRoute) {
-    this.componentName = GLOBAL.vistaSeleccionada;
-  }
+  constructor(
+    private _translateService: TranslateService,
+    private _router: Router,
+    private _route: ActivatedRoute
+  ) {
 
-  ngOnInit(){
-    console.log(this._route);
-    console.log(this.componentName);
+    this._translateService.setDefaultLang('es');
   }
 
   verComponente() {

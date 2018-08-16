@@ -2,15 +2,22 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
 // Servicios
+import { UsuarioService } from '../services/usuario.service';
+import { Usuario } from '../models/usuario';
 import { GLOBAL } from '../services/global';
 
 @Component({
     selector: 'perfil',
-    templateUrl: '../views/perfil.component.html'
+    templateUrl: '../views/perfil.component.html',
+    providers: [UsuarioService]
 })
 export class PerfilComponent implements OnInit {
+    public usuario: Usuario;
 
-    constructor(private _router: Router, private _route: ActivatedRoute) {
+    constructor(
+        private _router: Router,
+        private _route: ActivatedRoute
+    ) {
 
     }
 
@@ -18,5 +25,13 @@ export class PerfilComponent implements OnInit {
     ngOnInit() {
         GLOBAL.vistaSeleccionada = this._route.component['name'];
         console.log('Se ha cargado el componente perfil.component.ts');
+
+        //Llamamos a base de datos para obtener la información del usuario
+        this.usuario = new Usuario('Jon', 'Snow', 'winterIsComing@gmail.com', 'youKnowNothing',"", 'holdTheDoor', '', '');
+    }
+
+    onSubmit() {
+        console.log(this.usuario);
+
     }
 }
