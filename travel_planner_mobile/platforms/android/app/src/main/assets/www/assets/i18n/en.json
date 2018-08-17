@@ -1,33 +1,56 @@
-{    
-    "home": {      
-        "iniciar_sesion": "Sign in",  
+{
+    "home": {
+        "iniciar_sesion": "Sign in",
         "entrar": "Log in",
         "registrar": "Sign up",
         "espaniol": "es",
-        "ingles": "en",
-        "usuario": "Username",
-        "contrasenia": "Password",
-        "olvidar_contrasenia": "Forgot your password?",
-        "sin_registrar": "Not registered yet?",
-        "email": "Email",
-        "label_email": "Enter your email address to retrieve your password",
-        "recuperar":"Recover",
-        "volver": "Return"
+        "ingles": "en"
     },
-    "registro":{
+    "error": {
+        "tituloError": "An error has occurred",
+        "fraseError": "Please press the Travel Planner logo to go to the menu"
+    },
+    "formulario": {
+        "campoObligatorio": "Required field",
+        "cancelar": "Cancel",
+        "guardar": "Save"
+    },
+    "registro": {
         "volver": "Return",
         "nombre": "Name",
         "apellidos": "Surname",
-        "contraseña": "Password",
-        "repetir_contraseña": "Repeat password"
+        "email": "Email",
+        "usuario": "Username",    
+        "contrasenia": "Password",
+        "repetir_contrasenia": "Repeat password",
+        "registrarse": "Sign up"
     },
-    "configuracion":{
+    "configuracion": {
         "destino": "Destination",
         "duracion": "Duration",
         "presupuesto": "Budget",
         "mascota": "Pets",
-        "acompañantes": "Partners",
-        "ninios": "Childrem",
-        "turismo": "Type of tourism"
+        "acompaniantes": "Partners",
+        "ninios": "Children",
+        "turismo": "Type of tourism",
+        "mostrarRuta":"Show route"
+    },
+    "perfil": {     
+        "email": "Email",
+        "cambiarPass": "Change password",
+        "antiguoPass": "Old password",
+        "nuevaPass": "New password",
+        "repetirPass": "Repeat new password",
+        "eliminarCuenta": "Delete account"
+    },
+    "login": {
+        "usuario": "User",
+        "password": "Password",
+        "entrar": "Login",
+        "mensajeInicio": "Did you forget your password?",
+        "clic": "Press",
+        "aqui": "here",
+        "mensajeFin": "to recover it",
+        "validaciónUsuarioPassword": "Incorrect user name or password"
     }
-  }
+}

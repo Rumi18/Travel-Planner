@@ -1,16 +1,24 @@
+<cabecera></cabecera>
 <div id="login">
+    
     <form #formLogin="ngForm" id="form-login" (ngSubmit)="onSubmit()">
-        <label>{{'home.usuario' | translate}}:</label>
-        <input type="text" #user_name="ngModel" name="username" [(ngModel)]="usuarioLogin.user_name" class="form-control" required/>
+        <label>{{'login.usuario' | translate}}:</label>
+        <span *ngIf="!username.valid && username.touched"> {{'formulario.campoObligatorio' | translate}}</span>
+        <input type="text" #username="ngModel" name="username" [(ngModel)]="usuarioLogin.user_name" class="form-control" required>
 
-        <label>{{'home.contraseña' | translate}}:</label>
-        <input type="password" #user_passwd="ngModel" name="userpasswd" [(ngModel)]="usuarioLogin.user_passwd" class="form-control" required/>
+        <label>{{'login.password' | translate}}:</label>
+        <span *ngIf="!userpasswd.valid && userpasswd.touched"> {{'formulario.campoObligatorio' | translate}}</span>
+        <input type="password" #userpasswd="ngModel" name="userpasswd" [(ngModel)]="usuarioLogin.user_passwd" class="form-control" required>
 
+        <div id="span" *ngIf="validate == 'no'">
+            <span>{{'login.validaciónUsuarioPassword' | translate}}</span>
+        </div>
+        
         <div id="btn-login">
-            <input type="submit" value="Iniciar" [disabled]="!formLogin.form.valid" class="btn btn-lg clr_orange"/>
+            <input type="submit" value="{{'login.entrar' | translate}}" [disabled]="!formLogin.form.valid" class="btn btn-lg clr_orange"/>
             <!--<a [routerLink]="['/inicio']" class="btn btn-lg clr_blue_ligth">{{'home.registrar' | translate}}:</a>-->
         </div>
     </form>
-    <p>¿Ha olvidado su contraseña?</p>
-    <p>Pulse <a [routerLink]="['/inicio']">aquí</a> para recuperarla</p>
+    <p>{{'login.mensajeInicio' | translate}}</p>
+    <p>{{'login.clic' | translate}} <a [routerLink]="['/inicio']">{{'login.aqui' | translate}}</a> {{'login.mensajeFin' | translate}}</p>
 </div>

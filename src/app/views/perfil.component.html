@@ -18,14 +18,14 @@
             <strong >{{'perfil.cambiarPass' | translate}}</strong>
         </div>
         <label>{{'perfil.antiguoPass' | translate}}:</label>
-        <input type="password" name="contraseniaAntigua" name="contrasenia" [(ngModel)]="usuario.contrasenia"  class="form-control" required/>
+        <input type="password" name="contraseniaAntigua" name="contrasenia" [(ngModel)]="usuario.user_passwd"  class="form-control" required/>
 
         <label>{{'perfil.nuevaPass' | translate}}:</label>
         <input type="password" #contrasenia="ngModel" name="nuevaContrasenia" [(ngModel)]="usuario.nuevaContrasenia" class="form-control" required/>
 
         <label>{{'perfil.repetirPass' | translate}}:</label>
         <input type="password" #repeatContrasenia="ngModel" name="repeatContrasenia" [(ngModel)]="usuario.repeatContrasenia" class="form-control"
-            required [pattern]="usuario.contrasenia" />
+            required [pattern]="usuario.user_passwd" />
 
         <div id="btns-perfil">
             <div>

@@ -22,6 +22,10 @@ export class UsuarioService{
         return this._http.get(this.url+'usuarios');
     }
 
+    getUsuario(nombre:string){
+        return this._http.get(this.url+'usuario/'+nombre);
+    }
+
     addUsuario(usuario:Usuario){
         let json = JSON.stringify(usuario);
         let params = "json="+json;

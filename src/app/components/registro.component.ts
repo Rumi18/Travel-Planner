@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
+import { AppComponent } from '../app.component';
 
 // Servicios
 import { UsuarioService } from '../services/usuario.service';
@@ -17,14 +18,16 @@ export class RegistroComponent implements OnInit{
     constructor(
         private _usuarioService: UsuarioService,
         private _route: ActivatedRoute,
-        private _router: Router
+        private _router: Router,
+        private _app: AppComponent
     ) {
-        this.usuario = new Usuario('Carlos', 'Garcia Montellano', 'cgm@gmail.com', 'carmont87','', '123456789', '', '');
+        this.usuario = new Usuario('', '', '', '','', '', '', '');
     }
 
     ngOnInit() {
         console.log('Componente registro.component.ts cargado');
         GLOBAL.vistaSeleccionada = this._route.component['name'];
+        //this._app.componentURL = this._router.url;
     }
 
     onSubmit() {
@@ -35,7 +38,7 @@ export class RegistroComponent implements OnInit{
                 response => {
                     if (response['code'] == 200) {
                         console.log(response);
-                        this._router.navigate(['/inicio']);
+                        this._router.navigate(['/login']);
                     } else {
                         console.log(response);
                         this._router.navigate(['/error']);
@@ -46,7 +49,7 @@ export class RegistroComponent implements OnInit{
                 }
             );
         } else {
-            this._router.navigate(['/inicio']);
+            this._router.navigate(['/login']);
         }
 
     }
