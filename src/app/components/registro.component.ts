@@ -20,7 +20,7 @@ export class RegistroComponent implements OnInit {
         private _route: ActivatedRoute,
         private _router: Router
     ) {
-        this.usuario = new Usuario('Carlos', 'Garcia Montellano', 'cgm@gmail.com', 'carmont87','', '123456789', '', '');
+        this.usuario = new Usuario('', '', '', '','', '', null, null);
     }
 
     ngOnInit() {
@@ -29,10 +29,9 @@ export class RegistroComponent implements OnInit {
     }
 
     onSubmit() {
-        console.log(this.usuario);
-
-        if (GLOBAL.url_api != 'prueba') {
-            this._usuarioService.addUsuario(this.usuario).subscribe(
+       
+        if (GLOBAL.url_api != null && GLOBAL.url_api != '') {
+            this._usuarioService.crearUsuario(this.usuario).subscribe(
                 response => {
                     if (response['code'] == 200) {
                         console.log(response);
