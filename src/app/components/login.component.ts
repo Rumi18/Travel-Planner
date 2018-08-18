@@ -35,11 +35,11 @@ export class LoginComponent implements OnInit {
     onSubmit() {
         this._usuarioService.login(this.usuarioLogin.user_name).subscribe(
             result => {
-                if (result['code'] == 200) {
-                    console.log(result['data']);
+                if (result['code'] == 200) {                    
                     this.usuario = result['data'];
                     if (this.usuario.user_passwd == this.usuarioLogin.user_passwd) {
                         this.msg_error = 'no';
+                        GLOBAL.idUsuario = this.usuario.id;                        
                         this._router.navigate(['/menuOpciones']);
                     } else {
                         this.msg_error = 'si';

@@ -1,5 +1,6 @@
 export var GLOBAL = {   
     vistaSeleccionada: "",
+    idUsuario: null,
     uri: 'http://localhost/travelplanner/index.php/',
     recurs_addUsuario: 'crearUsuarios',
     recurs_login: 'login/',

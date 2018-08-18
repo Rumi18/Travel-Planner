@@ -33,10 +33,6 @@ export class UsuarioService{
         this.recurs_uploadImage = GLOBAL.recurs_uploadImage;
     }
 
-    login(nombre:string){
-        return this._http.get(this.uri + this.recurs_login + nombre).map(res => res.json());
-    }
-
     addUsuario(usuario:Usuario){
         let json = JSON.stringify(usuario);
 		let params = 'json='+json;
@@ -44,5 +40,14 @@ export class UsuarioService{
 
 		return this._http.post(this.uri + this.recurs_addUsuario, params, {headers: headers})
 						 .map(res => res.json());
+    }
+
+    login(nombre:string){
+        return this._http.get(this.uri + this.recurs_login + nombre).map(res => res.json());
+    }
+
+    getUsuario(){
+        let idUsuario = GLOBAL.idUsuario;
+        return this._http.get(this.uri + this.recurs_getUsuario + idUsuario).map(res => res.json());
     }
 }

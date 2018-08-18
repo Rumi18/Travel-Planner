@@ -22,7 +22,7 @@ export class RegistroComponent implements OnInit {
         private _router: Router,
         private _app: AppComponent
     ) {
-        this.usuario = new Usuario('', '', '', '', '', '', '', '');
+        this.usuario = new Usuario(null,'', '', '', '', '', '', '', '');
     }
 
     ngOnInit() {

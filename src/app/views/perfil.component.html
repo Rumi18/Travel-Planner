@@ -1,3 +1,4 @@
+<cabecera></cabecera>
 <div class="component">
     <form id="form-perfil" #formPerfil="ngForm">
         <div id="foto-perfil">
@@ -10,7 +11,7 @@
             </div>
             <span>{{usuario.user_name}}</span>
             <div id="infor-email">
-                <span>{{usuario.email}} </span>
+                <span>{{usuario.user_passwd}} </span>
             </div>
         </div>
 
@@ -21,10 +22,10 @@
         <input type="password" name="contraseniaAntigua" name="contrasenia" [(ngModel)]="usuario.user_passwd"  class="form-control" required/>
 
         <label>{{'perfil.nuevaPass' | translate}}:</label>
-        <input type="password" #contrasenia="ngModel" name="nuevaContrasenia" [(ngModel)]="usuario.nuevaContrasenia" class="form-control" required/>
+        <input type="password" #contrasenia="ngModel" name="nuevoPasswd" [(ngModel)]="usuario.nuevoPasswd" class="form-control" required/>
 
         <label>{{'perfil.repetirPass' | translate}}:</label>
-        <input type="password" #repeatContrasenia="ngModel" name="repeatContrasenia" [(ngModel)]="usuario.repeatContrasenia" class="form-control"
+        <input type="password" #repeatPasswd="ngModel" name="repeatPasswd" [(ngModel)]="usuario.repeatPasswd" class="form-control"
             required [pattern]="usuario.user_passwd" />
 
         <div id="btns-perfil">
