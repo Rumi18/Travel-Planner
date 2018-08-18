@@ -27,12 +27,10 @@ export class RegistroComponent implements OnInit {
     ngOnInit() {
         console.log('Componente registro.component.ts cargado');
         GLOBAL.vistaSeleccionada = this._route.component['name'];
-        //this._app.componentURL = this._router.url;
     }
 
     onSubmit() {
-
-        if (GLOBAL.url_api != null && GLOBAL.url_api != '') {
+        if(this.validaFormulario(this.usuario)){
             this._usuarioService.addUsuario(this.usuario).subscribe(
                 response => {
                     if (response['code'] == 200) {
@@ -48,8 +46,25 @@ export class RegistroComponent implements OnInit {
                 }
             );
         } else {
-            this._router.navigate(['/login']);
+            this._router.navigate(['/error']);
+        }
+    }
+
+    private validaFormulario(usuario : Usuario){
+        let res;
+        
+        if(usuario.nombre == null || usuario.nombre == ''){
+            res = false;
+        }else if (usuario.email == null || usuario.email == ''){
+            res = false;
+        }else if (usuario.user_name == null || usuario.user_name == ''){
+            res = false;
+        }else if (usuario.user_passwd == null || usuario.user_passwd == ''){
+            res = false;
+        }else{
+            res = true;
         }
 
+        return res;
     }
 }

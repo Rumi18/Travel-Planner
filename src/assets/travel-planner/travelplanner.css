@@ -72,6 +72,24 @@ form label{
     margin-top: 20px;
 }
 
+.component form span{
+    color: #D7263D;
+    font-weight: bold;
+    padding-left: 0.5em;
+    font-size: 11px;
+}
+
+.component form img{
+    width: 30px;
+    height: 30px;
+}
+
+.component form p{
+    margin-top: 50px;
+    text-align: center;
+    font-size: 15px;
+}
+
 /*Vista error.component.html*/
 #logo-error{
     text-align: center;
@@ -87,7 +105,6 @@ form label{
 #texto-error{
     text-align: center;
 }
-
 
 #texto-error > h5{
     margin-top: 1em;
@@ -127,6 +144,28 @@ form label{
 #botones-inicio div {
     padding: 10px;
     text-align: center;
+}
+
+/*Vista registro.component.html*/
+#btn-registrarse{
+    text-align: center;
+    margin-top: 40px;
+}
+
+/*Vista login.component.html*/
+#login {
+    padding-top: 41px;
+}
+
+#login p{
+    text-align: center;
+    color: white;
+    margin: 0;
+}
+
+#btn-login{
+    text-align: center;
+    margin: 40px;
 }
 
 /*Vista menu.component.html*/
@@ -202,76 +241,6 @@ form label{
     padding-left: 0.2em;
 }
 
-/*Vista registro.component.html*/
-#form-registro span{
-    color: #D7263D;
-    font-weight: bold;
-}
-
-#form-registro img{
-    width: 30px;
-    height: 30px;
-}
-
-#form-registro p{
-    margin-top: 50px;
-    text-align: center;
-    font-size: 15px;
-}
-
-#btn-registrarse{
-    text-align: center;
-    margin-top: 40px;
-}
-
-/*Vista configuracion.component.html*/
-#form-configuracion p{
-    color: #D7263D !important;
-}
-
-/*Vista login.component.html*/
-#login {
-    padding-top: 41px;
-}
-
-#span{
-    text-align: center;
-    color: #D7263D;
-    margin-top: 20px;
-}
-
-#login p{
-    text-align: center;
-    color: white;
-    margin: 0;
-}
-
-#form-login {
-    margin-left: 40px;
-    margin-right: 40px;
-    margin-top: 60px;
-}
-
-#form-login span{
-    color: #D7263D;
-    font-weight: bold;
-}
-
-#form-login label{
-    color:white;
-    margin-top: 20px;
-    text-align: left !important;
-}
-
-#btn-login{
-    text-align: center;
-    margin: 40px;
-}
-
-#btn-crearRuta{
-    text-align: center;
-    margin-top: 40px;
-}
 
 /*Vista perfil.component.html*/
 

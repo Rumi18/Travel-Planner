@@ -11,20 +11,12 @@ import { GLOBAL } from './global';
 
 @Injectable()
 export class ConfiguracionService {
-    public url: string;
+    public uri: string;
 
     constructor(
         public _http: HttpClient
     ) {
-        this.url = GLOBAL.url_api;
+        this.uri = GLOBAL.uri;
     }
 
-    // Método para almacenar en base de datos una nueva configuración
-    addConfiguracion(configuracion: Configuracion) {
-        let json = JSON.stringify(configuracion);
-        let params = "json=" + json;
-        let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
-
-        return this._http.post(this.url + 'configuraciones', params, { headers: headers });
-    }
 }

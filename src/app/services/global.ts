@@ -1,9 +1,10 @@
 export var GLOBAL = {   
     vistaSeleccionada: "",
-    url_api: 'http://localhost/travelplanner/index.php/',
-    rec_crear_usuarios: 'crearUsuarios',
-    rec_modificar_usuario: 'modificarUsuario',
-    rec_obtener_usuario: 'obtenerUsuario',
-    rec_eliminar_usuario: 'eliminarUsuario',
-    rec_subir_img_perfil: 'subirImagen'
+    uri: 'http://localhost/travelplanner/index.php/',
+    recurs_addUsuario: 'crearUsuarios',
+    recurs_login: 'login/',
+    recurs_setUsuario: 'modificarUsuario/',
+    recurs_getUsuario: 'obtenerUsuario/',
+    recurs_deletUsuario: 'eliminarUsuario/',
+    recurs_uploadImage: 'subirImagen/'
 };

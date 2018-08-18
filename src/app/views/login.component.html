@@ -1,6 +1,5 @@
 <cabecera></cabecera>
-<div id="login">
-    
+<div id=login class="component">    
     <form #formLogin="ngForm" id="form-login" (ngSubmit)="onSubmit()">
         <label>{{'login.usuario' | translate}}:</label>
         <span *ngIf="!username.valid && username.touched"> {{'formulario.campoObligatorio' | translate}}</span>

@@ -21,9 +21,9 @@ export class InicioComponent implements OnInit {
     }
 
     // Método que se lanza automáticamente después del constructor del componente 
-    ngOnInit() {
-        console.log('Componente inicio.component.ts cargado');
+    ngOnInit() {      
         GLOBAL.vistaSeleccionada = this._route.component['name'];
+        console.log('Componente inicio.component.ts cargado');
     }
 
     // Método para cambiar el idioma de la aplicación
