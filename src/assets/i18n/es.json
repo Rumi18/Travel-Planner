@@ -8,7 +8,7 @@
     },
     "error": {
         "tituloError": "Se ha producido un error",
-        "fraseError": "Por favor, pulse en el logo de Travel Planner para ir al menú"
+        "fraseError": "Por favor, pulse en el logo de Travel Planner para ir al inicio"
     },
     "formulario": {
         "campoObligatorio": "Campo obligatorio",
@@ -23,7 +23,8 @@
         "usuario": "Usuario",
         "contrasenia": "Contraseña",
         "repetir_contrasenia": "Repetir contraseña",
-        "registrarse": "Registrarse"
+        "registrarse": "Registrarse",
+        "msg_error": "Por favor, rellene todos los campos obligatorios para registrarse"
     },
     "configuracion": {
         "destino": "Destino",
@@ -51,6 +52,6 @@
         "clic": "Pulse",
         "aqui": "aquí",
         "mensajeFin": "para recuperarla",
-        "validaciónUsuarioPassword": "Usuario o contraseña no válidos"
+        "msg_error": "Usuario o contraseña no válidos"
     }
 }

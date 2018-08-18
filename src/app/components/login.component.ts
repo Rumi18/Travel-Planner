@@ -16,7 +16,7 @@ import { Usuario } from '../models/usuario';
 export class LoginComponent implements OnInit {
     public usuarioLogin: Login;
     public usuario: Usuario;
-    public validate: string;
+    public msg_error: string;
 
     constructor(
         private _router: Router,
@@ -39,14 +39,14 @@ export class LoginComponent implements OnInit {
                     console.log(result['data']);
                     this.usuario = result['data'];
                     if (this.usuario.user_passwd == this.usuarioLogin.user_passwd) {
-                        this.validate = 'si';
+                        this.msg_error = 'no';
                         this._router.navigate(['/menuOpciones']);
                     } else {
-                        this.validate = 'no';
+                        this.msg_error = 'si';
                         this._router.navigate(['/login']);
                     }           
                 } else {
-                    this.validate = 'no';
+                    this.msg_error = 'si';
                     this._router.navigate(['/login']);
                 }
             },
@@ -55,11 +55,5 @@ export class LoginComponent implements OnInit {
                 this._router.navigate(['/error']);
             }
         );
-
-        console.log("Este es mi usuario: ");
-        console.log(this.usuario);
-
-        //this._router.navigate(['/inicio']);
-
     }
 }

@@ -14,6 +14,7 @@ import { GLOBAL } from '../services/global';
 })
 export class RegistroComponent implements OnInit {
     public usuario: Usuario;
+    public msg_error: string;
 
     constructor(
         private _usuarioService: UsuarioService,
@@ -46,23 +47,28 @@ export class RegistroComponent implements OnInit {
                 }
             );
         } else {
-            this._router.navigate(['/error']);
+            this._router.navigate(['/registro']);
         }
     }
 
     private validaFormulario(usuario : Usuario){
-        let res;
-        
+        let res;       
+
         if(usuario.nombre == null || usuario.nombre == ''){
             res = false;
+            this.msg_error = 'si';
         }else if (usuario.email == null || usuario.email == ''){
             res = false;
+            this.msg_error = 'si';
         }else if (usuario.user_name == null || usuario.user_name == ''){
             res = false;
+            this.msg_error = 'si';
         }else if (usuario.user_passwd == null || usuario.user_passwd == ''){
             res = false;
+            this.msg_error = 'si';
         }else{
             res = true;
+            this.msg_error = 'si';
         }
 
         return res;
