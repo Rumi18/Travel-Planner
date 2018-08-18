@@ -33,7 +33,7 @@ export class RegistroComponent implements OnInit {
     onSubmit() {
 
         if (GLOBAL.url_api != null && GLOBAL.url_api != '') {
-            this._usuarioService.crearUsuario(this.usuario).subscribe(
+            this._usuarioService.addUsuario(this.usuario).subscribe(
                 response => {
                     if (response['code'] == 200) {
                         console.log(response);
