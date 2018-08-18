@@ -25,7 +25,7 @@
     color: white !important; 
 }
 
-/*Vista app.component.html*/
+/*Vista cabecera.component.html*/
 #header{
     width: 100%;
     height: 53px;
@@ -44,6 +44,22 @@
     border-color: white;
 }
 
+#cabecera-app{
+    width: 100%;
+    display: flex;
+}
+
+#opcion-atras{
+    width: 10%;
+    text-align: center;
+}
+
+#tituloApp{
+    width: 90%;
+    text-align: center;
+}
+
+/*Vista app.component.html*/
 #main{
     margin-top:4em;
 }
@@ -79,21 +95,6 @@ form label{
 }
 
 /*Vista inicio.component.html*/
-#cabecera-app{
-    width: 100%;
-    display: flex;
-}
-
-#opcion-atras{
-    width: 10%;
-    text-align: center;
-}
-
-#tituloApp{
-    width: 90%;
-    text-align: center;
-}
-
 #selector-idioma {
     text-align: right;
     margin-right: 20px;
@@ -202,13 +203,20 @@ form label{
 }
 
 /*Vista registro.component.html*/
-#form-registro p{
-    color: #D7263D !important;
+#form-registro span{
+    color: #D7263D;
+    font-weight: bold;
 }
 
 #form-registro img{
     width: 30px;
     height: 30px;
+}
+
+#form-registro p{
+    margin-top: 50px;
+    text-align: center;
+    font-size: 15px;
 }
 
 #btn-registrarse{
@@ -219,6 +227,45 @@ form label{
 /*Vista configuracion.component.html*/
 #form-configuracion p{
     color: #D7263D !important;
+}
+
+/*Vista login.component.html*/
+#login {
+    padding-top: 41px;
+}
+
+#span{
+    text-align: center;
+    color: #D7263D;
+    margin-top: 20px;
+}
+
+#login p{
+    text-align: center;
+    color: white;
+    margin: 0;
+}
+
+#form-login {
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-top: 60px;
+}
+
+#form-login span{
+    color: #D7263D;
+    font-weight: bold;
+}
+
+#form-login label{
+    color:white;
+    margin-top: 20px;
+    text-align: left !important;
+}
+
+#btn-login{
+    text-align: center;
+    margin: 40px;
 }
 
 #btn-crearRuta{

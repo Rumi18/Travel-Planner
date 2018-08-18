@@ -42,5 +42,15 @@
         "nuevaPass": "New password",
         "repetirPass": "Repeat new password",
         "eliminarCuenta": "Delete account"
+    },
+    "login": {
+        "usuario": "User",
+        "password": "Password",
+        "entrar": "Login",
+        "mensajeInicio": "Did you forget your password?",
+        "clic": "Press",
+        "aqui": "here",
+        "mensajeFin": "to recover it",
+        "validaciónUsuarioPassword": "Incorrect user name or password"
     }
 }
