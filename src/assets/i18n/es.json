@@ -42,5 +42,15 @@
         "nuevaPass": "Nueva contraseña",
         "repetirPass": "Repetir nueva contraseña",
         "eliminarCuenta": "Eliminar cuenta"
+    },
+    "login": {
+        "usuario": "Usuario",
+        "password": "Contraseña",
+        "entrar": "Entrar",
+        "mensajeInicio": "¿Ha olvidado su contraseña?",
+        "clic": "Pulse",
+        "aqui": "aquí",
+        "mensajeFin": "para recuperarla",
+        "validaciónUsuarioPassword": "Usuario o contraseña no válidos"
     }
 }

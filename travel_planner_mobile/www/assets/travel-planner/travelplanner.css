@@ -18,25 +18,25 @@
 .clr_blue_ligth{
     background: #448FA3;
 }
+
 /*Vista index.html*/
 #body {
-    background: #02182B;
-    padding-top: 41px;
+    background: #02182B;   
+    color: white !important; 
 }
 
-/*Vista app.component.html*/
+/*Vista cabecera.component.html*/
 #header{
     width: 100%;
     height: 53px;
     background-color: #02182B;
     top: 0;
     position: fixed;
-    padding-top: 13px;
+    padding-top: 0.7em;
 }
 
-#header p{
+#header span{
     text-align: center; 
-    color: white;
     font-weight: bold; 
 }
 
@@ -44,24 +44,59 @@
     border-color: white;
 }
 
-/*Vista error.component.html*/
-#error {
-    padding-top: 41px;
+#cabecera-app{
+    width: 100%;
+    display: flex;
 }
 
-#error h4{
-    color: white;
+#opcion-atras{
+    width: 10%;
+    text-align: center;
+}
+
+#tituloApp{
+    width: 90%;
+    text-align: center;
+}
+
+/*Vista app.component.html*/
+#main{
+    margin-top:4em;
+}
+
+.component{
+    padding: 0em 2em 3em 2em;
+}
+
+form label{
+    margin-top: 20px;
+}
+
+/*Vista error.component.html*/
+#logo-error{
+    text-align: center;
+    margin-top: 6em;
+    margin-bottom: 2em;
+}
+
+#logo-error > a > img {
+    width:100%;
+    height: auto;
+}
+
+#texto-error{
+    text-align: center;
+}
+
+
+#texto-error > h5{
+    margin-top: 1em;
+    font-weight: normal !important;
 }
 
 /*Vista inicio.component.html*/
-#inicio {
-    padding-top: 41px;
-}
-
 #selector-idioma {
-    color: white;
     text-align: right;
-    margin-top: 0px;
     margin-right: 20px;
 }
 
@@ -73,7 +108,6 @@
 #imagen-logo {
     text-align: center;
     margin: 40px;
-    margin-top: 0%;
 }
 
 #imagen-logo img {
@@ -82,8 +116,7 @@
 }
 
 #botones-inicio {
-    margin-top: 50px;
-    margin-bottom: 50px;
+    margin-bottom: 2em;
 }
 
 .btn {
@@ -96,22 +129,83 @@
     text-align: center;
 }
 
+/*Vista menu.component.html*/
+.menu-principal {
+    position: absolute;   
+    bottom: 45%;
+    right: 37%;
+    width: 100px;
+    height: 100px;
+  }
+  
+.menu-principal span {
+    width: 100px;
+    height: 100px;
+    display: block; 
+    text-align: center;
+    line-height: 100px;
+    background: #FFF;
+    border-radius: 50%;
+    font-size: 22px;
+    z-index:999;  
+}
+.menu-principal a{
+    position: absolute;
+    background: #fff;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    text-align: center;
+    top: 0;
+    right: 0;
+    z-index:99;
+    font-size:22px;
+}
+
+.menu-principal a:nth-child(1) {
+    transform: translate(-0.2em,-5.1em);
+}
+.menu-principal a:nth-child(2) {
+    transform: translate(-5.1em,-2.9em);
+}
+.menu-principal a:nth-child(3) {
+    transform: translate(4.5em,-2.5em);
+}
+.menu-principal a:nth-child(4) {
+    transform: translate(4.6em,2.6em);
+}
+.menu-principal a:nth-child(5) {
+    transform: translate(-5.5em,2.8em);
+}
+.menu-principal a:nth-child(6) {
+    transform: translate(-0.3em,6em);
+}
+
+.logo-travelPlanner > img{
+    padding-bottom: 1em;
+}
+
+#cerrar-sesion > img {
+    padding-bottom: 0.4em;
+}
+
+#config-ruta > img {
+    padding-bottom: 0.5em;
+}
+
+#perfil > img {
+    padding-bottom: 0.5em;
+}
+
+#historial> img {
+    padding-left: 0.2em;
+}
+
 /*Vista registro.component.html*/
-#form-registro {
-    margin-left: 40px;
-    margin-right: 40px;
-    margin-top: 20px;
-}
-
-#form-registro label{
-    color:white;
-    margin-top: 20px;
-}
-
-#form-registro p{
-    float: right;
-    margin-top: 20px;
+#form-registro span{
     color: #D7263D;
+    font-weight: bold;
 }
 
 #form-registro img{
@@ -119,8 +213,96 @@
     height: 30px;
 }
 
+#form-registro p{
+    margin-top: 50px;
+    text-align: center;
+    font-size: 15px;
+}
+
 #btn-registrarse{
+    text-align: center;
+    margin-top: 40px;
+}
+
+/*Vista configuracion.component.html*/
+#form-configuracion p{
+    color: #D7263D !important;
+}
+
+/*Vista login.component.html*/
+#login {
+    padding-top: 41px;
+}
+
+#span{
+    text-align: center;
+    color: #D7263D;
+    margin-top: 20px;
+}
+
+#login p{
+    text-align: center;
+    color: white;
+    margin: 0;
+}
+
+#form-login {
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-top: 60px;
+}
+
+#form-login span{
+    color: #D7263D;
+    font-weight: bold;
+}
+
+#form-login label{
+    color:white;
+    margin-top: 20px;
+    text-align: left !important;
+}
+
+#btn-login{
     text-align: center;
     margin: 40px;
 }
 
+#btn-crearRuta{
+    text-align: center;
+    margin-top: 40px;
+}
+
+/*Vista perfil.component.html*/
+
+#foto-perfil {
+    text-align: center;
+    margin-top: 5em;
+}
+
+#img-perfil{
+    width:65%;
+    height:65%;
+    border-radius:160px;
+    border:10px solid #F58A07;
+}
+
+#infor-usuario{
+    text-align: center;
+    padding-top: 0.6em;
+    margin-bottom: 2em;
+}
+
+#infor-email{
+    margin-top: 0.3em;
+}
+
+#lbl-cambioPass{
+    margin-top: 2.5em;  
+    color:#2C99DF !important;
+}
+
+#btns-perfil{
+    text-align: center;
+    margin-top: 40px;
+}

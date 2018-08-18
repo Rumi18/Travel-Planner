@@ -9,34 +9,28 @@ import { GLOBAL } from './global';
 import { Usuario } from '../models/usuario';
 
 @Injectable()
-export class UsuarioService {
-    private url_api: string;
-    private crear_usuarios: string;
-    private modificar_usuario: string;
-    private obtener_usuario: string;
-    private eliminar_usuario: string;
-    private subir_img_perfil: string;
+export class UsuarioService{
+    public url: string;
 
     constructor(
         public _http: HttpClient
-    ) {
-        this.url_api = GLOBAL.url_api;
-        this.crear_usuarios = GLOBAL.crear_usuarios;
-        this.modificar_usuario = GLOBAL.modificar_usuario;
-        this.obtener_usuario = GLOBAL.obtener_usuario;
-        this.eliminar_usuario = GLOBAL.eliminar_usuario;
-        this.subir_img_perfil = GLOBAL.subir_img_perfil;
+    ){
+        this.url = GLOBAL.url_api;
     }
 
-    crearUsuario(usuario: Usuario) {
+    getUsuarios(){
+        return this._http.get(this.url+'usuarios');
+    }
+
+    getUsuario(nombre:string){
+        return this._http.get(this.url+'usuario/'+nombre);
+    }
+
+    addUsuario(usuario:Usuario){
         let json = JSON.stringify(usuario);
-        let params = "json=" + json;
-        let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
+        let params = "json="+json;
+        let headers = new HttpHeaders().set('Content-Type','application/x-www-form-urlencoded');
 
-        return this._http.post(this.url_api + this.crear_usuarios, params, { headers: headers });
-    }
-
-    modifyUsuario(usuario: Usuario) {
-       
+        return this._http.post(this.url+'usuarios', params, {headers:headers});
     }
 }
