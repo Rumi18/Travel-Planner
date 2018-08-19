@@ -72,7 +72,7 @@ form label{
     margin-top: 20px;
 }
 
-.component form span{
+.campoObligatorio{
     color: #D7263D;
     font-weight: bold;
     padding-left: 0.5em;

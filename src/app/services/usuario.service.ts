@@ -46,8 +46,7 @@ export class UsuarioService{
         return this._http.get(this.uri + this.recurs_login + nombre).map(res => res.json());
     }
 
-    getUsuario(){
-        let idUsuario = GLOBAL.idUsuario;
+    getUsuario(idUsuario:number){       
         return this._http.get(this.uri + this.recurs_getUsuario + idUsuario).map(res => res.json());
     }
 }

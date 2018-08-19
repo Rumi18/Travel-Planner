@@ -6,33 +6,33 @@
         </div>
 
         <div id="infor-usuario">
-            <div id="nombreCompleto-perfil" >
-                <strong><h5>{{usuario.nombre}} {{usuario.apellidos}}</h5> </strong>
+            <div id="nombreCompleto-perfil">
+                <strong>
+                    <h5>{{usuario.nombre}} {{usuario.apellidos}}</h5>
+                </strong>
             </div>
             <span>{{usuario.user_name}}</span>
             <div id="infor-email">
-                <span>{{usuario.user_passwd}} </span>
+                <span>{{usuario.email}} </span>
             </div>
         </div>
 
-        <div id="lbl-cambioPass">
-            <strong >{{'perfil.cambiarPass' | translate}}</strong>
+        <div id="edit-usuario">
+            <label>{{'perfil.antiguaPass' | translate}}:</label>
+            <input type="password" name="antiguaPass" name="contrasenia" [(ngModel)]="usuario.user_passwd" class="form-control"/>
+
+            <label>{{'perfil.nuevaPass' | translate}}:</label>
+            <input type="password" #contrasenia="ngModel" name="nuevaPass" [(ngModel)]="usuario.nuevoPasswd" class="form-control"/>
+
+            <label>{{'perfil.imagen' | translate}}:</label>
+            <input type="file" #imagen="ngModel" name="imagen" [(ngModel)]="usuario.imagen" class="form-control"/>
+
         </div>
-        <label>{{'perfil.antiguoPass' | translate}}:</label>
-        <input type="password" name="contraseniaAntigua" name="contrasenia" [(ngModel)]="usuario.user_passwd"  class="form-control" required/>
-
-        <label>{{'perfil.nuevaPass' | translate}}:</label>
-        <input type="password" #contrasenia="ngModel" name="nuevoPasswd" [(ngModel)]="usuario.nuevoPasswd" class="form-control" required/>
-
-        <label>{{'perfil.repetirPass' | translate}}:</label>
-        <input type="password" #repeatPasswd="ngModel" name="repeatPasswd" [(ngModel)]="usuario.repeatPasswd" class="form-control"
-            required [pattern]="usuario.user_passwd" />
 
         <div id="btns-perfil">
             <div>
                 <div>
-                    <input type="submit" value="{{'formulario.guardar' | translate}}"  class="btn clr_blue_ligth"
-                    />
+                    <input type="submit" value="{{'formulario.guardar' | translate}}" class="btn clr_blue_ligth" />
                 </div>
 
             </div>

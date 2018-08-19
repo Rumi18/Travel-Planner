@@ -34,11 +34,9 @@ export class RegistroComponent implements OnInit {
         if(this.validaFormulario(this.usuario)){
             this._usuarioService.addUsuario(this.usuario).subscribe(
                 response => {
-                    if (response['code'] == 200) {
-                        console.log(response);
+                    if (response['code'] == 200) {                       
                         this._router.navigate(['/login']);
-                    } else {
-                        console.log(response);
+                    } else {                        
                         this._router.navigate(['/error']);
                     }
                 },

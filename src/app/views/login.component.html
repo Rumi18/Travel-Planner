@@ -4,11 +4,11 @@
     
     <form #formLogin="ngForm" id="form-login" (ngSubmit)="onSubmit()">
         <label>{{'login.usuario' | translate}}:</label>
-        <span *ngIf="!username.valid && username.touched"> {{'formulario.campoObligatorio' | translate}}</span>
+        <span class="campoObligatorio" *ngIf="!username.valid && username.touched"> {{'formulario.campoObligatorio' | translate}}</span>
         <input type="text" #username="ngModel" name="username" [(ngModel)]="usuarioLogin.user_name" class="form-control" required>
 
         <label>{{'login.password' | translate}}:</label>
-        <span *ngIf="!userpasswd.valid && userpasswd.touched"> {{'formulario.campoObligatorio' | translate}}</span>
+        <span class="campoObligatorio" *ngIf="!userpasswd.valid && userpasswd.touched"> {{'formulario.campoObligatorio' | translate}}</span>
         <input type="password" #userpasswd="ngModel" name="userpasswd" [(ngModel)]="usuarioLogin.user_passwd" class="form-control" required>
         
         <div id="btn-login">

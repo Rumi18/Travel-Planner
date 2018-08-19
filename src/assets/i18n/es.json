@@ -38,8 +38,7 @@
     },
     "perfil": {     
         "email": "Email",
-        "cambiarPass": "Cambiar de contraseña",
-        "antiguoPass": "Contraseña antigua",
+        "antiguaPass": "Contraseña antigua",
         "nuevaPass": "Nueva contraseña",
         "repetirPass": "Repetir nueva contraseña",
         "eliminarCuenta": "Eliminar cuenta"

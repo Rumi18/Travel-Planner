@@ -5,28 +5,28 @@
     <form id="form-registro" #formRegistro="ngForm" (ngSubmit)="onSubmit()">
 
         <label>{{'registro.nombre' | translate}}: *</label>
-        <span *ngIf="!nombre.valid && nombre.touched"> {{'formulario.campoObligatorio' | translate}}</span>
+        <span class="campoObligatorio" *ngIf="!nombre.valid && nombre.touched"> {{'formulario.campoObligatorio' | translate}}</span>
         <input type="text" #nombre="ngModel" name="nombre" [(ngModel)]="usuario.nombre" class="form-control" required/>
 
         <label>{{'registro.apellidos' | translate}}:</label>
         <input type="text" #apellidos="ngModel" name="apellidos" [(ngModel)]="usuario.apellidos" class="form-control" />
 
         <label>{{'registro.email' | translate}}: *</label>
-        <span *ngIf="!email.valid && email.touched"> {{'formulario.campoObligatorio' | translate}}</span>
+        <span class="campoObligatorio" *ngIf="!email.valid && email.touched"> {{'formulario.campoObligatorio' | translate}}</span>
         <input type="email" #email="ngModel" name="email" [(ngModel)]="usuario.email" class="form-control" required pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}"
         />
 
         <label>{{'registro.usuario' | translate}}: *</label>
-        <span *ngIf="!user_name.valid && user_name.touched"> {{'formulario.campoObligatorio' | translate}}</span>
+        <span class="campoObligatorio" *ngIf="!user_name.valid && user_name.touched"> {{'formulario.campoObligatorio' | translate}}</span>
         <input type="text" #user_name="ngModel" name="user_name" [(ngModel)]="usuario.user_name" class="form-control" required/>
 
         <label>{{'registro.contrasenia' | translate}}: *</label>
-        <span *ngIf="!user_passwd.valid && user_passwd.touched"> {{'formulario.campoObligatorio' | translate}}</span>
+        <span class="campoObligatorio" *ngIf="!user_passwd.valid && user_passwd.touched"> {{'formulario.campoObligatorio' | translate}}</span>
         <img *ngIf="usuario.repeatPasswd == usuario.user_passwd && usuario.user_passwd != ''" src="assets/images/ok.png" />
         <input type="password" #user_passwd="ngModel" name="user_passwd" [(ngModel)]="usuario.user_passwd" class="form-control" required/>
 
         <label>{{'registro.repetir_contrasenia' | translate}}: *</label>
-        <span *ngIf="!repeatPasswd.valid && repeatPasswd.touched"> {{'formulario.campoObligatorio' | translate}}</span>
+        <span class="campoObligatorio" *ngIf="!repeatPasswd.valid && repeatPasswd.touched"> {{'formulario.campoObligatorio' | translate}}</span>
         <img *ngIf="usuario.repeatPasswd == usuario.user_passwd && usuario.user_passwd != ''" src="assets/images/ok.png" />
         <input type="password" #repeatPasswd="ngModel" name="repeatPasswd" [(ngModel)]="usuario.repeatPasswd" class="form-control"
             required [pattern]="usuario.user_passwd" />
