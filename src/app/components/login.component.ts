@@ -5,8 +5,10 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { GLOBAL } from '../services/global';
 import { Md5 } from 'ts-md5/dist/md5';
 import { UsuarioService } from '../services/usuario.service';
+import { AlmacenamientoService } from '../services/almacenamiento.service';
 import { Login } from '../models/login';
 import { Usuario } from '../models/usuario';
+import { Sesion } from '../models/sesion';
 
 @Component({
     selector: 'login',
@@ -22,7 +24,8 @@ export class LoginComponent implements OnInit{
     constructor(
         private _router: Router,
         private _usuarioService: UsuarioService,
-        private _md5: Md5
+        private _md5: Md5,
+        private _almacenamientoService: AlmacenamientoService
     ){
         this.usuarioLogin = new Login('', '');
     
@@ -48,6 +51,12 @@ export class LoginComponent implements OnInit{
                         
                         if(this.usuario.user_passwd == this.usuarioLogin.user_passwd){
                             this.validate = 'si';
+                            
+                            // Generar sesion
+                            let token = this._almacenamientoService.generarToken();
+                            let sesion = new Sesion(token, this.usuario);
+                            this._almacenamientoService.setSesionActual(sesion);
+
                             this._router.navigate(['/menuOpciones']);
                         }else{
                             this.validate = 'no';

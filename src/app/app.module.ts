@@ -3,6 +3,10 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 
+//Servicios
+import { Autorizado } from './helpers/guard';
+import { AlmacenamientoService } from './services/almacenamiento.service';
+
 // Traductor
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -24,6 +28,7 @@ import { RutasPendientesComponent } from './components/rutasPendientes.component
 import { ConfiguracionComponent } from './components/configuracion.component';
 import { TiendaComponent } from './components/tienda.component';
 import { Md5 } from 'ts-md5';
+
 
 @NgModule({
   declarations: [
@@ -53,7 +58,7 @@ import { Md5 } from 'ts-md5';
     }),
     routing
   ],
-  providers: [appRoutingProviders, Md5],
+  providers: [appRoutingProviders, Md5, Autorizado, AlmacenamientoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

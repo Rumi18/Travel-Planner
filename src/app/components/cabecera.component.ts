@@ -3,6 +3,10 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 //Servicios
 import { GLOBAL } from '../services/global';
+import { AlmacenamientoService } from '../services/almacenamiento.service';
+
+//Modelos
+import { Usuario } from '../models/usuario';
 
 @Component({
     selector: 'cabecera',
@@ -11,16 +15,19 @@ import { GLOBAL } from '../services/global';
 export class CabeceraComponent {
     public title = 'Travel Planner';
     public componentURL = '';
+    private user: Usuario;
 
     constructor(
         private _router: Router,
-        private _route: ActivatedRoute
+        private _route: ActivatedRoute,
+        private _almacenamientoService: AlmacenamientoService
     ){
 
     }
 
     ngOnInit(){
         this.componentURL = this._router.url;
+        this.user = this._almacenamientoService.getUsuarioActual();
         console.log(this.componentURL);
     }
 
