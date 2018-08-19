@@ -46,7 +46,8 @@
         "msgNuevaPass":"Enter your new password",
         "msgOk": "Correctly updated information",
         "msgWarn": "The password entered does not match the stored password, please enter it again",
-        "msgError": "The information could not be updated"
+        "msgError": "The information could not be updated",
+        "eliminar": "Delete account"
     },
     "login": {
         "usuario": "User",

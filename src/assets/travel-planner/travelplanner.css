@@ -234,16 +234,14 @@ form label{
 }
 
 #perfil{
-    top: 45%;
+    top: 43%;
     left: 3%;
 }
 
 #historial{
-    top: 45%;
+    top: 43%;
     right: 3%;
 }
-
-
 
 /*Vista perfil.component.html*/
 
@@ -295,4 +293,8 @@ form label{
 
 .alert-perfil{
     margin-top:2em;
+}
+
+.btn-eliminar{
+    width: 100% !important;
 }
