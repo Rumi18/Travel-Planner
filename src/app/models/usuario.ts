@@ -9,6 +9,6 @@ export class Usuario {
         public user_name: string,
         public user_passwd: string,        
         public repeatPasswd: string,
-        public nuevoPasswd: string
+        public newPasswd: string
     ) { }
 }

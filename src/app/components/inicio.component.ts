@@ -28,7 +28,6 @@ export class InicioComponent implements OnInit {
 
     // Método para cambiar el idioma de la aplicación
     switchLanguage(language: string) {
-        console.log('Estas usando ' + language);
         this._translateService.setDefaultLang(language);
     }
 }

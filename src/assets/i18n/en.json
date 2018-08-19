@@ -41,7 +41,8 @@
         "antiguaPass": "Old password",
         "nuevaPass": "New password",
         "repetirPass": "Repeat new password",
-        "eliminarCuenta": "Delete account"
+        "eliminarCuenta": "Delete account",
+        "imagen": "Upload image"
     },
     "login": {
         "usuario": "User",

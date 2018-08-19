@@ -41,7 +41,8 @@
         "antiguaPass": "Contraseña antigua",
         "nuevaPass": "Nueva contraseña",
         "repetirPass": "Repetir nueva contraseña",
-        "eliminarCuenta": "Eliminar cuenta"
+        "eliminarCuenta": "Eliminar cuenta",
+        "imagen": "Subir imagen"
     },
     "login": {
         "usuario": "Usuario",

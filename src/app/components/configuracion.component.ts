@@ -35,6 +35,5 @@ export class ConfiguracionComponent implements OnInit {
 
     // Método para persistir en BD una nueva configuración
     onSubmit() {
-        console.log(this.configuracion);
     }
 }

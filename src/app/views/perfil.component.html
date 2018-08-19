@@ -1,8 +1,8 @@
 <cabecera></cabecera>
 <div class="component">
-    <form id="form-perfil" #formPerfil="ngForm">
+    <form id="form-perfil" #formPerfil="ngForm" (ngSubmit)="onSubmit()">
         <div id="foto-perfil">
-            <img id="img-perfil" class=".img-fluid" src="../assets/images/fotoPerfil.jpg">
+            <img id="img-perfil" class=".img-fluid" *ngIf="usuario.imagen ==''" src="../assets/images/fotoPerfil.png">
         </div>
 
         <div id="infor-usuario">
@@ -18,21 +18,29 @@
         </div>
 
         <div id="edit-usuario">
-            <label>{{'perfil.antiguaPass' | translate}}:</label>
-            <input type="password" name="antiguaPass" name="contrasenia" [(ngModel)]="usuario.user_passwd" class="form-control"/>
+            <label>{{'perfil.antiguaPass' | translate}}:</label>               
+            <input type="password" #antiguaPass="ngModel" name="antiguaPass" [(ngModel)]="usuario.user_passwd" class="form-control"/>
 
-            <label>{{'perfil.nuevaPass' | translate}}:</label>
-            <input type="password" #contrasenia="ngModel" name="nuevaPass" [(ngModel)]="usuario.nuevoPasswd" class="form-control"/>
+            <label>{{'perfil.nuevaPass' | translate}}:</label>              
+            <span class="campoObligatorio" *ngIf="usuario.user_passwd !='' && usuario.newPasswd ==''">Tiene que rellenar este campo</span>               
+            <img *ngIf="usuario.newPasswd != '' && usuario.repeatPasswd == usuario.newPasswd" src="assets/images/ok.png" />
+            <input type="password"  #nuevaPass="ngModel" name="nuevaPass" [(ngModel)]="usuario.newPasswd" class="form-control"/>
+
+            <label>{{'perfil.repetirPass' | translate}}: </label>             
+            <img *ngIf="usuario.newPasswd != '' && usuario.repeatPasswd == usuario.newPasswd" src="assets/images/ok.png" />
+            <img *ngIf="usuario.newPasswd != '' && usuario.repeatPasswd != usuario.newPasswd" src="assets/images/error.png" />
+            <input type="password" #repeatPasswd="ngModel" name="repeatPasswd" [(ngModel)]="usuario.repeatPasswd" class="form-control"
+                required [pattern]="usuario.newPasswd" />
 
             <label>{{'perfil.imagen' | translate}}:</label>
             <input type="file" #imagen="ngModel" name="imagen" [(ngModel)]="usuario.imagen" class="form-control"/>
-
+            
         </div>
 
         <div id="btns-perfil">
             <div>
                 <div>
-                    <input type="submit" value="{{'formulario.guardar' | translate}}" class="btn clr_blue_ligth" />
+                    <input type="submit" value="{{'formulario.guardar' | translate}}" class="btn clr_blue_ligth" [disabled]="!formPerfil.form.valid && usuario.imagen ==''"/>
                 </div>
 
             </div>

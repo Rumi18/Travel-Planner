@@ -27,7 +27,7 @@
 
         <label>{{'registro.repetir_contrasenia' | translate}}: *</label>
         <span class="campoObligatorio" *ngIf="!repeatPasswd.valid && repeatPasswd.touched"> {{'formulario.campoObligatorio' | translate}}</span>
-        <img *ngIf="usuario.repeatPasswd == usuario.user_passwd && usuario.user_passwd != ''" src="assets/images/ok.png" />
+        <img *ngIf="usuario.user_passwd != '' && usuario.repeatPasswd == usuario.user_passwd" src="assets/images/ok.png" />
         <input type="password" #repeatPasswd="ngModel" name="repeatPasswd" [(ngModel)]="usuario.repeatPasswd" class="form-control"
             required [pattern]="usuario.user_passwd" />
 

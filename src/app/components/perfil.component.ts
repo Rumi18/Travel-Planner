@@ -32,7 +32,6 @@ export class PerfilComponent implements OnInit {
     }
 
     onSubmit() {
-       
     }
 
     private getInforUsuario(){
@@ -42,6 +41,9 @@ export class PerfilComponent implements OnInit {
                     this.usuario = result['data'];   
                     this.antiguaPass = this.usuario.user_passwd;
                     this.usuario.user_passwd='';
+                    this.usuario.newPasswd='';
+                    this.usuario.repeatPasswd='';
+                    this.usuario.imagen='';
 
                 } else {                    
                     this._router.navigate(['/menu']);
