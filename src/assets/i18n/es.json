@@ -1,5 +1,5 @@
 {
-    "home": {
+    "inicio": {
         "iniciar_sesion": "Iniciar sesión",
         "entrar": "Entrar",
         "registrar": "Registrarse",
@@ -8,7 +8,7 @@
     },
     "error": {
         "tituloError": "Se ha producido un error",
-        "fraseError": "Por favor, pulse en el logo de Travel Planner para ir al menú"
+        "fraseError": "Por favor, pulse en el logo de Travel Planner para ir al inicio"
     },
     "formulario": {
         "campoObligatorio": "Campo obligatorio",

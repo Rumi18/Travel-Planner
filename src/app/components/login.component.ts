@@ -19,7 +19,7 @@ import { Sesion } from '../models/sesion';
 export class LoginComponent implements OnInit{
     public usuarioLogin: Login;
     public usuario: Usuario;
-    public validate:string;
+    public validate: string;
 
     constructor(
         private _router: Router,
@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit{
     onSubmit(){
     
         if(GLOBAL.url_api != 'prueba'){
-           this._usuarioService.getUsuario(this.usuarioLogin.user_name).subscribe(
+           this._usuarioService.getUsuario(this.usuarioLogin).subscribe(
                 result => {
                     if(result['code'] != 200){
                         this.validate = 'no';

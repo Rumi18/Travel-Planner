@@ -8,6 +8,7 @@ import { GLOBAL } from './global';
 
 // Modelos
 import { Usuario } from '../models/usuario';
+import { Login } from '../models/login';
 
 @Injectable()
 export class UsuarioService{
@@ -24,18 +25,36 @@ export class UsuarioService{
         return this._http.get(this.url+'usuarios');
     }
 
-    getUsuario(user_name:string){
-        return this._http.get(this.url+'usuario/'+user_name);
+    getUsuario(usuarioLogueado:Login){
+        if (usuarioLogueado.user_name == '') {
+            return this._http.get(this.url+'error');
+        } else if (usuarioLogueado.user_passwd == '') {
+            return this._http.get(this.url+'error');
+        } else {
+            return this._http.get(this.url+'usuario/'+usuarioLogueado.user_name);
+        }
     }
 
     addUsuario(usuario:Usuario){
-        //generar la contraseña
-        usuario.user_passwd = this._md5.appendStr(usuario.user_passwd).end().toString();
+        // Comprobación de datos del formulario
+        if (usuario.nombre == '') {
+            return this._http.get(this.url+'error');
+        } else if (usuario.email == '') {
+            return this._http.get(this.url+'error');
+        } else if (usuario.user_name == '') {
+            return this._http.get(this.url+'error');
+        } else if (usuario.user_passwd == '') {
+            return this._http.get(this.url+'error');
+        } else {
+            //generar la contraseña
+            usuario.user_passwd = this._md5.appendStr(usuario.user_passwd).end().toString();
 
-        let json = JSON.stringify(usuario);
-        let params = "json="+json;
-        let headers = new HttpHeaders().set('Content-Type','application/x-www-form-urlencoded');
+            let json = JSON.stringify(usuario);
+            let params = "json="+json;
+            let headers = new HttpHeaders().set('Content-Type','application/x-www-form-urlencoded');
 
-        return this._http.post(this.url+'usuarios', params, {headers:headers});
+            return this._http.post(this.url+'usuarios', params, {headers:headers});
+        }
+
     }
 }
