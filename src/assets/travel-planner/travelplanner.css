@@ -196,12 +196,22 @@ form label{
     width: 100px; 
     border-radius: 50%;
 }
+
+.menu-principal a p{
+    font-size: 13px;
+    font-weight: bolder;
+    margin: 0.8em;
+    font-style: italic;
+    position: relative;
+    display: inline-block;
+    color: #202020;
+}
   
 .menu-principal img{
-    width: 80% !important;
+    width: 70% !important;
     position: relative;
-    top: 13%;
-    left: 1%;
+    top: 16%;
+    left: 0%;
 } 
 
 #logoMenu{
@@ -297,4 +307,31 @@ form label{
 
 .btn-eliminar{
     width: 100% !important;
+}
+
+
+/*Vista configuracion.component.html*/
+
+.slidecontainer {
+    width: 100%; 
+}
+
+.slider {
+    -webkit-appearance: none;  
+    appearance: none;
+    width: 100%; 
+    height: 0px; 
+    background: #d3d3d3; 
+    outline: none; 
+}
+
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px; 
+    border-radius: 50%;
+    background: #4CAF50;
+    cursor: pointer; 
 }

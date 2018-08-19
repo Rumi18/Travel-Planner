@@ -3,10 +3,13 @@
     <form id="form-configuracion" #formConfiguracion="ngForm" (ngSubmit)="onSubmit()">
 
         <label>{{'configuracion.destino' | translate}}:</label>
-        <input type="text" class="form-control" #destino="ngModel" name="destino" [(ngModel)]="configuracion.destino"  required/>
+        <select class="form-control" required>
+            <option>Seleccione..</option>
+            <option [ngValue]="ciudad.id" *ngFor="let ciudad of ciudades"> {{ciudad.nombre}}</option>
+        </select>
 
         <label>{{'configuracion.duracion' | translate}}:</label>
-        <input type="text" class="form-control"  required/>
+        <input type="range" class="form-control slider"  min="5" max="100000" step="1">
 
         <label>{{'configuracion.presupuesto' | translate}}:</label>
         <input type="text" class="form-control" required/>
@@ -23,11 +26,6 @@
         <label>{{'configuracion.turismo' | translate}}:</label>
         <input type="text" class="form-control" required/>
 
-        <div id="btn-crearRuta">
-            <input type="submit" value="{{'configuracion.mostrarRuta' | translate}}" [disabled]="!formConfiguracion.form.valid" class="btn btn-lg clr_blue_ligth"
-            />
-         
-        </div>
 
     </form>
 </div>

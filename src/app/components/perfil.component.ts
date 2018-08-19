@@ -35,24 +35,6 @@ export class PerfilComponent implements OnInit {
         this.getInforUsuario();
     }
 
-    onSubmit() {
-        this.msg_error = 'no';
-        this.msg_warn = 'no';
-        this.msg_ok = 'no';
-        if (this.filesToUpload && this.filesToUpload.length >= 1) {
-            this._usuarioService.subirImagen(this.usuario.id, [], this.filesToUpload).then((result) => {
-                this.resultUpload = result;
-                this.usuario.nueva_imagen = this.resultUpload.filename;
-                this.guardarUsuario();
-
-            }, (error) => {
-                console.log(error);
-                this._router.navigate(['/error']);
-            });
-        } else {
-            this.guardarUsuario();
-        }
-    }
     private getInforUsuario() {
         
         this._usuarioService.getUsuario(GLOBAL.idUsuario).subscribe(
@@ -78,6 +60,25 @@ export class PerfilComponent implements OnInit {
 
     private subirImagen(fileInput: any) {
         this.filesToUpload = <Array<File>>fileInput.target.files;
+    }
+    
+    onSubmit() {
+        this.msg_error = 'no';
+        this.msg_warn = 'no';
+        this.msg_ok = 'no';
+        if (this.filesToUpload && this.filesToUpload.length >= 1) {
+            this._usuarioService.subirImagen(this.usuario.id, [], this.filesToUpload).then((result) => {
+                this.resultUpload = result;
+                this.usuario.nueva_imagen = this.resultUpload.filename;
+                this.guardarUsuario();
+
+            }, (error) => {
+                console.log(error);
+                this._router.navigate(['/error']);
+            });
+        } else {
+            this.guardarUsuario();
+        }
     }
 
     private guardarUsuario() {

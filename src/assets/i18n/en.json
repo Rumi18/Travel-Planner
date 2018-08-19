@@ -59,5 +59,13 @@
         "mensajeFin": "to recover it",
         "msgError": "Incorrect password",
         "msgWarn": "User not found"
+    },
+    "menu":{
+        "salir":"Sign out",
+        "rutas":"Router",
+        "historial":"Record",
+        "tienda":"Market",
+        "perfil":"Profile",
+        "configuracion":"Configuration"
     }
 }

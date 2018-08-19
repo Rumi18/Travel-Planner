@@ -59,5 +59,13 @@
         "mensajeFin": "para recuperarla",
         "msgError": "Contraseña no válida",
         "msgWarn": "Usuario no encontrado"
+    },
+    "menu":{
+        "salir":"Salir",
+        "rutas":"Rutas",
+        "historial":"Historial",
+        "tienda":"tienda",
+        "perfil":"Perfil",
+        "configuracion":"Configuracion"
     }
 }
