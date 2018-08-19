@@ -23,6 +23,7 @@ import { HistorialComponent } from './components/historial.component';
 import { RutasPendientesComponent } from './components/rutasPendientes.component';
 import { ConfiguracionComponent } from './components/configuracion.component';
 import { TiendaComponent } from './components/tienda.component';
+import { Md5 } from 'ts-md5';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,7 @@ import { TiendaComponent } from './components/tienda.component';
     }),
     routing
   ],
-  providers: [appRoutingProviders],
+  providers: [appRoutingProviders, Md5],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
