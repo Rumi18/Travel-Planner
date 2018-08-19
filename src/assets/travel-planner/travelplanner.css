@@ -177,77 +177,72 @@ form label{
 }
 
 /*Vista menu.component.html*/
-.menu-principal {
-    position: absolute;   
-    bottom: 45%;
-    right: 37%;
-    width: 100px;
-    height: 100px;
-  }
-  
-.menu-principal span {
-    width: 100px;
-    height: 100px;
-    display: block; 
-    text-align: center;
-    line-height: 100px;
-    background: #FFF;
-    border-radius: 50%;
-    font-size: 22px;
-    z-index:999;  
+
+.menu-principal{
+    position: absolute;
+    width: 100%;
+    height: 100%;
 }
+
+.menu-principal div{
+    display: block;
+}
+
 .menu-principal a{
     position: absolute;
-    background: #fff;
+    background: #fff;    
+    text-align: center !important;   
+    height: 100px;
+    width: 100px; 
     border-radius: 50%;
-    width: 80px;
-    height: 80px;
-    line-height: 80px;
-    text-align: center;
-    top: 0;
-    right: 0;
-    z-index:99;
-    font-size:22px;
+}
+  
+.menu-principal img{
+    width: 80% !important;
+    position: relative;
+    top: 13%;
+    left: 1%;
+} 
+
+#logoMenu{
+    z-index: 999 !important;
+    top: 31%;
+    left: 34%;
+    width: 120px;
+    height: 120px;
+    background: #F58A07;
 }
 
-.menu-principal a:nth-child(1) {
-    transform: translate(-0.2em,-5.1em);
-}
-.menu-principal a:nth-child(2) {
-    transform: translate(-5.1em,-2.9em);
-}
-.menu-principal a:nth-child(3) {
-    transform: translate(4.5em,-2.5em);
-}
-.menu-principal a:nth-child(4) {
-    transform: translate(4.6em,2.6em);
-}
-.menu-principal a:nth-child(5) {
-    transform: translate(-5.5em,2.8em);
-}
-.menu-principal a:nth-child(6) {
-    transform: translate(-0.3em,6em);
+#cerrar-sesion{
+    top: 10%;
+    left: 37%;
 }
 
-.logo-travelPlanner > img{
-    padding-bottom: 1em;
+#tienda{
+    top: 56%;
+    left: 37%;
 }
 
-#cerrar-sesion > img {
-    padding-bottom: 0.4em;
+#config-ruta{
+    top: 20%;
+    left: 3%;
 }
 
-#config-ruta > img {
-    padding-bottom: 0.5em;
+#rutas-pendientes{
+    top: 20%;
+    right: 3%;
 }
 
-#perfil > img {
-    padding-bottom: 0.5em;
+#perfil{
+    top: 45%;
+    left: 3%;
 }
 
-#historial> img {
-    padding-left: 0.2em;
+#historial{
+    top: 45%;
+    right: 3%;
 }
+
 
 
 /*Vista perfil.component.html*/
