@@ -17,7 +17,7 @@ export class UsuarioService{
     public recurs_login: string;
     public recurs_setUsuario: string;
     public recurs_getUsuario: string;
-    public recurs_deletUsuario: string;
+    public recurs_deleteUsuario: string;
     public recurs_uploadImage: string;
 
 
@@ -29,7 +29,7 @@ export class UsuarioService{
         this.recurs_login = GLOBAL.recurs_login;
         this.recurs_setUsuario = GLOBAL.recurs_setUsuario;
         this.recurs_getUsuario = GLOBAL.recurs_getUsuario;
-        this.recurs_deletUsuario = GLOBAL.recurs_deletUsuario;
+        this.recurs_deleteUsuario = GLOBAL.recurs_deleteUsuario;
         this.recurs_uploadImage = GLOBAL.recurs_uploadImage;
     }
 
@@ -81,6 +81,10 @@ export class UsuarioService{
 
 		return this._http.post(this.uri + this.recurs_setUsuario + usuario.id, params, {headers: headers})
 						 .map(res => res.json());
+    }
+
+    deleteUsuario(idUsuario: number){
+        return this._http.get(this.uri + this.recurs_deleteUsuario + idUsuario).map(res => res.json());
     }
 
 }

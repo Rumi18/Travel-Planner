@@ -1,7 +1,8 @@
 <cabecera></cabecera>
 <div id=login class="component">    
-    <div class="alert alert-danger" *ngIf="msg_error == 'si'">{{'login.msg_error' | translate}}</div>
-    
+    <div class="alert alert-danger" *ngIf="msg_error == 'si'">{{'login.msgError' | translate}}</div>
+    <div class="alert alert-warning" *ngIf="msg_warn == 'si'">{{'login.msgWarn' | translate}}</div>
+
     <form #formLogin="ngForm" id="form-login" (ngSubmit)="onSubmit()">
         <label>{{'login.usuario' | translate}}:</label>
         <span class="campoObligatorio" *ngIf="!username.valid && username.touched"> {{'formulario.campoObligatorio' | translate}}</span>

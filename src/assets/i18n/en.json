@@ -24,7 +24,7 @@
         "contrasenia": "Password",
         "repetir_contrasenia": "Repeat password",
         "registrarse": "Sign up",
-        "msg_error": "Please, fill all the required fields to sign up"
+        "msgError": "Please, fill all the required fields to sign up"
     },
     "configuracion": {
         "destino": "Destination",
@@ -46,7 +46,7 @@
         "msgNuevaPass":"Enter your new password",
         "msgOk": "Correctly updated information",
         "msgWarn": "The password entered does not match the stored password, please enter it again",
-        "msgErr": "The information could not be updated"
+        "msgError": "The information could not be updated"
     },
     "login": {
         "usuario": "User",
@@ -56,6 +56,7 @@
         "clic": "Press",
         "aqui": "here",
         "mensajeFin": "to recover it",
-        "msg_error": "Incorrect user name or password"
+        "msgError": "Incorrect password",
+        "msgWarn": "User not found"
     }
 }

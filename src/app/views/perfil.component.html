@@ -1,6 +1,9 @@
 <cabecera></cabecera>
 <div class="component">
     <form id="form-perfil" #formPerfil="ngForm" (ngSubmit)="onSubmit()">
+        <div class="alert alert-success" *ngIf="msg_ok == 'si'">{{'perfil.msgOk' | translate}}</div>
+        <div class="alert alert-warning" *ngIf="msg_warn == 'si'">{{'perfil.msgWarn' | translate}}</div>
+        <div class="alert alert-danger" *ngIf="msg_error == 'si'">{{'perfil.msgError' | translate}}</div>
 
         <div id="foto-perfil">
             <div *ngIf="usuario.imagen" class="img_container">
@@ -24,10 +27,6 @@
             </div>
         </div>
 
-        <div class="alert alert-success" *ngIf="msg_ok == 'si'">{{'perfil.msgOk' | translate}}</div>
-        <div class="alert alert-warning" *ngIf="msg_warn == 'si'">{{'perfil.msgWarn' | translate}}</div>
-        <div class="alert alert-danger" *ngIf="msg_error == 'si'">{{'perfil.msgError' | translate}}</div>
-
         <div id="edit-usuario">
             <label>{{'perfil.antiguaPass' | translate}}:</label>
             <input type="password" #antiguaPass="ngModel" name="antiguaPass" [(ngModel)]="usuario.user_passwd" class="form-control" />
@@ -45,19 +44,19 @@
                 required [pattern]="usuario.newPasswd" [disabled]="usuario.user_passwd == ''" />
 
             <label>{{'perfil.imagen' | translate}}:</label>
-            <input type="file" #imagenUsuario="ngModel" name="imagenUsuario" [(ngModel)]="usuario.nueva_imagen" class="form-control" (change)="subirImagen($event)"
-            />
+            <input type="file" #imagenUsuario="ngModel" name="imagenUsuario" [(ngModel)]="usuario.nueva_imagen" class="form-control"
+                (change)="subirImagen($event)" />
 
         </div>
 
         <div id="btns-perfil">
             <div>
-                <div>
-                    <input type="submit" value="{{'formulario.guardar' | translate}}" class="btn clr_blue_ligth" [disabled]="((usuario.user_passwd == '' && usuario.nueva_imagen == '') ||
-                        (usuario.user_passwd != '' && (usuario.repeatPasswd != '' && usuario.newPasswd == '' || usuario.nueva_imagen != '' && usuario.newPasswd == '')) ||
-                        (!formPerfil.form.valid))" />
-                </div>
-
+                <input type="submit" value="{{'formulario.guardar' | translate}}" class="btn clr_blue_ligth" [disabled]="((usuario.user_passwd == '' && usuario.nueva_imagen == '') ||
+                            (usuario.user_passwd != '' && (usuario.repeatPasswd != '' && usuario.newPasswd == '' || usuario.nueva_imagen != '' && usuario.newPasswd == '')) ||
+                            (!formPerfil.form.valid))" />
+            </div>
+            <div>
+                <a (click)="eliminarUsuario()" class="btn btn-md btn-danger">Borrar</a>
             </div>
         </div>
     </form>

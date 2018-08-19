@@ -24,7 +24,7 @@
         "contrasenia": "Contraseña",
         "repetir_contrasenia": "Repetir contraseña",
         "registrarse": "Registrarse",
-        "msg_error": "Por favor, rellene todos los campos obligatorios para registrarse"
+        "msgError": "Por favor, rellene todos los campos obligatorios para registrarse"
     },
     "configuracion": {
         "destino": "Destino",
@@ -46,7 +46,7 @@
         "msgNuevaPass":"Escriba la nueva contraseña",
         "msgOk": "Información actualizada correctamente",
         "msgWarn": "La contraseña introducida no coincide con la contraseña almacenada, por favor escríbala de nuevo",
-        "msgErr": "No se ha podido actualizar la información"
+        "msgError": "No se ha podido actualizar la información"
     },
     "login": {
         "usuario": "Usuario",
@@ -56,6 +56,7 @@
         "clic": "Pulse",
         "aqui": "aquí",
         "mensajeFin": "para recuperarla",
-        "msg_error": "Usuario o contraseña no válidos"
+        "msgError": "Contraseña no válida",
+        "msgWarn": "Usuario no encontrado"
     }
 }

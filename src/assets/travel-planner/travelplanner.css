@@ -286,4 +286,10 @@ form label{
 #btns-perfil{
     text-align: center;
     margin-top: 40px;
+    display: inline-flex;
+    width: 100%;
+}
+
+#btns-perfil div{
+    width: 50%;
 }

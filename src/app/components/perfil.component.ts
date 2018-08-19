@@ -120,6 +120,24 @@ export class PerfilComponent implements OnInit {
 
         }
        this.getInforUsuario();
+
+    }
+
+    eliminarUsuario(){
+        this._usuarioService.deleteUsuario(this.usuario.id).subscribe(
+                response => {
+                    if (response.code == 200) {                         
+                        this._router.navigate(['/inicio']);
+                    } else {                        
+                        this.msg_error = 'si';
+                        this._router.navigate(['/perfil']);
+                    }
+                },
+                error => {
+                    console.log(<any>error);
+                    this._router.navigate(['/error']);
+                }
+            );
     }
 }
 

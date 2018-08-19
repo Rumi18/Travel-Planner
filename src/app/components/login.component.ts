@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit {
     public usuarioLogin: Login;
     public usuario: Usuario;
     public msg_error: string;
+    public msg_warn: string;
 
     constructor(
         private _router: Router,
@@ -46,7 +47,7 @@ export class LoginComponent implements OnInit {
                         this._router.navigate(['/login']);
                     }           
                 } else {
-                    this.msg_error = 'si';
+                    this.msg_warn = 'si';
                     this._router.navigate(['/login']);
                 }
             },

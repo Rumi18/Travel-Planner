@@ -6,6 +6,6 @@ export var GLOBAL = {
     recurs_login: 'login/',
     recurs_setUsuario: 'modificarUsuario/',
     recurs_getUsuario: 'obtenerUsuario/',
-    recurs_deletUsuario: 'eliminarUsuario/',
+    recurs_deleteUsuario: 'eliminarUsuario/',
     recurs_uploadImage: 'subirImagen/'
 };
