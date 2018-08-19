@@ -90,6 +90,10 @@ form label{
     font-size: 15px;
 }
 
+.form-control:disabled{
+    opacity: 0.5 !important;
+}
+
 /*Vista error.component.html*/
 #logo-error{
     text-align: center;
@@ -249,12 +253,20 @@ form label{
     margin-top: 5em;
 }
 
-#img-perfil{
-    width:65%;
-    height:65%;
-    border-radius:160px;
-    border:10px solid #F58A07;
+.img_container{
+	width: 100%;
+	overflow: hidden;
 }
+
+.usuario_imagen{  
+    height: 12em !important;
+    margin: 0px auto;
+    width: 12em !important;
+    display: block;
+    border-radius: 160px;
+    border: 10px solid #F58A07;
+}
+
 
 #infor-usuario{
     text-align: center;

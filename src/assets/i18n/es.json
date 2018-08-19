@@ -42,7 +42,11 @@
         "nuevaPass": "Nueva contraseña",
         "repetirPass": "Repetir nueva contraseña",
         "eliminarCuenta": "Eliminar cuenta",
-        "imagen": "Subir imagen"
+        "imagen": "Subir imagen",
+        "msgNuevaPass":"Escriba la nueva contraseña",
+        "msgOk": "Información actualizada correctamente",
+        "msgWarn": "La contraseña introducida no coincide con la contraseña almacenada, por favor escríbala de nuevo",
+        "msgErr": "No se ha podido actualizar la información"
     },
     "login": {
         "usuario": "Usuario",

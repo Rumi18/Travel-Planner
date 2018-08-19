@@ -22,7 +22,7 @@ export class RegistroComponent implements OnInit {
         private _router: Router,
         private _app: AppComponent
     ) {
-        this.usuario = new Usuario(null,'', '', '', '', '', '', '', '');
+        this.usuario = new Usuario(null,'', '', '', '', '', '', '', '', '');
     }
 
     ngOnInit() {
@@ -42,6 +42,7 @@ export class RegistroComponent implements OnInit {
                 },
                 error => {
                     console.log(<any>error);
+                    this._router.navigate(['/error']);
                 }
             );
         } else {

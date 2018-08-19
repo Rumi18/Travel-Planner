@@ -49,4 +49,38 @@ export class UsuarioService{
     getUsuario(idUsuario:number){       
         return this._http.get(this.uri + this.recurs_getUsuario + idUsuario).map(res => res.json());
     }
+
+    subirImagen(idUsuario:number, params: Array<string>, files: Array<File>){
+		return new Promise((resolve, reject)=>{
+			var formData: any = new FormData();
+			var xhr = new XMLHttpRequest();
+
+			for(var i = 0; i < files.length; i++){
+				formData.append('imagen', files[i], files[i].name);
+			}
+
+			xhr.onreadystatechange = function(){
+				if(xhr.readyState == 4){
+					if(xhr.status == 200){
+						resolve(JSON.parse(xhr.response));
+					}else{
+						reject(xhr.response);
+					}
+				}
+			};
+
+			xhr.open("POST", GLOBAL.uri + GLOBAL.recurs_uploadImage + idUsuario, true);
+			xhr.send(formData);
+		});
+    }
+    
+    setUsuario(usuario: Usuario){
+        let json = JSON.stringify(usuario);
+		let params = 'json='+json;
+        let headers = new Headers({'Content-Type':'application/x-www-form-urlencoded'});
+
+		return this._http.post(this.uri + this.recurs_setUsuario + usuario.id, params, {headers: headers})
+						 .map(res => res.json());
+    }
+
 }

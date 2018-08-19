@@ -6,6 +6,7 @@ export class Usuario {
         public apellidos: string,
         public email: string,
         public imagen: string,
+        public nueva_imagen: string,
         public user_name: string,
         public user_passwd: string,        
         public repeatPasswd: string,

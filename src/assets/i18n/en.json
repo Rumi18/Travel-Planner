@@ -42,7 +42,11 @@
         "nuevaPass": "New password",
         "repetirPass": "Repeat new password",
         "eliminarCuenta": "Delete account",
-        "imagen": "Upload image"
+        "imagen": "Upload image",
+        "msgNuevaPass":"Enter your new password",
+        "msgOk": "Correctly updated information",
+        "msgWarn": "The password entered does not match the stored password, please enter it again",
+        "msgErr": "The information could not be updated"
     },
     "login": {
         "usuario": "User",
