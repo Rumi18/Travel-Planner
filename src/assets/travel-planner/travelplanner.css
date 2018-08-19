@@ -297,3 +297,7 @@ form label{
 #btns-perfil div{
     width: 50%;
 }
+
+.alert-perfil{
+    margin-top:2em;
+}

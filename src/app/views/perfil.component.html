@@ -1,10 +1,6 @@
 <cabecera></cabecera>
 <div class="component">
     <form id="form-perfil" #formPerfil="ngForm" (ngSubmit)="onSubmit()">
-        <div class="alert alert-success" *ngIf="msg_ok == 'si'">{{'perfil.msgOk' | translate}}</div>
-        <div class="alert alert-warning" *ngIf="msg_warn == 'si'">{{'perfil.msgWarn' | translate}}</div>
-        <div class="alert alert-danger" *ngIf="msg_error == 'si'">{{'perfil.msgError' | translate}}</div>
-
         <div id="foto-perfil">
             <div *ngIf="usuario.imagen" class="img_container">
                 <img src="http://localhost/travelplanner/uploads/{{usuario.imagen}}" class="usuario_imagen" />
@@ -48,6 +44,10 @@
                 (change)="subirImagen($event)" />
 
         </div>
+
+        <div class="alert alert-success alert-perfil" *ngIf="msg_ok == 'si'">{{'perfil.msgOk' | translate}}</div>
+        <div class="alert alert-warning alert-perfil" *ngIf="msg_warn == 'si'">{{'perfil.msgWarn' | translate}}</div>
+        <div class="alert alert-danger alert-perfil" *ngIf="msg_error == 'si'">{{'perfil.msgError' | translate}}</div>
 
         <div id="btns-perfil">
             <div>
