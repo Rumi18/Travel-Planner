@@ -8,8 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "node_module": "npm install @angular-devkit/build-angular",
-    "md5": "npm install ts-md5 --save"
+    "node_module": "npm install @angular-devkit/build-angular"
   },
   "private": true,
   "dependencies": {
