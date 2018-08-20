@@ -319,7 +319,7 @@ form label{
 .slider {
     -webkit-appearance: none;  
     appearance: none;
-    width: 100%; 
+    width: 90%; 
     height: 0px; 
     background: #d3d3d3; 
     outline: none; 
@@ -332,6 +332,27 @@ form label{
     width: 25px;
     height: 25px; 
     border-radius: 50%;
-    background: #4CAF50;
+    background: #2C99DF;
     cursor: pointer; 
+}
+
+#slider-value{
+    display: -webkit-box;
+}
+
+#presupuesto-values{
+    display: flex;
+}
+
+.radio-configuracion{
+    padding-left: 1em;
+    margin-top: -1em;
+}
+
+.checkbox-configuracion{
+    display: grid;
+}
+
+.checkbox-configuracion label{
+    margin: 0em !important;
 }

@@ -33,7 +33,7 @@
         "mascota": "Mascotas",
         "acompaniantes": "Acompañantes",
         "ninios": "Niños",
-        "turismo": "Tipo de turismo",
+        "turismo": "Preferencias",
         "mostrarRuta":"Mostrar Ruta"
     },
     "perfil": {     
@@ -64,8 +64,8 @@
         "salir":"Salir",
         "rutas":"Rutas",
         "historial":"Historial",
-        "tienda":"tienda",
+        "tienda":"Tienda",
         "perfil":"Perfil",
-        "configuracion":"Configuracion"
+        "configuracion":"Configurar"
     }
 }

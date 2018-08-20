@@ -66,14 +66,14 @@ export class PerfilComponent implements OnInit {
         this.msg_error = 'no';
         this.msg_warn = 'no';
         this.msg_ok = 'no';
-        if (this.filesToUpload && this.filesToUpload.length >= 1) {
+        if (this.filesToUpload && this.filesToUpload.length >= 1) {          
             this._usuarioService.subirImagen(this.usuario.id, [], this.filesToUpload).then((result) => {
                 this.resultUpload = result;
                 this.usuario.nueva_imagen = this.resultUpload.filename;
                 this.guardarUsuario();
 
             }, (error) => {
-                console.log(error);
+                console.log(<any>error);
                 this._router.navigate(['/error']);
             });
         } else {

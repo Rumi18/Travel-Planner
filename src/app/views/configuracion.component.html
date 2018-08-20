@@ -1,30 +1,76 @@
 <cabecera></cabecera>
 <div class="component">
     <form id="form-configuracion" #formConfiguracion="ngForm" (ngSubmit)="onSubmit()">
-
+        <strong>Configuración de la ruta</strong>
+        <br/>
         <label>{{'configuracion.destino' | translate}}:</label>
         <select class="form-control" required>
-            <option>Seleccione..</option>
+            <option>Seleccione...</option>
             <option [ngValue]="ciudad.id" *ngFor="let ciudad of ciudades"> {{ciudad.nombre}}</option>
         </select>
 
         <label>{{'configuracion.duracion' | translate}}:</label>
-        <input type="range" class="form-control slider"  min="5" max="100000" step="1">
-
+        <div id="slider-value">
+            <input type="range" class="form-control slider col-sm-10" min="1" max="10" step="1" #duracion="ngModel" name="duracion" [(ngModel)]="configuracion.duracion">
+            <span class="col-sm-2">{{configuracion.duracion}}</span>
+        </div>
         <label>{{'configuracion.presupuesto' | translate}}:</label>
-        <input type="text" class="form-control" required/>
+        <div id="presupuesto-values">
+            <div class="col-sm-6">
+                <span>Mínimo:</span>
+                <input type="number" class="form-control" required/>
+            </div>
+            <div class="col-sm-6">
+                <span>Máximo:</span>
+                <input type="number" class="form-control" required/>
+            </div>
+        </div>
 
         <label>{{'configuracion.mascota' | translate}}:</label>
-        <input type="text" class="form-control" required/>
+        <div class="radio-configuracion">
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" class="custom-control-input" id="mascotaSi" name="mascotaSi">
+                <label class="custom-control-label" for="mascotaSi">Sí</label>
+            </div>
+
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" class="custom-control-input" id="mascotaNo" name="mascotaNo">
+                <label class="custom-control-label" for="mascotaNo">No</label>
+            </div>
+        </div>
 
         <label>{{'configuracion.acompaniantes' | translate}}:</label>
-        <input type="text" class="form-control" required/>
+        <div class="radio-configuracion">
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" class="custom-control-input" id="acompaniantesSi" name="acompaniantesSi">
+                <label class="custom-control-label" for="acompaniantesSi">Sí</label>
+            </div>
+
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" class="custom-control-input" id="acompaniantesNo" name="acompaniantesNo">
+                <label class="custom-control-label" for="acompaniantesNo">No</label>
+            </div>
+        </div>
 
         <label>{{'configuracion.ninios' | translate}}:</label>
-        <input type="text" class="form-control" required/>
+        <div class="radio-configuracion">
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" class="custom-control-input" id="niniosSi" name="niniosSi">
+                <label class="custom-control-label" for="niniosSi">Sí</label>
+            </div>
+
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" class="custom-control-input" id="niniosNo" name="niniosNo">
+                <label class="custom-control-label" for="niniosNo">No</label>
+            </div>
+        </div>
 
         <label>{{'configuracion.turismo' | translate}}:</label>
-        <input type="text" class="form-control" required/>
+        <div class="checkbox-configuracion">
+            <label *ngFor="let preferencia of preferencias">
+                <input type="checkbox" name="{{preferencia.nombre}}" value="{{preferencia.id}}" /> {{preferencia.nombre}}
+            </label>
+        </div>
 
 
     </form>

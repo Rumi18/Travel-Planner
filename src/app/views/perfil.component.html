@@ -3,7 +3,7 @@
     <form id="form-perfil" #formPerfil="ngForm" (ngSubmit)="onSubmit()">
         <div id="foto-perfil">
             <div *ngIf="usuario.imagen" class="img_container">
-                <img src="http://localhost/travelplanner/uploads/{{usuario.imagen}}" class="usuario_imagen" />
+                <img src="http://localhost/TravelPlanner/uploads/{{usuario.imagen}}" class="usuario_imagen" />
             </div>
             <div *ngIf="!usuario.imagen">
                 <img src="../assets/images/fotoPerfil.png" class="usuario_imagen" />

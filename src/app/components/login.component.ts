@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
 
     ngOnInit() {
         GLOBAL.vistaSeleccionada = this._route.component['name'];
-        console.log('Componente login.component.ts cargado');
+        console.log('Se ha cargado el componente login.component.ts');
     }
 
     onSubmit() {

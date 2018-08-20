@@ -18,6 +18,6 @@ export class ErrorComponent implements OnInit {
 
     ngOnInit() {
         GLOBAL.vistaSeleccionada = this._route.component['name'];
-        console.log('Componente error.component.ts cargado');
+        console.log('Se ha cargado el componente error.component.ts');
     }
 }

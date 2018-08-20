@@ -33,7 +33,7 @@
         "mascota": "Pets",
         "acompaniantes": "Partners",
         "ninios": "Children",
-        "turismo": "Type of tourism",
+        "turismo": "Preferences",
         "mostrarRuta":"Show route"
     },
     "perfil": {     
@@ -66,6 +66,6 @@
         "historial":"Record",
         "tienda":"Market",
         "perfil":"Profile",
-        "configuracion":"Configuration"
+        "configuracion":"Configure"
     }
 }

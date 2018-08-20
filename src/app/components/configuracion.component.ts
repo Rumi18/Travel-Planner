@@ -9,6 +9,7 @@ import { ConfiguracionService } from '../services/configuracion.service';
 import { Configuracion } from '../models/configuracion';
 import { TipoTurismo } from '../enums/tipoTurismo';
 import { Ciudad } from '../models/ciudad';
+import { Preferencia } from '../models/preferencia';
 
 @Component({
     selector: 'configuracion',
@@ -18,6 +19,7 @@ import { Ciudad } from '../models/ciudad';
 export class ConfiguracionComponent implements OnInit {
     public configuracion: Configuracion;
     public ciudades: Ciudad[];
+    public preferencias: Preferencia[];
 
     constructor(
         private _router: Router,
@@ -32,20 +34,41 @@ export class ConfiguracionComponent implements OnInit {
         GLOBAL.vistaSeleccionada = this._route.component['name'];
         console.log('Se ha cargado el componente configuracion.component.ts');     
         
-        this.getCiudades();         
+        this.cargaValores();         
+    }
+
+    cargaValores(){
+        this.getCiudades();
+        this.getPreferencias();
     }
 
     getCiudades() {
         this._configuracionService.getCiudades().subscribe(
             result => {              
                 if (result.code == 200) {                                     
-                    this.ciudades = result.data;         
-                    console.log(this.ciudades);                
+                    this.ciudades = result.data;              
                 } else {
                     this.ciudades = [];                    
                 }
             },
-            error => {              
+            error => {   
+                console.log(<any>error);           
+                this._router.navigate(['/error']);
+            }
+        );
+    }
+
+    getPreferencias() {
+        this._configuracionService.getPreferencias().subscribe(
+            result => {              
+                if (result.code == 200) {                                     
+                    this.preferencias = result.data;                
+                } else {
+                    this.preferencias = [];                    
+                }
+            },
+            error => {       
+                console.log(<any>error);       
                 this._router.navigate(['/error']);
             }
         );
