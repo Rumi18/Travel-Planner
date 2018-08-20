@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 // Traductor
@@ -43,14 +44,15 @@ import { TiendaComponent } from './components/tienda.component';
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    HttpModule,
+    routing,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
         useFactory: (createTranslateLoader),
         deps: [HttpClient]
       }
-    }),
-    routing
+    })
   ],
   providers: [appRoutingProviders],
   bootstrap: [AppComponent]

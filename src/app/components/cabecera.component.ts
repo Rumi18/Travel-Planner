@@ -21,7 +21,6 @@ export class CabeceraComponent {
 
     ngOnInit(){
         this.componentURL = this._router.url;
-        console.log(this.componentURL);
     }
 
     verComponente() {

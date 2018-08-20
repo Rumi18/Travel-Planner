@@ -1,25 +1,44 @@
 <div class="menu-principal">
-    <a id="cerrar-sesion" [routerLink]="['/']">
-        <img src="../assets/images/cerrar-sesion.png">
-    </a>
-    <a id="config-ruta" [routerLink]="['/configuracion']">
-        <img src="../assets/images/config-ruta.png">
-    </a>
-    <a id="rutas-pendientes" [routerLink]="['/rutasPendientes']">
-        <img src="../assets/images/rutas-pendientes.png">
-    </a>
-    <a id="historial" [routerLink]="['/historial']">
-        <img src="../assets/images/historial-ruta.png">
-    </a>
-    <a id="perfil" [routerLink]="['/perfil']">
-        <img src="../assets/images/perfil.png">
-    </a>
-
-    <a id="tienda">
-        <img src="../assets/images/tienda.png">
-    </a>
-
-    <span class="logo-travelPlanner">
-        <img src="../assets/images/logo-menu.png">
-    </span>
+    <div>
+        <a id="logoMenu">
+            <img src="../assets/images/logo-menu.png">
+        </a>
+    </div>
+    <div>
+        <a id="cerrar-sesion" [routerLink]="['/']">
+            <img src="../assets/images/cerrar-sesion.png">
+            <p>{{'menu.salir' | translate}}</p>
+        </a>
+    </div>
+    <div>
+        <a id="config-ruta" [routerLink]="['/configuracion']">
+            <img src="../assets/images/config-ruta.png">
+            <p>{{'menu.configuracion' | translate}}</p>
+        </a>
+        
+    </div>
+    <div>
+        <a id="rutas-pendientes" [routerLink]="['/rutasPendientes']">
+            <img src="../assets/images/rutas-pendientes.png">
+            <p>{{'menu.rutas' | translate}}</p>
+        </a>
+    </div>
+    <div>
+        <a id="perfil" [routerLink]="['/perfil/']">
+            <img src="../assets/images/perfil.png">
+            <p>{{'menu.perfil' | translate}}</p>
+        </a>
+    </div>
+    <div>
+        <a id="historial" [routerLink]="['/historial']">
+            <img src="../assets/images/historial-ruta.png">
+            <p>{{'menu.historial' | translate}}</p>
+        </a>
+    </div>
+    <div>
+        <a id="tienda">
+            <img src="../assets/images/tienda.png">
+            <p>{{'menu.tienda' | translate}}</p>
+        </a>
+    </div>
 </div>

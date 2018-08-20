@@ -11,57 +11,50 @@ import { Usuario } from '../models/usuario';
     selector: 'login',
     templateUrl: '../views/login.component.html',
     providers: [UsuarioService],
-    
+
 })
-export class LoginComponent implements OnInit{
+export class LoginComponent implements OnInit {
     public usuarioLogin: Login;
     public usuario: Usuario;
-    public validate:string;
+    public msg_error: string;
+    public msg_warn: string;
 
     constructor(
         private _router: Router,
+        private _route: ActivatedRoute,
         private _usuarioService: UsuarioService
-    ){
+    ) {
         this.usuarioLogin = new Login('', '');
-    
+
     }
 
-    ngOnInit(){
-        console.log('Componente login.component.ts cargado');
+    ngOnInit() {
+        GLOBAL.vistaSeleccionada = this._route.component['name'];
+        console.log('Se ha cargado el componente login.component.ts');
     }
 
-    onSubmit(){
-        console.log(this.usuarioLogin);
-    
-        if(GLOBAL.url_api != 'prueba'){
-           this._usuarioService.getUsuario(this.usuarioLogin.user_name).subscribe(
-                result => {
-                    if(result['code'] != 200){
-                        this.validate = 'no';
+    onSubmit() {
+        this._usuarioService.login(this.usuarioLogin.user_name).subscribe(
+            result => {
+                if (result['code'] == 200) {                   
+                    this.usuario = result['data'];
+                    if (this.usuario.user_passwd == this.usuarioLogin.user_passwd) {
+                        this.msg_error = 'no';     
+                        GLOBAL.idUsuario = this.usuario.id;                                     
+                        this._router.navigate(['/menuOpciones']);
+                    } else {
+                        this.msg_error = 'si';
                         this._router.navigate(['/login']);
-                    }else{
-                        this.usuario = result['data'];
-                        if(this.usuario.user_passwd == this.usuarioLogin.user_passwd){
-                            this.validate = 'si';
-                            this._router.navigate(['/menuOpciones']);
-                        }else{
-                            this.validate = 'no';
-                            this._router.navigate(['/login']);
-                        }
-                    }
-                },
-                error => {
-                    console.log(<any>error);
-                    this._router.navigate(['/error']);
+                    }           
+                } else {
+                    this.msg_warn = 'si';
+                    this._router.navigate(['/login']);
                 }
-            );
-
-            console.log("Este es mi usuario: ");
-            console.log(this.usuario);
-
-            //this._router.navigate(['/inicio']);
-        }else{
-            this._router.navigate(['/inicio']);
-        }
+            },
+            error => {               
+                console.log(<any>error);               
+                this._router.navigate(['/error']);
+            }
+        );
     }
 }
