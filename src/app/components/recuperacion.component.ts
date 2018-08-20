@@ -16,65 +16,76 @@ import { Usuario } from '../models/usuario';
     providers: [UsuarioService, CorreoService],
 })
 
-export class RecuperacionComponent {
+export class RecuperacionComponent{
     public recuperado: Recuperacion;
     public usuario: Usuario;
-    public emailCorrecto: string;
+    public emailCorrecto: string; 
 
     constructor(
         private _router: Router,
         private _route: ActivatedRoute,
         private _usuarioService: UsuarioService,
         private _correoService: CorreoService
-    ) {
+    ){
         this.recuperado = new Recuperacion('');
         this.emailCorrecto = '';
     }
 
-    ngOnInit() {
+    ngOnInit(){
         console.log('Componente recuperacion.component.ts cargado');
         GLOBAL.vistaSeleccionada = this._route.component['name'];
     }
 
-    onSubmit() {
+    onSubmit(){
         console.log(this.recuperado.correo);
 
-        this._usuarioService.getUsuarioEmail(this.recuperado).subscribe(
-            result => {
-                if (result['code'] != 200) {
-                    console.log('No se ha recuperado ningun correo');
-                    this.emailCorrecto = 'no';
-                    this.recuperado.correo = '';
-                    this._router.navigate(['/recuperacion']);
-                } else {
-                    this.usuario = result['data'];
-
-                    if (this.usuario.email == this.recuperado.correo) {
-                        // Mandar correo
-                        this._correoService.enviarMensaje(this.usuario).subscribe(
-                            res => {
-                                console.log('AppComponent Success', res);
-                            },
-                            error => {
-                                console.log('AppComponent Error', error);
-                            }
-                        );
-
-                        this.emailCorrecto = 'si';
-                        this._router.navigate(['/recuperacion']);
-                        console.log('HURRAAAAAAAAAA ME VA A MANDAR UN CORREO');
-                    } else {
+        if (GLOBAL.url_api != 'prueba') {
+            this._usuarioService.getUsuarioEmail(this.recuperado).subscribe(
+                result => {
+                    if (result['code'] != 200) {
+                        console.log('No se ha recuperado ningun correo');
                         this.emailCorrecto = 'no';
+                        this.recuperado.correo = '';
                         this._router.navigate(['/recuperacion']);
-                    }
-                }
+                    } else {
+                        this.usuario = result['data'];
 
-            },
-            error => {
-                console.log(<any>error);
-                this._router.navigate(['/error']);
+                        if (this.usuario.email == this.recuperado.correo) {
+                            // Mandar correo
+                            this._correoService.enviarMensaje(this.usuario).subscribe(
+                                res => {
+                                    console.log('AppComponent Success', res);
+                                }, 
+                                error => {
+                                    console.log('AppComponent Error', error);
+                                }
+                            );
+
+                            this.emailCorrecto = 'si';
+                            this._router.navigate(['/recuperacion']);
+                            console.log('HURRAAAAAAAAAA ME VA A MANDAR UN CORREO');
+                        } else {
+                            this.emailCorrecto = 'no';
+                            this._router.navigate(['/recuperacion']);
+                        }
+                    }
+
+                },
+                error => {
+                    console.log(<any>error);
+                    this._router.navigate(['/error']);
+                }
+            );
+
+        } else {
+            if (this.recuperado.correo == 'rubtavpic@us.es') {
+                this.emailCorrecto = 'si';
+                this._router.navigate(['/recuperacion']);
+            } else {
+                this.emailCorrecto = 'no';
+                this._router.navigate(['/recuperacion']);
             }
-        );
+        }
 
     }
 }

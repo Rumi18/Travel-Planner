@@ -1,19 +1,22 @@
 <cabecera></cabecera>
-<div id=login class="component">    
-    <div class="alert alert-danger" *ngIf="msg_error == 'si'">{{'login.msgError' | translate}}</div>
-    <div class="alert alert-warning" *ngIf="msg_warn == 'si'">{{'login.msgWarn' | translate}}</div>
-
+<div id="login">
+    
     <form #formLogin="ngForm" id="form-login" (ngSubmit)="onSubmit()">
         <label>{{'login.usuario' | translate}}:</label>
-        <span class="campoObligatorio" *ngIf="!username.valid && username.touched"> {{'formulario.campoObligatorio' | translate}}</span>
+        <span *ngIf="!username.valid && username.touched"> {{'formulario.campoObligatorio' | translate}}</span>
         <input type="text" #username="ngModel" name="username" [(ngModel)]="usuarioLogin.user_name" class="form-control" required>
 
         <label>{{'login.password' | translate}}:</label>
-        <span class="campoObligatorio" *ngIf="!userpasswd.valid && userpasswd.touched"> {{'formulario.campoObligatorio' | translate}}</span>
+        <span *ngIf="!userpasswd.valid && userpasswd.touched"> {{'formulario.campoObligatorio' | translate}}</span>
         <input type="password" #userpasswd="ngModel" name="userpasswd" [(ngModel)]="usuarioLogin.user_passwd" class="form-control" required>
+
+        <div id="span" *ngIf="validate == 'no'">
+            <span>{{'login.validaciónUsuarioPassword' | translate}}</span>
+        </div>
         
         <div id="btn-login">
             <input type="submit" value="{{'login.entrar' | translate}}" [disabled]="!formLogin.form.valid" class="btn btn-lg clr_orange"/>
+    
         </div>
     </form>
     <p>{{'login.mensajeInicio' | translate}}</p>

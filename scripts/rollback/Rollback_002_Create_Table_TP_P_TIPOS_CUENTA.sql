@@ -2,6 +2,6 @@
 -- TABLA TP_P_TIPOS_CUENTA  -- 
 ------------------------------
 
-USE TravelPlanner;
+USE `TravelPlanner`;
 
-DROP TABLE IF EXISTS TP_P_TIPOS_CUENTA; 
+DROP table if exists `TP_P_TIPOS_CUENTA`;
