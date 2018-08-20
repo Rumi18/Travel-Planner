@@ -1,5 +1,5 @@
 {
-    "home": {
+    "inicio": {
         "iniciar_sesion": "Iniciar sesión",
         "entrar": "Entrar",
         "registrar": "Registrarse",
@@ -59,6 +59,12 @@
         "mensajeFin": "para recuperarla",
         "msgError": "Contraseña no válida",
         "msgWarn": "Usuario no encontrado"
+    },
+    "recuperacion": {
+        "introduccion": "Introduzca el correo con el que se registró para recurperar su contraseña",
+        "error": "El correo que ha introducido no se encuentra en nuestra base de datos",
+        "ok": "Se acaba de enviar un mensaje con sus datos al correo introducido",
+        "enviar": "Enviar"
     },
     "menu":{
         "salir":"Salir",

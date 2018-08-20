@@ -1,5 +1,5 @@
 {
-    "home": {
+    "inicio": {
         "iniciar_sesion": "Sign in",
         "entrar": "Log in",
         "registrar": "Sign up",
@@ -8,7 +8,7 @@
     },
     "error": {
         "tituloError": "An error has occurred",
-        "fraseError": "Please press the Travel Planner logo to go to the menu"
+        "fraseError": "Please press the Travel Planner logo to go to the beginning"
     },
     "formulario": {
         "campoObligatorio": "Required field",
@@ -23,7 +23,8 @@
         "usuario": "Username",    
         "contrasenia": "Password",
         "repetir_contrasenia": "Repeat password",
-        "registrarse": "Sign up"
+        "registrarse": "Sign up",
+        "msgError": "Please, fill all the required fields to sign up"
     },
     "configuracion": {
         "destino": "Destination",
@@ -32,16 +33,21 @@
         "mascota": "Pets",
         "acompaniantes": "Partners",
         "ninios": "Children",
-        "turismo": "Type of tourism",
+        "turismo": "Preferences",
         "mostrarRuta":"Show route"
     },
     "perfil": {     
         "email": "Email",
-        "cambiarPass": "Change password",
-        "antiguoPass": "Old password",
+        "antiguaPass": "Old password",
         "nuevaPass": "New password",
         "repetirPass": "Repeat new password",
-        "eliminarCuenta": "Delete account"
+        "eliminarCuenta": "Delete account",
+        "imagen": "Upload image",
+        "msgNuevaPass":"Enter your new password",
+        "msgOk": "Correctly updated information",
+        "msgWarn": "The password entered does not match the stored password, please enter it again",
+        "msgError": "The information could not be updated",
+        "eliminar": "Delete account"
     },
     "login": {
         "usuario": "User",
@@ -51,6 +57,21 @@
         "clic": "Press",
         "aqui": "here",
         "mensajeFin": "to recover it",
-        "validaciónUsuarioPassword": "Incorrect user name or password"
+        "msgError": "Incorrect password",
+        "msgWarn": "User not found"
+    },
+    "recuperacion": {
+        "introduccion": "Insert the registration email to recover your password",
+        "error": "The email that you have inserted isn't in our database",
+        "ok": "A message with your user name and password has been sent to the inserted email",
+        "enviar": "Send"
+    },
+    "menu":{
+        "salir":"Sign out",
+        "rutas":"Router",
+        "historial":"Record",
+        "tienda":"Market",
+        "perfil":"Profile",
+        "configuracion":"Configure"
     }
 }

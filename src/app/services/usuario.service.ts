@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
-import { Http, Response, Headers, RequestOptions } from '@angular/http';
-import 'rxjs/add/operator/map';
-import { Observable } from 'rxjs/Observable';
+import { HttpClient, HttpHeaders, HttpResponse, HttpRequest } from '@angular/common/http';
+import { Md5 } from 'ts-md5/dist/md5';
 
 //Servicios
 import { GLOBAL } from './global';
 
 // Modelos
 import { Usuario } from '../models/usuario';
+import { Login } from '../models/login';
+import { Recuperacion } from '../models/recuperacion';
 
 
 
@@ -23,32 +24,29 @@ export class UsuarioService{
 
 
     constructor(
-        public _http: Http
+        public _http: HttpClient,
+        private _md5: Md5
     ){
         this.uri = GLOBAL.uri;
         this.recurs_addUsuario = GLOBAL.recurs_addUsuario;
-        this.recurs_login = GLOBAL.recurs_login;
         this.recurs_setUsuario = GLOBAL.recurs_setUsuario;
         this.recurs_getUsuario = GLOBAL.recurs_getUsuario;
         this.recurs_deleteUsuario = GLOBAL.recurs_deleteUsuario;
         this.recurs_uploadImage = GLOBAL.recurs_uploadImage;
     }
 
-    addUsuario(usuario:Usuario){
-        let json = JSON.stringify(usuario);
-		let params = 'json='+json;
-        let headers = new Headers({'Content-Type':'application/x-www-form-urlencoded'});
-
-		return this._http.post(this.uri + this.recurs_addUsuario, params, {headers: headers})
-						 .map(res => res.json());
-    }
-
-    login(nombre:string){
-        return this._http.get(this.uri + this.recurs_login + nombre).map(res => res.json());
+    getLogin(usuarioLogueado:Login){
+        if (usuarioLogueado.user_name == '') {
+            return this._http.get(GLOBAL.uri+GLOBAL.recurs_error);
+        } else if (usuarioLogueado.user_passwd == '') {
+            return this._http.get(GLOBAL.uri+GLOBAL.recurs_error);
+        } else {
+            return this._http.get(GLOBAL.uri+GLOBAL.recurs_getLogin+usuarioLogueado.user_name);
+        }
     }
 
     getUsuario(idUsuario:number){       
-        return this._http.get(this.uri + this.recurs_getUsuario + idUsuario).map(res => res.json());
+        return this._http.get(this.uri + this.recurs_getUsuario + idUsuario);
     }
 
     subirImagen(idUsuario:number, params: Array<string>, files: Array<File>){
@@ -74,18 +72,47 @@ export class UsuarioService{
 			xhr.send(formData);
 		});
     }
-    
+
     setUsuario(usuario: Usuario){
         let json = JSON.stringify(usuario);
-		let params = 'json='+json;
-        let headers = new Headers({'Content-Type':'application/x-www-form-urlencoded'});
+        let params = "json="+json;
+        let headers = new HttpHeaders().set('Content-Type','application/x-www-form-urlencoded');
 
-		return this._http.post(this.uri + this.recurs_setUsuario + usuario.id, params, {headers: headers})
-						 .map(res => res.json());
+        return this._http.post(GLOBAL.uri+GLOBAL.recurs_setUsuario + usuario.id, params, {headers:headers});
     }
 
     deleteUsuario(idUsuario: number){
-        return this._http.get(this.uri + this.recurs_deleteUsuario + idUsuario).map(res => res.json());
+        return this._http.get(this.uri + this.recurs_deleteUsuario + idUsuario);
+    }
+
+    getUsuarioEmail(recuperado:Recuperacion){
+        if (recuperado.correo == '') {
+            return this._http.get(GLOBAL.uri+GLOBAL.recurs_error);
+        } else {
+            return this._http.get(GLOBAL.uri+GLOBAL.recurs_email+recuperado.correo);
+        }
+    }
+
+    addUsuario(usuario:Usuario){
+        // Comprobación de datos del formulario
+        if (usuario.nombre == '') {
+            return this._http.get(GLOBAL.uri+GLOBAL.recurs_error);
+        } else if (usuario.email == '') {
+            return this._http.get(GLOBAL.uri+GLOBAL.recurs_error);
+        } else if (usuario.user_name == '') {
+            return this._http.get(GLOBAL.uri+GLOBAL.recurs_error);
+        } else if (usuario.user_passwd == '') {
+            return this._http.get(GLOBAL.uri+GLOBAL.recurs_error);
+        } else {
+            //generar la contraseña
+            usuario.user_passwd = this._md5.appendStr(usuario.user_passwd).end().toString();
+
+            let json = JSON.stringify(usuario);
+            let params = "json="+json;
+            let headers = new HttpHeaders().set('Content-Type','application/x-www-form-urlencoded');
+
+            return this._http.post(GLOBAL.uri+GLOBAL.recurs_addUsuario, params, {headers:headers});
+        }
     }
 
 }

@@ -5,6 +5,8 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { UsuarioService } from '../services/usuario.service';
 import { Usuario } from '../models/usuario';
 import { GLOBAL } from '../services/global';
+import { AlmacenamientoService } from '../services/almacenamiento.service';
+import { Sesion } from '../models/sesion';
 
 @Component({
     selector: 'perfil',
@@ -23,7 +25,8 @@ export class PerfilComponent implements OnInit {
     constructor(
         private _usuarioService: UsuarioService,
         private _router: Router,
-        private _route: ActivatedRoute
+        private _route: ActivatedRoute,
+        private _almacenamientoService: AlmacenamientoService
     ) {
         this.usuario = new Usuario(null, '', '', '', '', '', '', '', '', '');
     }
@@ -36,29 +39,15 @@ export class PerfilComponent implements OnInit {
     }
 
     private getInforUsuario() {
-        
-        this._usuarioService.getUsuario(GLOBAL.idUsuario).subscribe(
-            result => {
-                if (result['code'] == 200) {                    
-                    this.usuario = result['data'];                 
-                    this.antiguaPass = this.usuario.user_passwd;
-                    this.usuario.user_passwd = '';
-                    this.usuario.newPasswd = '';
-                    this.usuario.repeatPasswd = '';
-                    this.usuario.nueva_imagen = '';
-
-                } else {
-                    this._router.navigate(['/menu']);
-                }
-            },
-            error => {
-                console.log(<any>error);
-                this._router.navigate(['/error']);
-            }
-        );
+        this.usuario = this._almacenamientoService.getUsuarioActual();
+        this.antiguaPass = this.usuario.user_passwd;
+        this.usuario.user_passwd = '';
+        this.usuario.newPasswd = '';
+        this.usuario.repeatPasswd = '';
+        this.usuario.nueva_imagen = '';
     }
 
-    private subirImagen(fileInput: any) {
+    public subirImagen(fileInput: any) {
         this.filesToUpload = <Array<File>>fileInput.target.files;
     }
     
@@ -104,9 +93,9 @@ export class PerfilComponent implements OnInit {
 
             this._usuarioService.setUsuario(this.usuario).subscribe(
                 response => {
-                    if (response.code == 200) {
+                    if (response['code'] == 200) {
                         this.msg_ok = 'si';
-                        this.getInforUsuario();                        
+                        this._almacenamientoService.setSesionActual(new Sesion(this._almacenamientoService.getTokenActual(),this.usuario));                        
                         this._router.navigate(['/perfil']);
                     } else {                        
                         this.msg_error = 'si';
@@ -127,7 +116,8 @@ export class PerfilComponent implements OnInit {
     eliminarUsuario(){
         this._usuarioService.deleteUsuario(this.usuario.id).subscribe(
                 response => {
-                    if (response.code == 200) {                         
+                    if (response['code'] == 200) {
+                        this._almacenamientoService.borrarSesionActual();                         
                         this._router.navigate(['/inicio']);
                     } else {                        
                         this.msg_error = 'si';

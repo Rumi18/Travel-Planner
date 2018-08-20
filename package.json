@@ -24,6 +24,7 @@
     "@ngx-translate/core": "^10.0.2",
     "@ngx-translate/http-loader": "^3.0.1",
     "core-js": "^2.5.4",
+    "node-gyp": "^3.8.0",
     "rxjs": "^6.0.0",
     "rxjs-compat": "^6.2.2",
     "ts-md5": "^1.2.4",
@@ -49,5 +50,18 @@
     "protractor": "~5.3.0",
     "ts-node": "~5.0.1",
     "tslint": "~5.9.1"
-  }
+  },
+  "description": "Es una aplicación para ayudar a los usuarios a planificar sus viajes, dependiendo de la configuración que los usuarios quieran poner en su panel de configuración (dinero que quieran gastar, duración del viaje, etc).",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TravelPlanner18/Travel-Planner.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TravelPlanner18/Travel-Planner/issues"
+  },
+  "homepage": "https://github.com/TravelPlanner18/Travel-Planner#readme"
 }

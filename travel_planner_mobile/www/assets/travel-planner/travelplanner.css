@@ -72,6 +72,32 @@ form label{
     margin-top: 20px;
 }
 
+.campoObligatorio{
+    color: #D7263D;
+    font-weight: bold;
+    padding-left: 0.5em;
+    font-size: 11px;
+}
+
+.component form img{
+    width: 30px;
+    height: 30px;
+}
+
+.component form p{
+    margin-top: 50px;
+    text-align: center;
+    font-size: 15px;
+}
+
+.form-control:disabled{
+    opacity: 0.5 !important;
+}
+
+.btn[disabled]{
+    opacity: 0.5 !important;
+}
+
 /*Vista error.component.html*/
 #logo-error{
     text-align: center;
@@ -87,7 +113,6 @@ form label{
 #texto-error{
     text-align: center;
 }
-
 
 #texto-error > h5{
     margin-top: 1em;
@@ -129,115 +154,33 @@ form label{
     text-align: center;
 }
 
-/*Vista menu.component.html*/
-.menu-principal {
-    position: absolute;   
-    bottom: 45%;
-    right: 37%;
-    width: 100px;
-    height: 100px;
-  }
-  
-.menu-principal span {
-    width: 100px;
-    height: 100px;
-    display: block; 
-    text-align: center;
-    line-height: 100px;
-    background: #FFF;
-    border-radius: 50%;
-    font-size: 22px;
-    z-index:999;  
-}
-.menu-principal a{
-    position: absolute;
-    background: #fff;
-    border-radius: 50%;
-    width: 80px;
-    height: 80px;
-    line-height: 80px;
-    text-align: center;
-    top: 0;
-    right: 0;
-    z-index:99;
-    font-size:22px;
-}
-
-.menu-principal a:nth-child(1) {
-    transform: translate(-0.2em,-5.1em);
-}
-.menu-principal a:nth-child(2) {
-    transform: translate(-5.1em,-2.9em);
-}
-.menu-principal a:nth-child(3) {
-    transform: translate(4.5em,-2.5em);
-}
-.menu-principal a:nth-child(4) {
-    transform: translate(4.6em,2.6em);
-}
-.menu-principal a:nth-child(5) {
-    transform: translate(-5.5em,2.8em);
-}
-.menu-principal a:nth-child(6) {
-    transform: translate(-0.3em,6em);
-}
-
-.logo-travelPlanner > img{
-    padding-bottom: 1em;
-}
-
-#cerrar-sesion > img {
-    padding-bottom: 0.4em;
-}
-
-#config-ruta > img {
-    padding-bottom: 0.5em;
-}
-
-#perfil > img {
-    padding-bottom: 0.5em;
-}
-
-#historial> img {
-    padding-left: 0.2em;
-}
-
 /*Vista registro.component.html*/
-#form-registro span{
-    color: #D7263D;
-    font-weight: bold;
-}
-
-#form-registro img{
-    width: 30px;
-    height: 30px;
-}
-
-#form-registro p{
-    margin-top: 50px;
-    text-align: center;
-    font-size: 15px;
-}
-
 #btn-registrarse{
     text-align: center;
     margin-top: 40px;
 }
 
-/*Vista configuracion.component.html*/
-#form-configuracion p{
-    color: #D7263D !important;
+/*Vista recuperacion.component.html*/
+#form-recuperacion{
+    margin-top: 200px;
+    text-align: center;
+}
+
+#form-recuperacion span{
+    color: #D7263D;
+    font-weight: bold;
+    margin-top: 40px;
+    float: unset;
+}
+
+#btn-recuperar{
+    margin-top: 40px;
+    float: unset;
 }
 
 /*Vista login.component.html*/
 #login {
     padding-top: 41px;
-}
-
-#span{
-    text-align: center;
-    color: #D7263D;
-    margin-top: 20px;
 }
 
 #login p{
@@ -246,31 +189,86 @@ form label{
     margin: 0;
 }
 
-#form-login {
-    margin-left: 40px;
-    margin-right: 40px;
-    margin-top: 60px;
-}
-
-#form-login span{
-    color: #D7263D;
-    font-weight: bold;
-}
-
-#form-login label{
-    color:white;
-    margin-top: 20px;
-    text-align: left !important;
-}
-
 #btn-login{
     text-align: center;
     margin: 40px;
 }
 
-#btn-crearRuta{
-    text-align: center;
-    margin-top: 40px;
+/*Vista menu.component.html*/
+
+.menu-principal{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.menu-principal div{
+    display: block;
+}
+
+.menu-principal a{
+    position: absolute;
+    background: #fff;    
+    text-align: center !important;   
+    height: 100px;
+    width: 100px; 
+    border-radius: 50%;
+}
+
+.menu-principal a p{
+    font-size: 13px;
+    font-weight: bolder;
+    margin: 0.8em;
+    font-style: italic;
+    position: relative;
+    display: inline-block;
+    color: #202020;
+}
+  
+.menu-principal img{
+    width: 70% !important;
+    position: relative;
+    top: 16%;
+    left: 0%;
+} 
+
+#logoMenu{
+    z-index: 999 !important;
+    top: 31%;
+    left: 34%;
+    width: 120px;
+    height: 120px;
+    background: #F58A07;
+}
+
+#cerrar-sesion{
+    top: 10%;
+    left: 37%;
+}
+
+#tienda{
+    top: 56%;
+    left: 37%;
+}
+
+#config-ruta{
+    top: 20%;
+    left: 3%;
+}
+
+#rutas-pendientes{
+    top: 20%;
+    right: 3%;
+}
+
+#perfil{
+    top: 43%;
+    left: 3%;
+}
+
+#historial{
+    top: 43%;
+    right: 3%;
 }
 
 /*Vista perfil.component.html*/
@@ -280,17 +278,25 @@ form label{
     margin-top: 5em;
 }
 
-#img-perfil{
-    width:65%;
-    height:65%;
-    border-radius:160px;
-    border:10px solid #F58A07;
+.img_container{
+	width: 100%;
+	overflow: hidden;
 }
+
+.usuario_imagen{  
+    height: 12em !important;
+    margin: 0px auto;
+    width: 12em !important;
+    display: block;
+    border-radius: 160px;
+    border: 10px solid #F58A07;
+}
+
 
 #infor-usuario{
     text-align: center;
     padding-top: 0.6em;
-    margin-bottom: 2em;
+    margin-bottom: 1em;
 }
 
 #infor-email{
@@ -305,4 +311,66 @@ form label{
 #btns-perfil{
     text-align: center;
     margin-top: 40px;
+    display: inline-flex;
+    width: 100%;
+}
+
+#btns-perfil div{
+    width: 50%;
+}
+
+.alert-perfil{
+    margin-top:2em;
+}
+
+.btn-eliminar{
+    width: 100% !important;
+}
+
+
+/*Vista configuracion.component.html*/
+
+.slidecontainer {
+    width: 100%; 
+}
+
+.slider {
+    -webkit-appearance: none;  
+    appearance: none;
+    width: 90%; 
+    height: 0px; 
+    background: #d3d3d3; 
+    outline: none; 
+}
+
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px; 
+    border-radius: 50%;
+    background: #2C99DF;
+    cursor: pointer; 
+}
+
+#slider-value{
+    display: -webkit-box;
+}
+
+#presupuesto-values{
+    display: flex;
+}
+
+.radio-configuracion{
+    padding-left: 1em;
+    margin-top: -1em;
+}
+
+.checkbox-configuracion{
+    display: grid;
+}
+
+.checkbox-configuracion label{
+    margin: 0em !important;
 }

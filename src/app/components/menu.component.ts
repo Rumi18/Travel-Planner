@@ -3,6 +3,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 
 // Servicios
 import { GLOBAL } from '../services/global';
+import { AlmacenamientoService } from '../services/almacenamiento.service';
 
 @Component({
     selector: 'menuOpciones',
@@ -12,7 +13,8 @@ export class MenuComponent implements OnInit {
 
     constructor(
         private _router: Router,
-        private _route: ActivatedRoute
+        private _route: ActivatedRoute,
+        private _almacenamientoService: AlmacenamientoService
     ) {
 
     }
@@ -21,5 +23,9 @@ export class MenuComponent implements OnInit {
     ngOnInit() {
         console.log('Se ha cargado el componente menu.component.ts');
         GLOBAL.vistaSeleccionada = this._route.component['name'];
+    }
+
+    cerrarSesion(){
+        this._almacenamientoService.borrarSesionActual();
     }
 }

@@ -3,20 +3,23 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 //Servicios
 import { GLOBAL } from '../services/global';
+import { AlmacenamientoService } from '../services/almacenamiento.service';
 
 @Component({
     selector: 'cabecera',
     templateUrl: '../views/cabecera.component.html'
 })
 export class CabeceraComponent {
-    public title = 'Travel Planner';
-    public componentURL = '';
+    public title: string
+    public componentURL: string;
 
     constructor(
         private _router: Router,
-        private _route: ActivatedRoute
+        private _route: ActivatedRoute,
+        private _almacenamientoService: AlmacenamientoService
     ){
-
+      this.title = 'Travel Planner';
+      this.componentURL = '';
     }
 
     ngOnInit(){
@@ -42,6 +45,10 @@ export class CabeceraComponent {
           case 'RegistroComponent':
             this._router.navigate(['/inicio']);
             break;
+
+          case 'RecuperacionComponent':
+            this._router.navigate(['/login']);
+            break; 
     
           case 'PerfilComponent':
             this._router.navigate(['/menuOpciones']);
