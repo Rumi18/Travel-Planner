@@ -45,6 +45,10 @@ export class CabeceraComponent {
           case 'RegistroComponent':
             this._router.navigate(['/inicio']);
             break;
+
+          case 'RecuperacionComponent':
+            this._router.navigate(['/login']);
+            break; 
     
           case 'PerfilComponent':
             this._router.navigate(['/menuOpciones']);

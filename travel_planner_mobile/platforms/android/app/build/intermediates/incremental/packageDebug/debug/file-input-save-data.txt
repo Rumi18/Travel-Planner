@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Sun Aug 19 18:52:27 CEST 2018
+#Mon Aug 20 18:28:06 CEST 2018
 76.base=E\:\\Documentos\\Proyectos\\Proyecto_Travel_Planner\\travel-planner-repo\\Travel-Planner\\travel_planner_mobile\\platforms\\android\\app\\build\\intermediates\\assets\\debug
 5.base=E\:\\Documentos\\Proyectos\\Proyecto_Travel_Planner\\travel-planner-repo\\Travel-Planner\\travel_planner_mobile\\platforms\\android\\app\\build\\intermediates\\res\\debug\\resources-debug.ap_
 42.base=E\:\\Documentos\\Proyectos\\Proyecto_Travel_Planner\\travel-planner-repo\\Travel-Planner\\travel_planner_mobile\\platforms\\android\\app\\build\\intermediates\\assets\\debug
@@ -16,7 +16,7 @@
 10.set=ASSET
 28.set=ASSET
 22.base=E\:\\Documentos\\Proyectos\\Proyecto_Travel_Planner\\travel-planner-repo\\Travel-Planner\\travel_planner_mobile\\platforms\\android\\app\\build\\intermediates\\res\\debug\\resources-debug.ap_
-0.file=E\:\\Documentos\\Proyectos\\Proyecto_Travel_Planner\\travel-planner-repo\\Travel-Planner\\travel_planner_mobile\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\assets\\images\\atras.png
+0.file=E\:\\Documentos\\Proyectos\\Proyecto_Travel_Planner\\travel-planner-repo\\Travel-Planner\\travel_planner_mobile\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\main.0561a832792660b7ca7c.js
 61.set=ASSET
 79.set=ANDROID_RESOURCE
 32.base=E\:\\Documentos\\Proyectos\\Proyecto_Travel_Planner\\travel-planner-repo\\Travel-Planner\\travel_planner_mobile\\platforms\\android\\app\\build\\intermediates\\res\\debug\\resources-debug.ap_
@@ -78,7 +78,7 @@
 20.set=ASSET
 38.set=ASSET
 23.base=E\:\\Documentos\\Proyectos\\Proyecto_Travel_Planner\\travel-planner-repo\\Travel-Planner\\travel_planner_mobile\\platforms\\android\\app\\build\\intermediates\\res\\debug\\resources-debug.ap_
-1.file=E\:\\Documentos\\Proyectos\\Proyecto_Travel_Planner\\travel-planner-repo\\Travel-Planner\\travel_planner_mobile\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\assets\\images\\historial-ruta.png
+1.file=E\:\\Documentos\\Proyectos\\Proyecto_Travel_Planner\\travel-planner-repo\\Travel-Planner\\travel_planner_mobile\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\assets\\images\\atras.png
 71.set=ASSET
 33.base=E\:\\Documentos\\Proyectos\\Proyecto_Travel_Planner\\travel-planner-repo\\Travel-Planner\\travel_planner_mobile\\platforms\\android\\app\\build\\intermediates\\assets\\debug
 66.file=E\:\\Documentos\\Proyectos\\Proyecto_Travel_Planner\\travel-planner-repo\\Travel-Planner\\travel_planner_mobile\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\cordova-js-src\\exec.js
@@ -140,7 +140,7 @@ count=80
 30.set=ANDROID_RESOURCE
 48.set=ANDROID_RESOURCE
 24.base=E\:\\Documentos\\Proyectos\\Proyecto_Travel_Planner\\travel-planner-repo\\Travel-Planner\\travel_planner_mobile\\platforms\\android\\app\\build\\intermediates\\res\\debug\\resources-debug.ap_
-2.file=E\:\\Documentos\\Proyectos\\Proyecto_Travel_Planner\\travel-planner-repo\\Travel-Planner\\travel_planner_mobile\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\main.469f0b08aa5301b3aa2f.js
+2.file=E\:\\Documentos\\Proyectos\\Proyecto_Travel_Planner\\travel-planner-repo\\Travel-Planner\\travel_planner_mobile\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\assets\\images\\historial-ruta.png
 34.base=E\:\\Documentos\\Proyectos\\Proyecto_Travel_Planner\\travel-planner-repo\\Travel-Planner\\travel_planner_mobile\\platforms\\android\\app\\build\\intermediates\\assets\\debug
 67.file=E\:\\Documentos\\Proyectos\\Proyecto_Travel_Planner\\travel-planner-repo\\Travel-Planner\\travel_planner_mobile\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\runtime.a66f828dca56eeb90e02.js
 18.base=E\:\\Documentos\\Proyectos\\Proyecto_Travel_Planner\\travel-planner-repo\\Travel-Planner\\travel_planner_mobile\\platforms\\android\\app\\build\\intermediates\\assets\\debug

@@ -1,0 +1,13 @@
+<cabecera></cabecera>
+<div class="component">
+    <form #formRecuperacion="ngForm" id="form-recuperacion" (ngSubmit)="onSubmit()">
+        <p>{{'recuperacion.introduccion' | translate}}</p>
+        <span *ngIf="!correo.valid && correo.touched"> {{'formulario.campoObligatorio' | translate}}</span>
+        <input type="email" #correo="ngModel" name="correo" [(ngModel)]="recuperado.correo" class="form-control" required pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}" />
+        <span *ngIf="emailCorrecto == 'si'">{{'recuperacion.ok' | translate}}</span>
+        <span *ngIf="emailCorrecto == 'no'">{{'recuperacion.error' | translate}}</span>
+        <div id="btn-recuperar">
+            <input type="submit" value="{{'recuperacion.enviar' | translate}}" [disabled]="!formRecuperacion.form.valid" class="btn btn-lg clr_blue_ligth"/>
+        </div>        
+    </form>
+</div>

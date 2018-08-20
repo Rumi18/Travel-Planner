@@ -52,5 +52,11 @@
         "aqui": "aquí",
         "mensajeFin": "para recuperarla",
         "validaciónUsuarioPassword": "Usuario o contraseña no válidos"
+    },
+    "recuperacion": {
+        "introduccion": "Introduzca el correo con el que se registró para recurperar su contraseña",
+        "error": "El correo que ha introducido no se encuentra en nuestra base de datos",
+        "ok": "Se acaba de enviar un mensaje con sus datos al correo introducido",
+        "enviar": "Enviar"
     }
 }

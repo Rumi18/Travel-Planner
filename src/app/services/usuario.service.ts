@@ -9,6 +9,7 @@ import { GLOBAL } from './global';
 // Modelos
 import { Usuario } from '../models/usuario';
 import { Login } from '../models/login';
+import { Recuperacion } from '../models/recuperacion';
 
 @Injectable()
 export class UsuarioService{
@@ -32,6 +33,14 @@ export class UsuarioService{
             return this._http.get(this.url+'error');
         } else {
             return this._http.get(this.url+'usuario/'+usuarioLogueado.user_name);
+        }
+    }
+
+    getUsuarioEmail(recuperado:Recuperacion){
+        if (recuperado.correo == '') {
+            return this._http.get(this.url+'error');
+        } else {
+            return this._http.get(this.url+'usuario_mail/'+recuperado.correo);
         }
     }
 

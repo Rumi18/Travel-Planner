@@ -20,6 +20,7 @@ import { CabeceraComponent } from './components/cabecera.component';
 import { InicioComponent } from './components/inicio.component';
 import { RegistroComponent } from './components/registro.component';
 import { LoginComponent } from './components/login.component';
+import { RecuperacionComponent } from './components/recuperacion.component';
 import { ErrorComponent } from './components/error.component';
 import { MenuComponent } from './components/menu.component';
 import { PerfilComponent } from './components/perfil.component';
@@ -37,6 +38,7 @@ import { Md5 } from 'ts-md5';
     InicioComponent,
     RegistroComponent,
     LoginComponent,
+    RecuperacionComponent,
     ErrorComponent,
     MenuComponent,
     PerfilComponent,

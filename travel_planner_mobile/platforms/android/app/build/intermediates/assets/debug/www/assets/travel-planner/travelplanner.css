@@ -129,6 +129,24 @@ form label{
     text-align: center;
 }
 
+/*Vista recuperacion.component.html*/
+#form-recuperacion{
+    margin-top: 200px;
+    text-align: center;
+}
+
+#form-recuperacion span{
+    color: #D7263D;
+    font-weight: bold;
+    margin-top: 40px;
+    float: unset;
+}
+
+#btn-recuperar{
+    margin-top: 40px;
+    float: unset;
+}
+
 /*Vista menu.component.html*/
 .menu-principal {
     position: absolute;   

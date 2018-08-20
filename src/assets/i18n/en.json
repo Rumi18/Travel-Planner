@@ -52,5 +52,11 @@
         "aqui": "here",
         "mensajeFin": "to recover it",
         "validaciónUsuarioPassword": "Incorrect user name or password"
+    },
+    "recuperacion": {
+        "introduccion": "Insert the registration email to recover your password",
+        "error": "The email that you have inserted isn't in our database",
+        "ok": "A message with your user name and password has been sent to the inserted email",
+        "enviar": "Send"
     }
 }

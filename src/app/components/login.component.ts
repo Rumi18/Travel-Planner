@@ -23,6 +23,7 @@ export class LoginComponent implements OnInit{
 
     constructor(
         private _router: Router,
+        private _route: ActivatedRoute,
         private _usuarioService: UsuarioService,
         private _md5: Md5,
         private _almacenamientoService: AlmacenamientoService
@@ -33,6 +34,7 @@ export class LoginComponent implements OnInit{
 
     ngOnInit(){
         console.log('Componente login.component.ts cargado');
+        GLOBAL.vistaSeleccionada = this._route.component['name'];
     }
 
     onSubmit(){

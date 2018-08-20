@@ -1,5 +1,5 @@
 {
-    "home": {
+    "inicio": {
         "iniciar_sesion": "Sign in",
         "entrar": "Log in",
         "registrar": "Sign up",
@@ -8,7 +8,7 @@
     },
     "error": {
         "tituloError": "An error has occurred",
-        "fraseError": "Please press the Travel Planner logo to go to the menu"
+        "fraseError": "Please press the Travel Planner logo to go to the beginning"
     },
     "formulario": {
         "campoObligatorio": "Required field",
@@ -52,5 +52,11 @@
         "aqui": "here",
         "mensajeFin": "to recover it",
         "validaciónUsuarioPassword": "Incorrect user name or password"
+    },
+    "recuperacion": {
+        "introduccion": "Insert the registration email to recover your password",
+        "error": "The email that you have inserted isn't in our database",
+        "ok": "A message with your user name and password has been sent to the inserted email",
+        "enviar": "Send"
     }
 }

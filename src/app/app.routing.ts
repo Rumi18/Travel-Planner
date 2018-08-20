@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 // Componentes
 import { InicioComponent } from './components/inicio.component';
 import { RegistroComponent } from './components/registro.component';
+import { RecuperacionComponent } from './components/recuperacion.component';
 import { ErrorComponent } from './components/error.component';
 import { MenuComponent } from './components/menu.component';
 import { PerfilComponent } from './components/perfil.component';
@@ -19,6 +20,7 @@ const appRoutes: Routes = [
     {path: 'inicio', component: InicioComponent},
     {path: 'registro', component: RegistroComponent},
     {path: 'login', component: LoginComponent},
+    {path: 'recuperacion', component: RecuperacionComponent},
     {path: 'menuOpciones', component: MenuComponent, canActivate: [Autorizado]},
     {path: 'perfil', component: PerfilComponent, canActivate: [Autorizado]},
     {path: 'historial', component: HistorialComponent, canActivate: [Autorizado]},
