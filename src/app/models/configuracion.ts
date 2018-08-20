@@ -2,13 +2,13 @@ import { TipoTurismo } from '../enums/tipoTurismo';
 
 export class Configuracion {
     constructor(
-        public destino: String,
-        public duracion: Number,
-        public presupuesto_limInf: Number,
-        public presupuesto_limSup: Number,
-        public mascota: Boolean,
-        public acompañantes: Boolean,
-        public niños: Boolean,
+        public destino: string,
+        public duracion: number,
+        public presupuesto_limInf: number,
+        public presupuesto_limSup: number,
+        public mascota: boolean,
+        public acompañantes: boolean,
+        public niños: boolean,
         public tipoTurismo: TipoTurismo
     ) { }
 }

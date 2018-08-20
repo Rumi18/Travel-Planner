@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 //Servicios
@@ -51,14 +52,15 @@ import { Md5 } from 'ts-md5';
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    HttpModule,
+    routing,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
         useFactory: (createTranslateLoader),
         deps: [HttpClient]
       }
-    }),
-    routing
+    })
   ],
   providers: [appRoutingProviders, Md5, Autorizado, AlmacenamientoService],
   bootstrap: [AppComponent]

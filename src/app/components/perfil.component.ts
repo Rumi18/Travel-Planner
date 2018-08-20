@@ -5,6 +5,8 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { UsuarioService } from '../services/usuario.service';
 import { Usuario } from '../models/usuario';
 import { GLOBAL } from '../services/global';
+import { AlmacenamientoService } from '../services/almacenamiento.service';
+import { Sesion } from '../models/sesion';
 
 @Component({
     selector: 'perfil',
@@ -13,25 +15,120 @@ import { GLOBAL } from '../services/global';
 })
 export class PerfilComponent implements OnInit {
     public usuario: Usuario;
+    private antiguaPass: string;
+    public msg_error: string;
+    public msg_ok: string;
+    public msg_warn: string;
+    public filesToUpload;
+    public resultUpload;
 
     constructor(
+        private _usuarioService: UsuarioService,
         private _router: Router,
-        private _route: ActivatedRoute
+        private _route: ActivatedRoute,
+        private _almacenamientoService: AlmacenamientoService
     ) {
-
+        this.usuario = new Usuario(null, '', '', '', '', '', '', '', '', '');
     }
 
     // Método que se lanza automáticamente después del constructor del componente 
     ngOnInit() {
         GLOBAL.vistaSeleccionada = this._route.component['name'];
         console.log('Se ha cargado el componente perfil.component.ts');
-
-        //Llamamos a base de datos para obtener la información del usuario
-        this.usuario = new Usuario('Jon', 'Snow', 'winterIsComing@gmail.com', 'youKnowNothing',"", 'holdTheDoor', '', '');
+        this.getInforUsuario();
     }
 
-    onSubmit() {
-        console.log(this.usuario);
+    private getInforUsuario() {
+        this.usuario = this._almacenamientoService.getUsuarioActual();
+        this.antiguaPass = this.usuario.user_passwd;
+        this.usuario.user_passwd = '';
+        this.usuario.newPasswd = '';
+        this.usuario.repeatPasswd = '';
+        this.usuario.nueva_imagen = '';
+    }
 
+    public subirImagen(fileInput: any) {
+        this.filesToUpload = <Array<File>>fileInput.target.files;
+    }
+    
+    onSubmit() {
+        this.msg_error = 'no';
+        this.msg_warn = 'no';
+        this.msg_ok = 'no';
+        if (this.filesToUpload && this.filesToUpload.length >= 1) {          
+            this._usuarioService.subirImagen(this.usuario.id, [], this.filesToUpload).then((result) => {
+                this.resultUpload = result;
+                this.usuario.nueva_imagen = this.resultUpload.filename;
+                this.guardarUsuario();
+
+            }, (error) => {
+                console.log(<any>error);
+                this._router.navigate(['/error']);
+            });
+        } else {
+            this.guardarUsuario();
+        }
+    }
+
+    private guardarUsuario() {
+        if (this.usuario.user_passwd != '' && this.antiguaPass != this.usuario.user_passwd) {
+            this.msg_warn = 'si';
+            this.usuario.user_passwd = '';
+            this.usuario.newPasswd = '';
+            this.usuario.repeatPasswd = '';
+        } else {
+            if (this.usuario.user_passwd == '') {              
+                this.usuario.user_passwd = this.antiguaPass;
+            } else {
+                if (this.usuario.newPasswd != '') {
+                    this.usuario.user_passwd = this.usuario.newPasswd;
+                } else {
+                    this.usuario.user_passwd = this.antiguaPass;
+                }
+            }
+
+            if (this.usuario.nueva_imagen != '') {
+                this.usuario.imagen = this.usuario.nueva_imagen;
+            }
+
+            this._usuarioService.setUsuario(this.usuario).subscribe(
+                response => {
+                    if (response['code'] == 200) {
+                        this.msg_ok = 'si';
+                        this._almacenamientoService.setSesionActual(new Sesion(this._almacenamientoService.getTokenActual(),this.usuario));                        
+                        this._router.navigate(['/perfil']);
+                    } else {                        
+                        this.msg_error = 'si';
+                        this._router.navigate(['/perfil']);
+                    }
+                },
+                error => {
+                    console.log(<any>error);
+                    this._router.navigate(['/error']);
+                }
+            );
+
+        }
+       this.getInforUsuario();
+
+    }
+
+    eliminarUsuario(){
+        this._usuarioService.deleteUsuario(this.usuario.id).subscribe(
+                response => {
+                    if (response['code'] == 200) {
+                        this._almacenamientoService.borrarSesionActual();                         
+                        this._router.navigate(['/inicio']);
+                    } else {                        
+                        this.msg_error = 'si';
+                        this._router.navigate(['/perfil']);
+                    }
+                },
+                error => {
+                    console.log(<any>error);
+                    this._router.navigate(['/error']);
+                }
+            );
     }
 }
+
