@@ -1,4 +1,7 @@
--------------------------------
--- CREACIÓN DE BASE DE DATOS --
--------------------------------
-DROP DATABASE IF EXISTS TravelPlanner;
+----------------------------------
+-- ELIMINACIÓN DE BASE DE DATOS --
+----------------------------------
+
+DROP database if exists `TravelPlanner`;
+
+SET SQL_SAFE_UPDATES = 1;

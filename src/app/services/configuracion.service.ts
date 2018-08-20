@@ -1,33 +1,30 @@
 import { Injectable } from '@angular/core';
-import { Http, Response, Headers, RequestOptions } from '@angular/http';
-import 'rxjs/add/operator/map';
-import { Observable } from 'rxjs/Observable';
+import { HttpClient, HttpHeaders, HttpResponse, HttpRequest } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+
+// Modelos
+import { Configuracion } from '../models/configuracion';
 
 //Servicios
 import { GLOBAL } from './global';
 
 @Injectable()
-export class ConfiguracionService{
-    public uri: string;
-    public recurs_getCiudades: string;
-    public recurs_getPreferencias: string;
-
+export class ConfiguracionService {
+    public url: string;
 
     constructor(
-        public _http: Http
-    ){
-        this.uri = GLOBAL.uri;
-        this.recurs_getCiudades = GLOBAL.recurs_getCiudades;
-        this.recurs_getPreferencias = GLOBAL.recurs_getPreferencias;
-
-    }
- 
-    getCiudades(){
-        return this._http.get(this.uri + this.recurs_getCiudades).map(res => res.json());
+        public _http: HttpClient
+    ) {
+        this.url = GLOBAL.url_api;
     }
 
-    getPreferencias(){
-        return this._http.get(this.uri + this.recurs_getPreferencias).map(res => res.json());
-    }
+    // Método para almacenar en base de datos una nueva configuración
+    addConfiguracion(configuracion: Configuracion) {
+        let json = JSON.stringify(configuracion);
+        let params = "json=" + json;
+        let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
 
+        return this._http.post(this.url + 'configuraciones', params, { headers: headers });
+    }
 }

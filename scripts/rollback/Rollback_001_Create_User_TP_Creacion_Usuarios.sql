@@ -1,7 +1,8 @@
 ----------------------------------------
--- TABLA TP_R_LOCALIZACION-CATEGORIA  -- 
+-- ELIMINACION DE USUARIOS DE LA BBDD -- 
 ----------------------------------------
 
 USE `TravelPlanner`;
 
-DROP TABLE IF EXISTS TP_R_LOCALIZACION_CATEGORIA; 
+drop user 'administrador'@'%';
+drop user 'usuario'@'%';

@@ -1,7 +1,7 @@
 --------------------------
--- TABLA TP_P_CIUDADES  -- 
+-- TABLA TP_D_USUARIOS  -- 
 --------------------------
 
 USE `TravelPlanner`;
 
-DROP TABLE IF EXISTS TP_P_CIUDADES; 
+DROP table if exists `TP_D_USUARIOS`;
