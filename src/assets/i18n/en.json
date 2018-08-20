@@ -13,7 +13,10 @@
     "formulario": {
         "campoObligatorio": "Required field",
         "cancelar": "Cancel",
-        "guardar": "Save"
+        "guardar": "Save",
+        "seleccione":"Select...",
+        "si":"Yes",
+        "no":"No"
     },
     "registro": {
         "volver": "Return",
@@ -27,9 +30,12 @@
         "msgError": "Please, fill all the required fields to sign up"
     },
     "configuracion": {
+        "titulo_configuracion":"Route settings",
         "destino": "Destination",
         "duracion": "Duration",
         "presupuesto": "Budget",
+        "minimo":"Minimum",
+        "maximo":"Maximum",
         "mascota": "Pets",
         "acompaniantes": "Partners",
         "ninios": "Children",

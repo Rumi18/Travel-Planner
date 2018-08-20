@@ -1,27 +1,28 @@
 <cabecera></cabecera>
 <div class="component">
     <form id="form-configuracion" #formConfiguracion="ngForm" (ngSubmit)="onSubmit()">
-        <strong>Configuración de la ruta</strong>
-        <br/>
+        <div id="lbl_configuracion">
+            <strong>{{'configuracion.titulo_configuracion' | translate}}</strong>
+        </div>
         <label>{{'configuracion.destino' | translate}}:</label>
         <select class="form-control" required>
-            <option>Seleccione...</option>
+            <option>{{'formulario.seleccione' | translate}}</option>
             <option [ngValue]="ciudad.id" *ngFor="let ciudad of ciudades"> {{ciudad.nombre}}</option>
         </select>
 
         <label>{{'configuracion.duracion' | translate}}:</label>
         <div id="slider-value">
-            <input type="range" class="form-control slider col-sm-10" min="1" max="10" step="1" #duracion="ngModel" name="duracion" [(ngModel)]="configuracion.duracion">
-            <span class="col-sm-2">{{configuracion.duracion}}</span>
+            <input type="range" class="form-control slider" min="1" max="10" step="1" #duracion="ngModel" name="duracion" [(ngModel)]="configuracion.duracion">
+            <span id="num_duracion">{{configuracion.duracion}}</span>
         </div>
         <label>{{'configuracion.presupuesto' | translate}}:</label>
         <div id="presupuesto-values">
             <div class="col-sm-6">
-                <span>Mínimo:</span>
+                <span>{{'configuracion.minimo' | translate}}:</span>
                 <input type="number" class="form-control" required/>
             </div>
             <div class="col-sm-6">
-                <span>Máximo:</span>
+                <span>{{'configuracion.maximo' | translate}}:</span>
                 <input type="number" class="form-control" required/>
             </div>
         </div>
@@ -30,12 +31,12 @@
         <div class="radio-configuracion">
             <div class="custom-control custom-radio custom-control-inline">
                 <input type="radio" class="custom-control-input" id="mascotaSi" name="mascotaSi">
-                <label class="custom-control-label" for="mascotaSi">Sí</label>
+                <label class="custom-control-label" for="mascotaSi">{{'formulario.si' | translate}}</label>
             </div>
 
             <div class="custom-control custom-radio custom-control-inline">
                 <input type="radio" class="custom-control-input" id="mascotaNo" name="mascotaNo">
-                <label class="custom-control-label" for="mascotaNo">No</label>
+                <label class="custom-control-label" for="mascotaNo">{{'formulario.no' | translate}}</label>
             </div>
         </div>
 
@@ -43,12 +44,12 @@
         <div class="radio-configuracion">
             <div class="custom-control custom-radio custom-control-inline">
                 <input type="radio" class="custom-control-input" id="acompaniantesSi" name="acompaniantesSi">
-                <label class="custom-control-label" for="acompaniantesSi">Sí</label>
+                <label class="custom-control-label" for="acompaniantesSi">{{'formulario.si' | translate}}</label>
             </div>
 
             <div class="custom-control custom-radio custom-control-inline">
                 <input type="radio" class="custom-control-input" id="acompaniantesNo" name="acompaniantesNo">
-                <label class="custom-control-label" for="acompaniantesNo">No</label>
+                <label class="custom-control-label" for="acompaniantesNo">{{'formulario.no' | translate}}</label>
             </div>
         </div>
 
@@ -56,12 +57,12 @@
         <div class="radio-configuracion">
             <div class="custom-control custom-radio custom-control-inline">
                 <input type="radio" class="custom-control-input" id="niniosSi" name="niniosSi">
-                <label class="custom-control-label" for="niniosSi">Sí</label>
+                <label class="custom-control-label" for="niniosSi">{{'formulario.si' | translate}}</label>
             </div>
 
             <div class="custom-control custom-radio custom-control-inline">
                 <input type="radio" class="custom-control-input" id="niniosNo" name="niniosNo">
-                <label class="custom-control-label" for="niniosNo">No</label>
+                <label class="custom-control-label" for="niniosNo">{{'formulario.no' | translate}}</label>
             </div>
         </div>
 
@@ -72,6 +73,9 @@
             </label>
         </div>
 
+        <div id="btn-crearRuta">
+            <input type="submit" value="{{'configuracion.mostrarRuta' | translate}}" class="btn btn-lg clr_orange" />
+        </div>
 
     </form>
 </div>

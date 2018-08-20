@@ -13,7 +13,10 @@
     "formulario": {
         "campoObligatorio": "Campo obligatorio",
         "cancelar": "Cancelar",
-        "guardar": "Guardar"
+        "guardar": "Guardar",
+        "seleccione":"Seleccione...",
+        "si":"Sí",
+        "no":"No"
     },
     "registro": {
         "volver": "Volver",
@@ -27,9 +30,12 @@
         "msgError": "Por favor, rellene todos los campos obligatorios para registrarse"
     },
     "configuracion": {
+        "titulo_configuracion":"Configuración de la ruta",
         "destino": "Destino",
         "duracion": "Duracion",
         "presupuesto": "Presupuesto",
+        "minimo":"Mínimo",
+        "maximo":"Máximo",
         "mascota": "Mascotas",
         "acompaniantes": "Acompañantes",
         "ninios": "Niños",

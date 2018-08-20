@@ -312,6 +312,12 @@ form label{
 
 /*Vista configuracion.component.html*/
 
+#lbl_configuracion{
+    text-align: center;
+    margin-top: 5em;
+    margin-bottom: 1em;
+}
+
 .slidecontainer {
     width: 100%; 
 }
@@ -325,7 +331,6 @@ form label{
     outline: none; 
 }
 
-
 .slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
@@ -337,7 +342,11 @@ form label{
 }
 
 #slider-value{
-    display: -webkit-box;
+    display: flex;
+}
+
+#num_duracion{
+    margin-left:1em;
 }
 
 #presupuesto-values{
@@ -355,4 +364,9 @@ form label{
 
 .checkbox-configuracion label{
     margin: 0em !important;
+}
+
+#btn-crearRuta{
+    text-align: center;
+    margin-top: 40px;
 }
