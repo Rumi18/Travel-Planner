@@ -68,7 +68,7 @@ export class PerfilComponent implements OnInit {
         console.log(this.usuario);
     }
 
-    private subirImagen(fileInput: any) {
+    public subirImagen(fileInput: any) {
         this.filesToUpload = <Array<File>>fileInput.target.files;
     }
     
