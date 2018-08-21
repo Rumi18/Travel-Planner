@@ -12,7 +12,7 @@ import { Usuario } from './models/usuario';
 })
 
 export class AppComponent {
-  public title: string ;
+  public title: string;
   public componentURL: string;
   private user: Usuario;
 
@@ -27,7 +27,7 @@ export class AppComponent {
     this._translateService.setDefaultLang('es');
   }
 
-  ngOnInit(){
+  ngOnInit() {
     this.user = this._almacenamientoService.getUsuarioActual();
     if (this._almacenamientoService.estaAutenticado()) {
       this._router.navigate(['/menuOpciones']);

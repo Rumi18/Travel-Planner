@@ -10,25 +10,22 @@ import { GLOBAL } from '../services/global';
     templateUrl: '../views/inicio.component.html'
 })
 export class InicioComponent implements OnInit {
-    public titulo: string;
+
 
     constructor(
         private _translateService: TranslateService,
         private _router: Router,
         private _route: ActivatedRoute) {
-
-        this.titulo = 'Página principal';
     }
 
     // Método que se lanza automáticamente después del constructor del componente 
-    ngOnInit() {
-        console.log('Componente inicio.component.ts cargado');
+    ngOnInit() {      
         GLOBAL.vistaSeleccionada = this._route.component['name'];
+        console.log('Se ha cargado el componente inicio.component.ts');
     }
 
     // Método para cambiar el idioma de la aplicación
-    switchLanguage(language: string) {
-        console.log('Estas usando ' + language);
+    switchLanguage(language: string) {        
         this._translateService.setDefaultLang(language);
     }
 }

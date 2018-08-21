@@ -13,21 +13,21 @@ import { RutasPendientesComponent } from './components/rutasPendientes.component
 import { ConfiguracionComponent } from './components/configuracion.component';
 import { TiendaComponent } from './components/tienda.component';
 import { LoginComponent } from './components/login.component';
-import { Autorizado } from'../app/helpers/guard';
+import { Autorizado } from '../app/helpers/guard';
 
 const appRoutes: Routes = [
-    {path: '', component: InicioComponent},
-    {path: 'inicio', component: InicioComponent},
-    {path: 'registro', component: RegistroComponent},
-    {path: 'login', component: LoginComponent},
-    {path: 'recuperacion', component: RecuperacionComponent},
-    {path: 'menuOpciones', component: MenuComponent, canActivate: [Autorizado]},
-    {path: 'perfil', component: PerfilComponent, canActivate: [Autorizado]},
-    {path: 'historial', component: HistorialComponent, canActivate: [Autorizado]},
-    {path: 'rutasPendientes', component: RutasPendientesComponent, canActivate: [Autorizado]},
-    {path: 'configuracion', component: ConfiguracionComponent, canActivate: [Autorizado]},
-    {path: 'tienda', component: TiendaComponent, canActivate: [Autorizado]},
-    {path: '**', component: ErrorComponent}
+    { path: '', component: InicioComponent },
+    { path: 'inicio', component: InicioComponent },
+    { path: 'registro', component: RegistroComponent },
+    { path: 'login', component: LoginComponent },
+    { path: 'recuperacion', component: RecuperacionComponent },
+    { path: 'menuOpciones', component: MenuComponent, canActivate: [Autorizado] },
+    { path: 'perfil', component: PerfilComponent, canActivate: [Autorizado] },
+    { path: 'historial', component: HistorialComponent, canActivate: [Autorizado] },
+    { path: 'rutasPendientes', component: RutasPendientesComponent, canActivate: [Autorizado] },
+    { path: 'configuracion', component: ConfiguracionComponent, canActivate: [Autorizado] },
+    { path: 'tienda', component: TiendaComponent, canActivate: [Autorizado] },
+    { path: '**', component: ErrorComponent }
 ];
 
 export const appRoutingProviders: any[] = [];

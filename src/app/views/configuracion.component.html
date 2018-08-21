@@ -1,31 +1,80 @@
+<cabecera></cabecera>
 <div class="component">
     <form id="form-configuracion" #formConfiguracion="ngForm" (ngSubmit)="onSubmit()">
-
+        <div id="lbl_configuracion">
+            <strong>{{'configuracion.titulo_configuracion' | translate}}</strong>
+        </div>
         <label>{{'configuracion.destino' | translate}}:</label>
-        <input type="text" class="form-control" #destino="ngModel" name="destino" [(ngModel)]="configuracion.destino"  required/>
+        <select class="form-control" required>
+            <option>{{'formulario.seleccione' | translate}}</option>
+            <option [ngValue]="ciudad.id" *ngFor="let ciudad of ciudades"> {{ciudad.nombre}}</option>
+        </select>
 
         <label>{{'configuracion.duracion' | translate}}:</label>
-        <input type="text" class="form-control"  required/>
-
+        <div id="slider-value">
+            <input type="range" class="form-control slider" min="1" max="10" step="1" #duracion="ngModel" name="duracion" [(ngModel)]="configuracion.duracion">
+            <span id="num_duracion">{{configuracion.duracion}}</span>
+        </div>
         <label>{{'configuracion.presupuesto' | translate}}:</label>
-        <input type="text" class="form-control" required/>
+        <div id="presupuesto-values">
+            <div class="col-sm-6">
+                <span>{{'configuracion.minimo' | translate}}:</span>
+                <input type="number" class="form-control" required/>
+            </div>
+            <div class="col-sm-6">
+                <span>{{'configuracion.maximo' | translate}}:</span>
+                <input type="number" class="form-control" required/>
+            </div>
+        </div>
 
         <label>{{'configuracion.mascota' | translate}}:</label>
-        <input type="text" class="form-control" required/>
+        <div class="radio-configuracion">
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" class="custom-control-input" id="mascotaSi" name="mascotaSi">
+                <label class="custom-control-label" for="mascotaSi">{{'formulario.si' | translate}}</label>
+            </div>
+
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" class="custom-control-input" id="mascotaNo" name="mascotaNo">
+                <label class="custom-control-label" for="mascotaNo">{{'formulario.no' | translate}}</label>
+            </div>
+        </div>
 
         <label>{{'configuracion.acompaniantes' | translate}}:</label>
-        <input type="text" class="form-control" required/>
+        <div class="radio-configuracion">
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" class="custom-control-input" id="acompaniantesSi" name="acompaniantesSi">
+                <label class="custom-control-label" for="acompaniantesSi">{{'formulario.si' | translate}}</label>
+            </div>
+
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" class="custom-control-input" id="acompaniantesNo" name="acompaniantesNo">
+                <label class="custom-control-label" for="acompaniantesNo">{{'formulario.no' | translate}}</label>
+            </div>
+        </div>
 
         <label>{{'configuracion.ninios' | translate}}:</label>
-        <input type="text" class="form-control" required/>
+        <div class="radio-configuracion">
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" class="custom-control-input" id="niniosSi" name="niniosSi">
+                <label class="custom-control-label" for="niniosSi">{{'formulario.si' | translate}}</label>
+            </div>
+
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" class="custom-control-input" id="niniosNo" name="niniosNo">
+                <label class="custom-control-label" for="niniosNo">{{'formulario.no' | translate}}</label>
+            </div>
+        </div>
 
         <label>{{'configuracion.turismo' | translate}}:</label>
-        <input type="text" class="form-control" required/>
+        <div class="checkbox-configuracion">
+            <label *ngFor="let preferencia of preferencias">
+                <input type="checkbox" name="{{preferencia.nombre}}" value="{{preferencia.id}}" /> {{preferencia.nombre}}
+            </label>
+        </div>
 
         <div id="btn-crearRuta">
-            <input type="submit" value="{{'configuracion.mostrarRuta' | translate}}" [disabled]="!formConfiguracion.form.valid" class="btn btn-lg clr_blue_ligth"
-            />
-         
+            <input type="submit" value="{{'configuracion.mostrarRuta' | translate}}" class="btn btn-lg clr_orange" />
         </div>
 
     </form>

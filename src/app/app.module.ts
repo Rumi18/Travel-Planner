@@ -51,14 +51,14 @@ import { Md5 } from 'ts-md5';
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    routing,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
         useFactory: (createTranslateLoader),
         deps: [HttpClient]
       }
-    }),
-    routing
+    })
   ],
   providers: [appRoutingProviders, Md5, Autorizado, AlmacenamientoService],
   bootstrap: [AppComponent]
