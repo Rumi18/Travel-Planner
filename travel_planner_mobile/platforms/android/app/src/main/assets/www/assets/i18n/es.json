@@ -4,7 +4,7 @@
         "entrar": "Entrar",
         "registrar": "Registrarse",
         "espaniol": "es",
-        "ingles": "en"       
+        "ingles": "en"
     },
     "error": {
         "tituloError": "Se ha producido un error",
@@ -13,7 +13,10 @@
     "formulario": {
         "campoObligatorio": "Campo obligatorio",
         "cancelar": "Cancelar",
-        "guardar": "Guardar"
+        "guardar": "Guardar",
+        "seleccione": "Seleccione...",
+        "si": "Sí",
+        "no": "No"
     },
     "registro": {
         "volver": "Volver",
@@ -23,25 +26,8 @@
         "usuario": "Usuario",
         "contrasenia": "Contraseña",
         "repetir_contrasenia": "Repetir contraseña",
-        "registrarse": "Registrarse"
-    },
-    "configuracion": {
-        "destino": "Destino",
-        "duracion": "Duracion",
-        "presupuesto": "Presupuesto",
-        "mascota": "Mascotas",
-        "acompaniantes": "Acompañantes",
-        "ninios": "Niños",
-        "turismo": "Tipo de turismo",
-        "mostrarRuta":"Mostrar Ruta"
-    },
-    "perfil": {     
-        "email": "Email",
-        "cambiarPass": "Cambiar de contraseña",
-        "antiguoPass": "Contraseña antigua",
-        "nuevaPass": "Nueva contraseña",
-        "repetirPass": "Repetir nueva contraseña",
-        "eliminarCuenta": "Eliminar cuenta"
+        "registrarse": "Registrarse",
+        "msgError": "Por favor, rellene todos los campos obligatorios para registrarse"
     },
     "login": {
         "usuario": "Usuario",
@@ -51,12 +37,47 @@
         "clic": "Pulse",
         "aqui": "aquí",
         "mensajeFin": "para recuperarla",
-        "validaciónUsuarioPassword": "Usuario o contraseña no válidos"
+        "msgError": "Contraseña no válida",
+        "msgWarn": "Usuario no encontrado"
     },
     "recuperacion": {
         "introduccion": "Introduzca el correo con el que se registró para recurperar su contraseña",
         "error": "El correo que ha introducido no se encuentra en nuestra base de datos",
         "ok": "Se acaba de enviar un mensaje con sus datos al correo introducido",
         "enviar": "Enviar"
+    },
+    "menu": {
+        "salir": "Salir",
+        "rutas": "Rutas",
+        "historial": "Historial",
+        "tienda": "Tienda",
+        "perfil": "Perfil",
+        "configuracion": "Configurar"
+    },
+    "perfil": {
+        "email": "Email",
+        "antiguaPass": "Contraseña antigua",
+        "nuevaPass": "Nueva contraseña",
+        "repetirPass": "Repetir nueva contraseña",
+        "eliminarCuenta": "Eliminar cuenta",
+        "imagen": "Subir imagen",
+        "msgNuevaPass": "Escriba la nueva contraseña",
+        "msgOk": "Información actualizada correctamente",
+        "msgWarn": "La contraseña introducida no coincide con la contraseña almacenada, por favor escríbala de nuevo",
+        "msgError": "No se ha podido actualizar la información",
+        "eliminar": "Eliminar cuenta"
+    },
+    "configuracion": {
+        "titulo_configuracion": "Configuración de la ruta",
+        "destino": "Destino",
+        "duracion": "Duracion",
+        "presupuesto": "Presupuesto",
+        "minimo": "Mínimo",
+        "maximo": "Máximo",
+        "mascota": "Mascotas",
+        "acompaniantes": "Acompañantes",
+        "ninios": "Niños",
+        "turismo": "Preferencias",
+        "mostrarRuta": "Mostrar Ruta"
     }
 }
