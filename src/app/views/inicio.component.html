@@ -1,0 +1,17 @@
+<div id="inicio">
+    <div id="selector-idioma">
+        <label (click)="switchLanguage('es')">{{'inicio.espaniol' | translate}}</label> |
+        <label (click)="switchLanguage('en')">{{'inicio.ingles' | translate}}</label>
+    </div>
+    <div id="imagen-logo">
+        <img src="assets/images/logo.png">
+    </div>
+    <div id="botones-inicio">
+        <div>
+            <a [routerLink]="['/login']" class="btn btn-lg clr_orange">{{'inicio.iniciar_sesion' | translate}}</a>
+        </div>
+        <div>
+            <a [routerLink]="['/registro']" class="btn btn-lg clr_blue_ligth">{{'inicio.registrar' | translate}}</a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,4 @@
+#Tue Aug 21 22:25:56 CEST 2018
+base.0=C\:\\Users\\Miriam\\Desktop\\versionGIt\\Travel-Planner\\travel_planner_mobile\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+renamed.0=classes.dex
+file.0=C\:\\Users\\Miriam\\Desktop\\versionGIt\\Travel-Planner\\travel_planner_mobile\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0\\classes.dex

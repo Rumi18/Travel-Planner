@@ -1,31 +1,30 @@
 <!doctype html>
 <html lang="es">
 
-  <head class="head">
-    <meta charset="utf-8">
-    <title>Travel Planner</title>
-    <base href="/">
+<head>
+  <meta charset="utf-8">
+  <title>Travel Planner</title>
+  <base href="./">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" type="image/x-icon" href="./assets/images/logo.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
 
-    <!-- jQuery -->
-    <script src="assets/jquery/jquery.mobile.min.js"></script>
-    <script src="assets/bootstrap-4.1.1/js/bootstrap.min.js"></script>    
-    <script src="assets/jquery/jquery.min.js" ></script>
-    <script src="assets/jquery/travelPlanner.js" ></script>
+  <!--jQuery-->
+  <script type="text/javascript" src="assets/jquery/jquery.min.js"></script>
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="assets/bootstrap-4.1.1/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="assets/css/jquery.mobile.min.css"/>
-    <link rel="stylesheet" href="assets/css/travelPlanner.css"/>
+  <!--Bootstrap-->
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
+  <script type="text/javascript" src="assets/bootstrap/js/bootstrap.min.js"></script>
 
-  </head>
+  <!--Travel Planner-->
+  <link rel="stylesheet" href="assets/travel-planner/travelplanner.css" />
 
-  <body class="body">
-    <div id="container" class="container-fluid container clr_blue_dark">
-        <app-root/>
-    </div>
-  </body>
-  
+  <script type="text/javascript" src="assets/travel-planner/travelplanner.js"></script>
+
+</head>
+
+<body id="body" onload="onLoad()">
+  <app-root></app-root>
+</body>
+
 </html>

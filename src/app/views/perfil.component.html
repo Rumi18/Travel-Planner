@@ -1,0 +1,63 @@
+<cabecera></cabecera>
+<div class="component">
+    <form id="form-perfil" #formPerfil="ngForm" (ngSubmit)="onSubmit()">
+        <div id="foto-perfil">
+            <div *ngIf="usuario.imagen" class="img_container">
+                <img src="http://localhost/TravelPlanner/uploads/{{usuario.imagen}}" class="usuario_imagen" />
+            </div>
+            <div *ngIf="!usuario.imagen">
+                <img src="../assets/images/fotoPerfil.png" class="usuario_imagen" />
+
+            </div>
+        </div>
+
+        <div id="infor-usuario">
+            <div id="nombreCompleto-perfil">
+                <strong>
+                    <h5>{{usuario.nombre}} {{usuario.apellidos}}</h5>
+                </strong>
+            </div>
+            <span>{{usuario.user_name}}</span>
+            <div id="infor-email">
+                <span>{{usuario.email}} </span>
+            </div>
+        </div>
+
+        <div id="edit-usuario">
+            <label>{{'perfil.antiguaPass' | translate}}:</label>
+            <input type="password" #antiguaPass="ngModel" name="antiguaPass" [(ngModel)]="usuario.user_passwd" class="form-control" />
+
+            <label>{{'perfil.nuevaPass' | translate}}:</label>
+            <span class="campoObligatorio" *ngIf="usuario.user_passwd !='' && usuario.newPasswd ==''">{{'perfil.msgNuevaPass' | translate}}</span>
+            <img *ngIf="usuario.newPasswd != '' && usuario.repeatPasswd == usuario.newPasswd" src="assets/images/ok.png" />
+            <input type="password" #nuevaPass="ngModel" name="nuevaPass" [(ngModel)]="usuario.newPasswd" class="form-control" [disabled]="usuario.user_passwd == ''"
+            />
+
+            <label>{{'perfil.repetirPass' | translate}}: </label>
+            <img *ngIf="usuario.newPasswd != '' && usuario.repeatPasswd == usuario.newPasswd" src="assets/images/ok.png" />
+            <img *ngIf="usuario.newPasswd != '' && usuario.repeatPasswd != usuario.newPasswd" src="assets/images/error.png" />
+            <input type="password" #repeatPasswd="ngModel" name="repeatPasswd" [(ngModel)]="usuario.repeatPasswd" class="form-control"
+                required [pattern]="usuario.newPasswd" [disabled]="usuario.user_passwd == ''" />
+
+            <label>{{'perfil.imagen' | translate}}:</label>
+            <input type="file" #imagenUsuario="ngModel" name="imagenUsuario" [(ngModel)]="usuario.nueva_imagen" class="form-control"
+                (change)="subirImagen($event)" />
+
+        </div>
+
+        <div class="alert alert-success alert-perfil" *ngIf="msg_ok == 'si'">{{'perfil.msgOk' | translate}}</div>
+        <div class="alert alert-warning alert-perfil" *ngIf="msg_warn == 'si'">{{'perfil.msgWarn' | translate}}</div>
+        <div class="alert alert-danger alert-perfil" *ngIf="msg_error == 'si'">{{'perfil.msgError' | translate}}</div>
+
+        <div id="btns-perfil">
+            <div>
+                <input type="submit" value="{{'formulario.guardar' | translate}}" class="btn clr_blue_ligth" [disabled]="((usuario.user_passwd == '' && usuario.nueva_imagen == '') ||
+                            (usuario.user_passwd != '' && (usuario.repeatPasswd != '' && usuario.newPasswd == '' || usuario.nueva_imagen != '' && usuario.newPasswd == '')) ||
+                            (!formPerfil.form.valid))" />
+            </div>
+            <div>
+                <a (click)="eliminarUsuario()" class="btn btn-md btn-danger btn-eliminar">{{'perfil.eliminar' | translate}}</a>
+            </div>
+        </div>
+    </form>
+</div>

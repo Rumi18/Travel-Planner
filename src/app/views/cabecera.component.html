@@ -1,0 +1,15 @@
+<header id="header">
+    <div id="cabecera-app">
+        <div id="opcion-atras">
+            <a *ngIf="componentURL != '/'" (click)="verComponente()">
+                <img src="assets/images/atras.png">
+            </a>
+        </div>
+        <div id="tituloApp">
+            <span>
+                {{title}}
+            </span>
+        </div>
+    </div>
+    <hr>
+</header>

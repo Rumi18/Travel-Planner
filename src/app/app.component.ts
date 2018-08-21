@@ -1,23 +1,37 @@
 import { Component } from '@angular/core';
-
-// Importación del TranslateService para el idioma
+import { Router, ActivatedRoute } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { AlmacenamientoService } from './services/almacenamiento.service';
+
+//Modelos
+import { Usuario } from './models/usuario';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html'
 })
+
 export class AppComponent {
- 
-  constructor(private translateService: TranslateService){
-    // Se indica que el idioma por defecto es el español
-    this.translateService.setDefaultLang('es');
-    // Se indica que el idioma seleccionado es el español
-    this.translateService.use('es');  
+  public title: string;
+  public componentURL: string;
+  private user: Usuario;
+
+  constructor(
+    private _translateService: TranslateService,
+    private _router: Router,
+    private _route: ActivatedRoute,
+    private _almacenamientoService: AlmacenamientoService
+  ) {
+    this.title = 'Travel Planner';
+    this.componentURL = '';
+    this._translateService.setDefaultLang('es');
   }
 
-  switchLanguage(language: string) {  
-      this.translateService.use(language);  
+  ngOnInit() {
+    this.user = this._almacenamientoService.getUsuarioActual();
+    if (this._almacenamientoService.estaAutenticado()) {
+      this._router.navigate(['/menuOpciones']);
+    }
   }
 
 }
