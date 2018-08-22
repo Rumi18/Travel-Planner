@@ -29,7 +29,6 @@ export class PerfilComponent implements OnInit {
         private _usuarioService: UsuarioService,
         private _router: Router,
         private _route: ActivatedRoute,
-        private _md5: Md5,
         private _almacenamientoService: AlmacenamientoService
     ) {
         this.usuario = new Usuario(null, '', '', '', '', '', '', '', '', '');
@@ -94,7 +93,7 @@ export class PerfilComponent implements OnInit {
     private guardarUsuario() {
        
        if(this.usuario.user_passwd != '' && this.usuario.user_passwd != null){
-            this.usuario.user_passwd = this._md5.appendStr(this.usuario.user_passwd.trim()).end().toString();
+            this.usuario.user_passwd = Md5.hashStr(this.usuario.user_passwd).toString();
        }
        
         if (this.usuario.user_passwd != '' && this.usuario.user_passwd != null && this.antiguaPass != this.usuario.user_passwd) {
@@ -107,7 +106,7 @@ export class PerfilComponent implements OnInit {
                 this.usuario.user_passwd = this.antiguaPass;
             } else {
                 if (this.usuario.newPasswd != '' && this.usuario.newPasswd != null) {
-                    this.usuario.newPasswd = this._md5.appendStr(this.usuario.newPasswd.trim()).end().toString();
+                    this.usuario.newPasswd = Md5.hashStr(this.usuario.newPasswd).toString();
                     this.usuario.user_passwd = this.usuario.newPasswd;
                 } else {
                     this.usuario.user_passwd = this.antiguaPass;

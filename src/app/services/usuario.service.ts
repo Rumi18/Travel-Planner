@@ -32,7 +32,7 @@ export class UsuarioService {
             return this._http.get(GLOBAL.uri + 'error');
         } else {
             //generar la contraseña
-            usuario.user_passwd = this._md5.appendStr(usuario.user_passwd.trim()).end().toString();
+            usuario.user_passwd = Md5.hashStr(usuario.user_passwd).toString();
 
             let json = JSON.stringify(usuario);
             let params = "json=" + json;

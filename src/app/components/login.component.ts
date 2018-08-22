@@ -28,7 +28,6 @@ export class LoginComponent implements OnInit {
         private _router: Router,
         private _route: ActivatedRoute,
         private _usuarioService: UsuarioService,
-        private _md5: Md5,
         private _almacenamientoService: AlmacenamientoService
     ) {
         this.usuarioLogin = new Login('', '');
@@ -49,11 +48,8 @@ export class LoginComponent implements OnInit {
                 if (result['code'] == 200) {
                     this.usuario = result['data'];
 
-                    this.usuarioLogin.user_passwd = this._md5.appendStr(this.usuarioLogin.user_passwd.trim()).end().toString();
-                    
-                    console.log(this.usuario);
-                    console.log("Pass pasado: " + this.usuarioLogin.user_passwd);
-
+                    this.usuarioLogin.user_passwd = Md5.hashStr(this.usuarioLogin.user_passwd).toString();
+                
                     if (this.usuario.user_passwd == this.usuarioLogin.user_passwd) {
                         this.msg_error = 'no';
 
