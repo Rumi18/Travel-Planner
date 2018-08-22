@@ -386,3 +386,26 @@ form label{
     text-align: center;
     margin-top: 40px;
 }
+
+/*Vista mapa.component.html*/
+
+#nav{
+    padding: 0em;
+    margin: 0em;
+    background: #448FA3;
+}
+
+#nav ul{
+    margin: 0em;
+    list-style: none;
+}
+
+#nav ul li{
+   float: left;  
+}
+
+/*Vista ruta.component.html*/
+
+agm-map {
+    height: 36em;
+  }

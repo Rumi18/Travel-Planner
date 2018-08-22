@@ -1,0 +1,13 @@
+<cabecera></cabecera>
+<div class="component">
+    <nav id="nav">
+        <ul *ngFor="let ruta of rutas">
+            <li>
+                {{ruta.nombre}}
+                <div class="map">
+                    <p>Ruta {{ruta.id}}</p>
+                </div>
+            </li>
+        </ul>
+    </nav>   
+</div>

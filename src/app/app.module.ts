@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { AgmCoreModule } from '@agm/core';
+import { Md5 } from 'ts-md5';
 
 //Servicios
 import { Autorizado } from './helpers/guard';
@@ -28,8 +30,8 @@ import { HistorialComponent } from './components/historial.component';
 import { RutasPendientesComponent } from './components/rutasPendientes.component';
 import { ConfiguracionComponent } from './components/configuracion.component';
 import { TiendaComponent } from './components/tienda.component';
-import { Md5 } from 'ts-md5';
-
+import { MapaComponent } from './components/mapa.component';
+import { RutaComponent } from './components/ruta.component';
 
 @NgModule({
   declarations: [
@@ -45,13 +47,18 @@ import { Md5 } from 'ts-md5';
     HistorialComponent,
     RutasPendientesComponent,
     ConfiguracionComponent,
-    TiendaComponent
+    TiendaComponent,
+    MapaComponent,
+    RutaComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
     routing,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCIO6-Ti2EIP5PMrOZO_hmnr1p4aiHr3AI'
+    }),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
