@@ -26,10 +26,9 @@ export class CabeceraComponent {
         this.componentURL = this._router.url;
     }
 
+    //Se comprueba cual es la página a la que se tiene que redirigir en función de la página en la que está
     verComponente() {
-        console.log('Se ha cargado el componente app.component.ts');
     
-        //Se compruba a cual es la página que se tiene que redirigir en función de la página en la que está
         switch (GLOBAL.vistaSeleccionada) {
     
           case 'InicioComponent':
