@@ -26,7 +26,7 @@ export class RegistroComponent implements OnInit {
     }
 
     ngOnInit() {
-        console.log('Se ha cargado el componente registro.component.ts cargado');
+        console.log('Se ha cargado el componente registro.component.ts');
         GLOBAL.vistaSeleccionada = this._route.component['name'];
     }
 
