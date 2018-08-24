@@ -144,8 +144,9 @@ CREATE TABLE TP_R_LOCALIZACION_CATEGORIA(
 id_localizacion BIGINT(20) NOT NULL,
 id_categoria BIGINT(20) NOT NULL,
 
-PRIMARY KEY (id_localizacion, id_categoria)
-
+PRIMARY KEY (id_localizacion, id_categoria),
+FOREIGN KEY (id_localizacion) REFERENCES TP_P_LOCALIZACIONES(id),
+FOREIGN KEY (id_categoria) REFERENCES TP_P_CATEGORIAS(id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 CREATE INDEX TP_R_LOCALIZACION_CATEGORIA_ID ON TP_R_LOCALIZACION_CATEGORIA(id_localizacion, id_categoria); 
 
@@ -173,3 +174,97 @@ CREATE INDEX TP_P_PREFERENCIAS_ID ON TP_P_PREFERENCIAS(id);
 
 INSERT INTO TP_P_PREFERENCIAS (nombre, descripcion, habilitado, eliminado, creacion) VALUES ('Naturaleza', 'Personas a las que le gusta disfrutar de la naturaleza y el aire libre', TRUE, FALSE, SYSDATE());
 INSERT INTO TP_P_PREFERENCIAS (nombre, descripcion, habilitado, eliminado, creacion) VALUES ('Cultura', 'Personas a las que le gusta disfrutar de la cultura y conocer los monumentos más característicos de la ciudad', TRUE, FALSE, SYSDATE());
+
+-- Tabla configuraciones
+
+CREATE TABLE TP_D_CONFIGURACIONES(
+id  BIGINT(20) NOT NULL AUTO_INCREMENT,
+duracion INT (2) NOT NULL,
+presupuesto_min INT (10) NOT NULL,
+presupuesto_max INT (10) NOT NULL,
+mascotas BOOLEAN NOT NULL,
+acompañante BOOLEAN NOT NULL,
+habilitado BOOLEAN NOT NULL,
+eliminado BOOLEAN NOT NULL,
+creacion TIMESTAMP NOT NULL,
+modificacion TIMESTAMP,
+
+PRIMARY KEY (id)
+
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE INDEX TP_D_CONFIGURACIONES_ID ON TP_D_CONFIGURACIONES(id); 
+
+-- Tabla configuraciones-preferencias
+
+CREATE TABLE TP_R_CONFIG_PREFERENCIA(
+id_preferencia BIGINT(20) NOT NULL,
+id_configuracion BIGINT(20) NOT NULL,
+
+PRIMARY KEY (id_preferencia, id_configuracion),
+FOREIGN KEY (id_preferencia) REFERENCES TP_P_PREFERENCIAS(id),
+FOREIGN KEY (id_configuracion) REFERENCES TP_D_CONFIGURACIONES(id)
+
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE INDEX TP_R_CONFIG_PREFERENCIA_ID ON TP_R_CONFIG_PREFERENCIA(id_preferencia, id_configuracion); 
+
+-- Tabla mapas
+
+CREATE TABLE TP_D_MAPAS(
+id  BIGINT(20) NOT NULL AUTO_INCREMENT,
+id_configuracion BIGINT(20) NOT NULL,
+puntuacion INT (2),
+observacion VARCHAR (200),
+habilitado BOOLEAN NOT NULL,
+eliminado BOOLEAN NOT NULL,
+creacion TIMESTAMP NOT NULL,
+modificacion TIMESTAMP,
+
+PRIMARY KEY (id),
+FOREIGN KEY (id_configuracion) REFERENCES TP_D_CONFIGURACIONES(id)
+
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE INDEX TP_D_MAPAS_ID ON TP_D_MAPAS(id); 
+
+-- Tabla mapas-usuarios
+
+CREATE TABLE TP_R_MAPA_USUARIO(
+id_usuario BIGINT(20) NOT NULL,
+id_mapa BIGINT(20) NOT NULL,
+
+PRIMARY KEY (id_usuario, id_mapa),
+FOREIGN KEY (id_usuario) REFERENCES TP_D_USUARIOS(id),
+FOREIGN KEY (id_mapa) REFERENCES TP_D_MAPAS(id)
+
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE INDEX TP_R_MAPA_USUARIO_ID ON TP_R_MAPA_USUARIO(id_usuario, id_mapa); 
+
+-- Tabla mapa-ciudad
+
+CREATE TABLE TP_R_MAPA_CIUDAD(
+id_mapa BIGINT(20) NOT NULL,
+id_ciudad BIGINT(20) NOT NULL,
+
+PRIMARY KEY (id_mapa, id_ciudad),
+FOREIGN KEY (id_mapa) REFERENCES TP_D_MAPAS(id),
+FOREIGN KEY (id_ciudad) REFERENCES TP_P_CIUDADES(id)
+
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE INDEX TP_R_MAPA_CIUDAD_ID ON TP_R_MAPA_CIUDAD(id_mapa, id_ciudad); 
+
+-- Tabla marcadores
+
+CREATE TABLE TP_R_MARCADORES(
+id_mapa  BIGINT(20) NOT NULL,
+id_localizacion BIGINT(20),
+dia INT (2) NOT NULL,
+habilitado BOOLEAN NOT NULL,
+eliminado BOOLEAN NOT NULL,
+creacion TIMESTAMP NOT NULL,
+modificacion TIMESTAMP,
+
+PRIMARY KEY (id_mapa, id_localizacion),
+FOREIGN KEY (id_mapa) REFERENCES TP_D_MAPAS(id),
+FOREIGN KEY (id_localizacion) REFERENCES TP_P_LOCALIZACIONES(id)
+
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE INDEX TP_R_MARCADORES_ID ON TP_R_MARCADORES(id_mapa, id_localizacion); 
