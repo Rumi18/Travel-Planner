@@ -79,5 +79,14 @@
         "ninios": "Children",
         "turismo": "Preferences",
         "mostrarRuta": "Show route"
+    },
+    "mapa": {
+        "noRutas": "No maps available",
+        "destino": "Destination",
+        "mapa": "Map",
+        "detalle": "Detail",
+        "eliminar": "Delete",
+        "mostrar": "Show",
+        "ver": "View"
     }
 }

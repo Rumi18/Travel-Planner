@@ -12,5 +12,8 @@ export var GLOBAL = {
     recurs_deleteUsuario: 'deleteUsuario/',
     recurs_uploadImage: 'subirImagen/',
     recurs_getCiudades: 'getCiudades',
-    recurs_getPreferencias: 'getPreferencias'
+    recurs_getPreferencias: 'getPreferencias',
+    recurs_getMapasPendientes: 'getMapasPendientes/',
+    recurs_getHistorialMapas: 'getHistorialMapas/',
+    recurs_getMarcadores: 'getMarcadores/'
 };

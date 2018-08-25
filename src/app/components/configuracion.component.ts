@@ -25,15 +25,15 @@ export class ConfiguracionComponent implements OnInit {
         private _router: Router,
         private _route: ActivatedRoute,
         private _configuracionService: ConfiguracionService
-    ) {       
-        this.configuracion = new Configuracion("Sevilla", 0, 0, 0, false, false, false, TipoTurismo.Cultura);
+    ) {   
+        let pref: Preferencia[] = [new Preferencia(1,"","")];
+        this.configuracion = new Configuracion(0, 0, 0, false, false, false, pref);
     }
 
     // Método que se lanza automáticamente después del constructor del componente 
     ngOnInit() {            
         GLOBAL.vistaSeleccionada = this._route.component['name'];
-        console.log('Se ha cargado el componente configuracion.component.ts');   
-        
+        console.log('Se ha cargado el componente configuracion.component.ts');           
         this.cargaValores();         
     }
 

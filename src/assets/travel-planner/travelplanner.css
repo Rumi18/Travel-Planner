@@ -249,6 +249,7 @@ form label{
 #tienda{
     top: 56%;
     left: 37%;
+    opacity: 0.5;
 }
 
 #config-ruta{
@@ -402,6 +403,26 @@ form label{
 
 #nav ul li{
    float: left;  
+}
+
+/*Vista rutasPendientes.component.html e historial.component.html*/
+.tablaMapas{
+    font-size: 12px;
+}
+
+.table th{
+    border-top: none !important;
+}
+
+thead{
+    background: #448FA3;
+}
+
+.sinMapas{
+    text-align: center;
+    margin-top: 6em;
+    font-size: 14px;
+    color: #D7263D;
 }
 
 /*Vista ruta.component.html*/

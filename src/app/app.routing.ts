@@ -29,7 +29,7 @@ const appRoutes: Routes = [
     { path: 'rutasPendientes', component: RutasPendientesComponent, canActivate: [Autorizado] },
     { path: 'configuracion', component: ConfiguracionComponent, canActivate: [Autorizado] },
     { path: 'tienda', component: TiendaComponent, canActivate: [Autorizado] },
-    { path: 'mapa', component: MapaComponent, canActivate: [Autorizado] },
+    { path: 'mapa/:id', component: MapaComponent, canActivate: [Autorizado] },
     { path: 'ruta', component: RutaComponent, canActivate: [Autorizado] },
     { path: '**', component: ErrorComponent }
 ];

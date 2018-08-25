@@ -79,5 +79,14 @@
         "ninios": "Niños",
         "turismo": "Preferencias",
         "mostrarRuta": "Mostrar Ruta"
+    },
+    "mapa": {
+        "noRutas": "No existen mapas disponibles",
+        "destino": "Destino",
+        "mapa": "Mapa",
+        "detalle": "Detalle",
+        "eliminar": "Eliminar",
+        "mostrar": "Mostrar",
+        "ver": "Ver"
     }
 }
