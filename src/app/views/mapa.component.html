@@ -4,10 +4,14 @@
         <nav id="nav" class="navMapas">
             <ul *ngFor="let numDia of dias">
                 <li *ngIf="numDia == 0">
-                    {{'mapa.opcionMapa' | translate}}
+                    <a (click)="cargaRutasMapa()">
+                        {{'mapa.opcionMapa' | translate}}
+                    </a>
                 </li>
                 <li *ngIf="numDia != 0">
-                    {{'mapa.opcionDia' | translate}} {{numDia}}
+                    <a (click)="cargaRutaDia(numDia)">
+                        {{'mapa.opcionDia' | translate}} {{numDia}}
+                    </a>
                 </li>
             </ul>
         </nav>
@@ -20,7 +24,7 @@
     </div>
 
     <div class="sinRuta" *ngIf="!marcadores">
-            {{'mapa.noRuta' | translate}} 
+        {{'mapa.noRuta' | translate}}
     </div>
 
     <div class="btns_mapa">

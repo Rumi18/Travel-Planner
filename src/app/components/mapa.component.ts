@@ -13,8 +13,9 @@ import { Marcador } from '../models/marcador';
     templateUrl: '../views/mapa.component.html',
     providers: [MapaService]
 })
-export class MapaComponent implements OnInit {    
+export class MapaComponent implements OnInit {
     public dias: number[];
+    public marcadoresMapa: Marcador[];
     public marcadores: Marcador[];
 
     latMapa: number;
@@ -25,12 +26,13 @@ export class MapaComponent implements OnInit {
         private _router: Router,
         private _route: ActivatedRoute,
         private _mapaService: MapaService
-    ) {      
+    ) {
         this.dias = [];
+        this.marcadoresMapa = [];
         
         this.zoom = 11;
         this.latMapa = GLOBAL.latidud_defecto;
-        this.lngMapa = GLOBAL.longitud_defecto;       
+        this.lngMapa = GLOBAL.longitud_defecto;
         this.marcadores = [new Marcador('', GLOBAL.latidud_defecto, GLOBAL.longitud_defecto, 1)];
     }
 
@@ -47,13 +49,14 @@ export class MapaComponent implements OnInit {
             numDias = params['numDias'];
         });
 
-        if (idMapa != null) {
+        if (idMapa != null && numDias != null) {
             this.creaMenuDias(numDias);
             this.getMarcadores(idMapa);
+            this.cargaRutasMapa();
         }
     }
 
-    creaMenuDias(numDias: number) {        
+    creaMenuDias(numDias: number) {
         if (numDias != null) {
             for (let i = 0; i <= numDias; i++) {
                 this.dias.push(i);
@@ -68,14 +71,35 @@ export class MapaComponent implements OnInit {
                     result['data'].forEach(marcador => {
                         marcador.latitud = parseFloat(marcador.latitud);
                         marcador.longitud = parseFloat(marcador.longitud);
-                        this.marcadores.push(marcador);
+                        marcador.dia = parseInt(marcador.dia);
+                        this.marcadoresMapa.push(marcador);
                     });
-                }
+                }else{}
             },
             error => {
                 console.log(<any>error);
                 this._router.navigate(['/error']);
             }
         );
+    }
+    
+    cargaRutasMapa() {      
+       this.marcadores = this.marcadoresMapa;
+       this.latMapa = this.marcadores[0].latitud;
+       this.lngMapa = this.marcadores[0].longitud;
+    }
+
+    cargaRutaDia(dia: number) {
+        let marcadoresDia: Marcador[] = [];
+      
+        this.marcadoresMapa.forEach(maracador =>{           
+            if(maracador.dia == dia){                
+                marcadoresDia.push(maracador);
+            }
+        });     
+
+        this.marcadores = marcadoresDia;
+        this.latMapa = this.marcadores[0].latitud;
+        this.lngMapa = this.marcadores[0].longitud;
     }
 }

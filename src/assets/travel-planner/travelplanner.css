@@ -417,23 +417,24 @@ thead{
 
 /*Vista mapa.component.html*/
 
-#nav{
-    padding: 0em;
-    margin-left: 0.95em;
-    margin-right: 0.95em;
-    background: #448FA3;
-    width: 100%;
+.navMapas{
+ padding: 0em;
+ margin-left: 0.95em;
+ margin-right: 0.95em;
+ background: #448FA3;
+ width: 100%;
 }
 
-#nav ul{
+.navMapas ul{
+    background: red;
+    padding: 0.5em;
     margin: 0em;
     list-style: none !important;
     display: inline-block;
 }
 
-#nav ul li{
+.navMapas ul li{
     float: left;  
-    font-size: 12px;
 }
 
 .ruta{
