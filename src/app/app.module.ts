@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { AgmCoreModule } from '@agm/core';
-import { AgmJsMarkerClustererModule } from '@agm/js-marker-clusterer';
+import { AgmDirectionModule } from 'agm-direction';
 import { Md5 } from 'ts-md5';
 
 //Servicios
@@ -54,8 +54,8 @@ import { MapaComponent } from './components/mapa.component';
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    routing,
-    AgmJsMarkerClustererModule,
+    routing,    
+    AgmDirectionModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCIO6-Ti2EIP5PMrOZO_hmnr1p4aiHr3AI'
     }),

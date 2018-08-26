@@ -13,7 +13,6 @@
   "private": true,
   "dependencies": {
     "@agm/core": "^1.0.0-beta.3",
-    "@agm/js-marker-clusterer": "^1.0.0-beta.3",
     "@angular/animations": "^6.0.3",
     "@angular/common": "^6.0.3",
     "@angular/compiler": "^6.0.3",
@@ -25,8 +24,8 @@
     "@angular/router": "^6.0.3",
     "@ngx-translate/core": "^10.0.2",
     "@ngx-translate/http-loader": "^3.0.1",
+    "agm-direction": "^0.7.1",
     "core-js": "^2.5.4",
-    "js-marker-clusterer": "^1.0.0",
     "node-gyp": "^3.8.0",
     "rxjs": "^6.0.0",
     "rxjs-compat": "^6.2.2",

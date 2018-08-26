@@ -17,6 +17,7 @@ export class MapaComponent implements OnInit {
     public dias: number[];
     public marcadoresMapa: Marcador[];
     public marcadores: Marcador[];
+    public rutas: {}[][];
 
     latMapa: number;
     lngMapa: number;
@@ -29,7 +30,8 @@ export class MapaComponent implements OnInit {
     ) {
         this.dias = [];
         this.marcadoresMapa = [];
-        
+        this.rutas = [];
+
         this.zoom = 11;
         this.latMapa = GLOBAL.latidud_defecto;
         this.lngMapa = GLOBAL.longitud_defecto;
@@ -52,7 +54,7 @@ export class MapaComponent implements OnInit {
         if (idMapa != null && numDias != null) {
             this.creaMenuDias(numDias);
             this.getMarcadores(idMapa);
-            this.cargaRutasMapa();
+            this.muestraLocalizacionesMapa();
         }
     }
 
@@ -74,7 +76,7 @@ export class MapaComponent implements OnInit {
                         marcador.dia = parseInt(marcador.dia);
                         this.marcadoresMapa.push(marcador);
                     });
-                }else{}
+                } else { }
             },
             error => {
                 console.log(<any>error);
@@ -82,24 +84,38 @@ export class MapaComponent implements OnInit {
             }
         );
     }
-    
-    cargaRutasMapa() {      
-       this.marcadores = this.marcadoresMapa;
-       this.latMapa = this.marcadores[0].latitud;
-       this.lngMapa = this.marcadores[0].longitud;
+
+    muestraLocalizacionesMapa() {
+        this.marcadores = this.marcadoresMapa;
+        this.latMapa = this.marcadores[0].latitud;
+        this.lngMapa = this.marcadores[0].longitud;
+        this.cargaRuta();
     }
 
-    cargaRutaDia(dia: number) {
+    muestraLocalizacionesDia(dia: number) {
         let marcadoresDia: Marcador[] = [];
-      
-        this.marcadoresMapa.forEach(maracador =>{           
-            if(maracador.dia == dia){                
+
+        this.marcadoresMapa.forEach(maracador => {
+            if (maracador.dia == dia) {
                 marcadoresDia.push(maracador);
             }
-        });     
+        });
 
         this.marcadores = marcadoresDia;
         this.latMapa = this.marcadores[0].latitud;
         this.lngMapa = this.marcadores[0].longitud;
+        this.cargaRuta();
+    }
+
+    cargaRuta() {
+        this.rutas = [];
+        let origen: {};
+        let destino: {};
+        for (let i = 1; i <= this.marcadores.length; i++) { 
+          
+            origen = { latMapa: this.marcadores[i-1].latitud, lngMapa: this.marcadores[i-1].longitud };
+            destino = { lat: this.marcadores[i].latitud, lng: this.marcadores[i].longitud };           
+            this.rutas.push([origen, destino]);
+        }
     }
 }
