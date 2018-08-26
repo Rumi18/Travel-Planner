@@ -1,8 +1,10 @@
 <cabecera></cabecera>
 <div class="component">
+
     <div class="row">
-        <nav id="nav" class="navMapas">
+        <nav id="nav">
             <ul *ngFor="let numDia of dias">
+
                 <li *ngIf="numDia == 0">
                     <a (click)="cargaRutasMapa()">
                         {{'mapa.opcionMapa' | translate}}
@@ -28,7 +30,7 @@
     </div>
 
     <div class="btns_mapa">
-        <a class="btn btn-lg clr_orange">Iniciar</a>
+        <a class="btn btn-lg clr_orange"> {{'mapa.iniciar' | translate}}</a>
     </div>
 
 </div>

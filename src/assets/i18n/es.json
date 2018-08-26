@@ -90,6 +90,8 @@
         "ver": "Ver",
         "opcionMapa": "Mapa",
         "opcionDia": "Día",
-        "noRuta": "La ruta no se ha podido cargar"
+        "noRuta": "La ruta no se ha podido cargar",
+        "iniciar": "Iniciar",
+        "finalizar": "Finalizar"
     }
 }

@@ -388,12 +388,6 @@ form label{
     margin-top: 40px;
 }
 
-/*Vista mapa.component.html*/
-
-agm-map {
-    height: 36em;
-}
-
 /*Vista rutasPendientes.component.html e historial.component.html*/
 .tablaMapas{
     font-size: 12px;
@@ -417,24 +411,33 @@ thead{
 
 /*Vista mapa.component.html*/
 
-.navMapas{
- padding: 0em;
- margin-left: 0.95em;
- margin-right: 0.95em;
- background: #448FA3;
- width: 100%;
+#nav{
+	padding: 0px;
+    margin: 0px;
+    margin: 0em 0.95em 0em 0.95em !important;
+    width: 100%;
+    background: #448FA3;
 }
 
-.navMapas ul{
-    background: red;
-    padding: 0.5em;
-    margin: 0em;
-    list-style: none !important;
+#nav ul{
+	margin: 0px;
+	list-style: none;
+    padding-left: 20px;
     display: inline-block;
 }
 
-.navMapas ul li{
-    float: left;  
+#nav ul li{
+	float:left;
+}
+
+#nav ul li a{
+	display: block;
+	color: white;
+	height: 30px;
+	line-height: 29px;
+	padding-left: 10px;
+	padding-right: 10px;
+	transition: all 300ms;
 }
 
 .ruta{
