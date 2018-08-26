@@ -249,6 +249,7 @@ form label{
 #tienda{
     top: 56%;
     left: 37%;
+    opacity: 0.5;
 }
 
 #config-ruta{
@@ -385,4 +386,79 @@ form label{
 #btn-crearRuta{
     text-align: center;
     margin-top: 40px;
+}
+
+/*Vista rutasPendientes.component.html e historial.component.html*/
+.tablaMapas{
+    font-size: 12px;
+}
+
+.table th{
+    border-top: none !important;
+}
+
+thead{
+    background: #448FA3;
+}
+
+.sinMapas{
+    text-align: center;
+    margin-top: 6em;
+    font-size: 14px;
+    color: #D7263D;
+}
+
+
+/*Vista mapa.component.html*/
+
+#nav{
+	padding: 0px;
+    margin: 0px;
+    margin: 0em 0.95em 0em 0.95em !important;
+    width: 100%;
+    background: #448FA3;
+}
+
+#nav ul{
+	margin: 0px;
+	list-style: none;
+    padding-left: 20px;
+    display: inline-block;
+}
+
+#nav ul li{
+	float:left;
+}
+
+#nav ul li a{
+	display: block;
+	color: white;
+	height: 30px;
+	line-height: 29px;
+	padding-left: 10px;
+	padding-right: 10px;
+	transition: all 300ms;
+}
+
+.ruta{
+    margin: 0em;
+    padding: 0em;
+    width: 100%;
+    height: 29em !important;
+}
+
+.sinRuta{
+    text-align: center;
+    margin-top: 6em;
+    font-size: 14px;
+    color: #D7263D;
+}
+
+agm-map {
+    height: 29em;
+}
+
+.btns_mapa{
+    text-align: center;
+    margin-top: 1em;
 }

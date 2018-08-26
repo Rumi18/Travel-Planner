@@ -12,7 +12,7 @@
 
         <label>{{'configuracion.duracion' | translate}}:</label>
         <div id="slider-value">
-            <input type="range" class="form-control slider" min="1" max="10" step="1" #duracion="ngModel" name="duracion" [(ngModel)]="configuracion.duracion">
+            <input type="range" class="form-control slider" min="1" max="3" step="1" #duracion="ngModel" name="duracion" [(ngModel)]="configuracion.duracion">
             <span id="num_duracion">{{configuracion.duracion}}</span>
         </div>
         <label>{{'configuracion.presupuesto' | translate}}:</label>
@@ -74,7 +74,8 @@
         </div>
 
         <div id="btn-crearRuta">
-            <input type="submit" value="{{'configuracion.mostrarRuta' | translate}}" class="btn btn-lg clr_orange" />
+            <!--<input type="submit" value="{{'configuracion.mostrarRuta' | translate}}" class="btn btn-lg clr_orange" />-->
+            <a class="btn btn-lg clr_orange">Mostrar ruta</a>
         </div>
 
     </form>

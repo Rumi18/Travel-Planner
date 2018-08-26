@@ -1,14 +1,14 @@
 import { TipoTurismo } from '../enums/tipoTurismo';
+import { Preferencia } from 'src/app/models/preferencia';
 
 export class Configuracion {
     constructor(
-        public destino: string,
         public duracion: number,
         public presupuesto_limInf: number,
         public presupuesto_limSup: number,
-        public mascota: boolean,
-        public acompañantes: boolean,
-        public niños: boolean,
-        public tipoTurismo: TipoTurismo
+        public mascotas: boolean,
+        public acompaniantes: boolean,
+        public ninios: boolean,
+        public preferencias:Preferencia[]
     ) { }
 }

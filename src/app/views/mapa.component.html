@@ -1,0 +1,36 @@
+<cabecera></cabecera>
+<div class="component">
+
+    <div class="row">
+        <nav id="nav">
+            <ul *ngFor="let numDia of dias">
+
+                <li *ngIf="numDia == 0">
+                    <a (click)="muestraLocalizacionesMapa()">
+                        {{'mapa.opcionMapa' | translate}}
+                    </a>
+                </li>
+                <li *ngIf="numDia != 0">
+                    <a (click)="muestraLocalizacionesDia(numDia)">
+                        {{'mapa.opcionDia' | translate}} {{numDia}}
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>  
+
+    <div class="ruta" *ngIf="marcadores">
+        <agm-map [latitude]="latMapa" [longitude]="lngMapa" [zoom]="zoom">
+            <agm-marker *ngFor="let marcador of marcadores" [latitude]="marcador.latitud" [longitude]="marcador.longitud"></agm-marker>           
+        </agm-map>
+    </div>
+
+    <div class="sinRuta" *ngIf="!marcadores">
+        {{'mapa.noRuta' | translate}}
+    </div>
+
+    <div class="btns_mapa">
+        <a class="btn btn-lg clr_orange"> {{'mapa.iniciar' | translate}}</a>
+    </div>
+
+</div>
