@@ -6,9 +6,9 @@ export class Configuracion {
         public duracion: number,
         public presupuesto_limInf: number,
         public presupuesto_limSup: number,
-        public mascota: boolean,
-        public acompañantes: boolean,
-        public niños: boolean,
+        public mascotas: boolean,
+        public acompaniantes: boolean,
+        public ninios: boolean,
         public preferencias:Preferencia[]
     ) { }
 }

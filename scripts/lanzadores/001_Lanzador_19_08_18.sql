@@ -95,7 +95,8 @@ CREATE TABLE TP_P_LOCALIZACIONES(
 id  BIGINT(20) NOT NULL AUTO_INCREMENT,
 id_ciudad BIGINT(20) NOT NULL,
 nombre VARCHAR (32) NOT NULL,
-coordenadas VARCHAR (32) NOT NULL,
+latitud VARCHAR (32) NOT NULL,
+longitud VARCHAR (32) NOT NULL,
 descripcion VARCHAR (200),
 duracion INTEGER (10) NOT NULL,
 precio DOUBLE,
@@ -113,7 +114,7 @@ CREATE INDEX TP_P_LOCALIZACIONES_ID ON TP_P_LOCALIZACIONES(id);
 
 -- insertar localizaciones
 
-INSERT INTO TP_P_LOCALIZACIONES (id_ciudad, nombre, coordenadas, duracion, precio, habilitado, eliminado, creacion) VALUES ((SELECT id FROM TP_P_CIUDADES WHERE nombre = 'Sevilla'), 'La Giralda', 'X,Y,Z', 15, 5, TRUE, FALSE, SYSDATE());
+INSERT INTO TP_P_LOCALIZACIONES (id_ciudad, nombre, latitud, longitud, duracion, precio, habilitado, eliminado, creacion) VALUES ((SELECT id FROM TP_P_CIUDADES WHERE nombre = 'Sevilla'), 'La Giralda', 'X', 'Y', 15, 5, TRUE, FALSE, SYSDATE());
 
 -- Tabla categorías
 
@@ -183,7 +184,8 @@ duracion INT (2) NOT NULL,
 presupuesto_min INT (10) NOT NULL,
 presupuesto_max INT (10) NOT NULL,
 mascotas BOOLEAN NOT NULL,
-acompañante BOOLEAN NOT NULL,
+acompaniantes BOOLEAN NOT NULL,
+ninios BOOLEAN NOT NULL,
 habilitado BOOLEAN NOT NULL,
 eliminado BOOLEAN NOT NULL,
 creacion TIMESTAMP NOT NULL,

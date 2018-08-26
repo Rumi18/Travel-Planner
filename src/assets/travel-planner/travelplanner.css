@@ -390,19 +390,8 @@ form label{
 
 /*Vista mapa.component.html*/
 
-#nav{
-    padding: 0em;
-    margin: 0em;
-    background: #448FA3;
-}
-
-#nav ul{
-    margin: 0em;
-    list-style: none;
-}
-
-#nav ul li{
-   float: left;  
+agm-map {
+    height: 36em;
 }
 
 /*Vista rutasPendientes.component.html e historial.component.html*/
@@ -425,8 +414,39 @@ thead{
     color: #D7263D;
 }
 
-/*Vista ruta.component.html*/
+
+/*Vista mapa.component.html*/
+
+#nav{
+    padding: 0em;
+    margin-left: 0.95em;
+    margin-right: 0.95em;
+    background: #448FA3;
+    width: 100%;
+}
+
+#nav ul{
+    margin: 0em;
+    list-style: none !important;
+    display: inline-block;
+}
+
+#nav ul li{
+    float: left;  
+}
+
+.mapa{
+    margin: 0em;
+    padding: 0em;
+    width: 100%;
+    height: 29em !important;
+}
 
 agm-map {
-    height: 36em;
-  }
+    height: 29em;
+}
+
+.btns_mapa{
+    text-align: center;
+    margin-top: 1em;
+}

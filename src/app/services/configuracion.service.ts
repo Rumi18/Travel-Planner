@@ -24,4 +24,9 @@ export class ConfiguracionService {
     getPreferencias(){
         return this._http.get(GLOBAL.uri + GLOBAL.recurs_getPreferencias);
     }
+    
+    getConfiguracion(idMapa:number){
+        return this._http.get(GLOBAL.uri + GLOBAL.recurs_getConfiguracion + idMapa);
+    }
+    
 }

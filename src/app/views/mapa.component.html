@@ -1,13 +1,28 @@
 <cabecera></cabecera>
 <div class="component">
-    <nav id="nav">
-        <ul *ngFor="let ruta of rutas">
-            <li>
-                {{ruta.nombre}}
-                <div class="map">
-                    <p>Ruta {{ruta.id}}</p>
-                </div>
-            </li>
-        </ul>
-    </nav>   
+    <div *ngIf="idMapa != null">
+        <div class="row">
+            <nav id="nav" class="navMapas">
+                <ul *ngFor="let dia of marcadores; let i = index">
+                    <li *ngIf="i == 0">
+                        Mapa
+                    </li>
+                    <li *ngIf="i != 0">
+                        Dia {{i}}
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="mapa">
+            <agm-map [latitude]="latMapa" [longitude]="lngMapa">
+                <agm-marker [latitude]="latMapa" [longitude]="lngMapa"></agm-marker>
+            </agm-map>
+        </div>
+        <div class="btns_mapa">
+            <a class="btn btn-lg clr_orange">Iniciar</a>
+        </div>
+    </div>
+    <div *ngIf="idMapa == null">
+        <p>No se ha podido cargar el mapa</p>
+    </div>
 </div>

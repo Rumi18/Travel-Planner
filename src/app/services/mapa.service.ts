@@ -24,5 +24,8 @@ export class MapaService {
     getHistorialMapas(idUsuario:number){
         return this._http.get(GLOBAL.uri + GLOBAL.recurs_getHistorialMapas + idUsuario);
     }
-   
+
+    getMarcadores(idMapa:number){
+        return this._http.get(GLOBAL.uri + GLOBAL.recurs_getMarcadores + idMapa);
+    }
 }

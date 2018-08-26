@@ -15,5 +15,6 @@ export var GLOBAL = {
     recurs_getPreferencias: 'getPreferencias',
     recurs_getMapasPendientes: 'getMapasPendientes/',
     recurs_getHistorialMapas: 'getHistorialMapas/',
-    recurs_getMarcadores: 'getMarcadores/'
+    recurs_getMarcadores: 'getMarcadores/',
+    recurs_getConfiguracion: 'getConfiguracion/'
 };
