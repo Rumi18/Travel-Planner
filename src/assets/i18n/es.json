@@ -81,12 +81,15 @@
         "mostrarRuta": "Mostrar Ruta"
     },
     "mapa": {
-        "noRutas": "No existen mapas disponibles",
+        "noMapas": "No existen mapas disponibles",
         "destino": "Destino",
         "mapa": "Mapa",
         "detalle": "Detalle",
         "eliminar": "Eliminar",
         "mostrar": "Mostrar",
-        "ver": "Ver"
+        "ver": "Ver",
+        "opcionMapa": "Mapa",
+        "opcionDia": "Día",
+        "noRuta": "La ruta no se ha podido cargar"
     }
 }

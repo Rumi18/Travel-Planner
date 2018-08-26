@@ -1,7 +1,7 @@
 <cabecera></cabecera>
 <div class="component">
     <div class="sinMapas" *ngIf="!mapas">
-        <p>No existen mapas disponibles</p>
+        <p>{{'mapa.noMapas' | translate}}</p>
     </div>
     <div class="tablaMapas table-responsive" *ngIf="mapas">
         <table class="table table-striped table-hover ">
@@ -15,7 +15,7 @@
             <tbody *ngFor="let mapa of mapas">
                 <tr>
                     <td><strong>{{mapa.nombre}}</strong></td>
-                    <td><a class="mostrarMapa">{{'mapa.mostrar' | translate}}</a></td>
+                    <td><a [routerLink]="['/mapa', mapa.id, mapa.duracion]" class="mostrarMapa">{{'mapa.mostrar' | translate}}</a></td>
                     <td><a class="verDetalles">{{'mapa.ver' | translate}}</a></td>
                 </tr>
             </tbody>

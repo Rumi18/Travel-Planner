@@ -15,7 +15,6 @@ import { TiendaComponent } from './components/tienda.component';
 import { LoginComponent } from './components/login.component';
 import { Autorizado } from '../app/helpers/guard';
 import { MapaComponent } from './components/mapa.component';
-import { RutaComponent } from './components/ruta.component';
 
 const appRoutes: Routes = [
     { path: '', component: InicioComponent },
@@ -30,7 +29,6 @@ const appRoutes: Routes = [
     { path: 'configuracion', component: ConfiguracionComponent, canActivate: [Autorizado] },
     { path: 'tienda', component: TiendaComponent, canActivate: [Autorizado] },
     { path: 'mapa/:id/:numDias', component: MapaComponent, canActivate: [Autorizado] },
-    { path: 'ruta', component: RutaComponent, canActivate: [Autorizado] },
     { path: '**', component: ErrorComponent }
 ];
 

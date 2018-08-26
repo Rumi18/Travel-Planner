@@ -13,20 +13,25 @@ import { Marcador } from '../models/marcador';
     templateUrl: '../views/mapa.component.html',
     providers: [MapaService]
 })
-export class MapaComponent implements OnInit {
-    public idMapa: number;
-    public numDias: number;
-    public marcadores: Marcador[][];
+export class MapaComponent implements OnInit {    
+    public dias: number[];
+    public marcadores: Marcador[];
+
     latMapa: number;
     lngMapa: number;
-
+    zoom: number;
 
     constructor(
         private _router: Router,
         private _route: ActivatedRoute,
         private _mapaService: MapaService
-    ) {
-
+    ) {      
+        this.dias = [];
+        
+        this.zoom = 11;
+        this.latMapa = GLOBAL.latidud_defecto;
+        this.lngMapa = GLOBAL.longitud_defecto;       
+        this.marcadores = [new Marcador('', GLOBAL.latidud_defecto, GLOBAL.longitud_defecto, 1)];
     }
 
     // Método que se lanza automáticamente después del constructor del componente 
@@ -34,14 +39,25 @@ export class MapaComponent implements OnInit {
         GLOBAL.vistaSeleccionada = this._route.component['name'];
         console.log('Se ha cargado el componente mapa.component.ts');
 
-        this.idMapa = null;
+        let idMapa = null;
+        let numDias = null;
+
         this._route.params.forEach((params: Params) => {
-            this.idMapa = params['id'];
-            this.numDias = params['numDias'];
+            idMapa = params['id'];
+            numDias = params['numDias'];
         });
 
-        if (this.idMapa != null) {
-            this.getMarcadores(this.idMapa);
+        if (idMapa != null) {
+            this.creaMenuDias(numDias);
+            this.getMarcadores(idMapa);
+        }
+    }
+
+    creaMenuDias(numDias: number) {        
+        if (numDias != null) {
+            for (let i = 0; i <= numDias; i++) {
+                this.dias.push(i);
+            }
         }
     }
 
@@ -49,9 +65,11 @@ export class MapaComponent implements OnInit {
         this._mapaService.getMarcadores(idMapa).subscribe(
             result => {
                 if (result['code'] == 200) {
-                    if (result['data'].length > 0) {
-                        this.clasificaMarcadores(result['data']);
-                    }
+                    result['data'].forEach(marcador => {
+                        marcador.latitud = parseFloat(marcador.latitud);
+                        marcador.longitud = parseFloat(marcador.longitud);
+                        this.marcadores.push(marcador);
+                    });
                 }
             },
             error => {
@@ -59,21 +77,5 @@ export class MapaComponent implements OnInit {
                 this._router.navigate(['/error']);
             }
         );
-    }
-
-    clasificaMarcadores(marcadoresOb: Marcador[]) {
-        this.marcadores = [];
-
-        for (let i = 0; i <= this.numDias; i++) {
-            this.marcadores.push([]);
-        }
-
-        marcadoresOb.forEach(marcador => {
-            this.marcadores[0].push(marcador);
-            this.marcadores[(marcador.dia)].push(marcador);
-        });
-
-        this.latMapa = parseFloat(this.marcadores[0][0].latitud);
-        this.lngMapa = parseFloat(this.marcadores[0][0].longitud);
     }
 }

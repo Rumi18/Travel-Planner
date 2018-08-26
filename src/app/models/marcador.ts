@@ -2,8 +2,8 @@ export class Marcador {
     
     constructor(
         public nombre: string,
-        public latitud: string,
-        public longitud: string,
+        public latitud: number,
+        public longitud: number,
         public dia: number
     ) { }
 }

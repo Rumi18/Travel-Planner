@@ -95,8 +95,8 @@ CREATE TABLE TP_P_LOCALIZACIONES(
 id  BIGINT(20) NOT NULL AUTO_INCREMENT,
 id_ciudad BIGINT(20) NOT NULL,
 nombre VARCHAR (32) NOT NULL,
-latitud VARCHAR (32) NOT NULL,
-longitud VARCHAR (32) NOT NULL,
+latitud DOUBLE (32) NOT NULL,
+longitud DOUBLE (32) NOT NULL,
 descripcion VARCHAR (200),
 duracion INTEGER (10) NOT NULL,
 precio DOUBLE,
@@ -114,7 +114,7 @@ CREATE INDEX TP_P_LOCALIZACIONES_ID ON TP_P_LOCALIZACIONES(id);
 
 -- insertar localizaciones
 
-INSERT INTO TP_P_LOCALIZACIONES (id_ciudad, nombre, latitud, longitud, duracion, precio, habilitado, eliminado, creacion) VALUES ((SELECT id FROM TP_P_CIUDADES WHERE nombre = 'Sevilla'), 'La Giralda', 'X', 'Y', 15, 5, TRUE, FALSE, SYSDATE());
+INSERT INTO TP_P_LOCALIZACIONES (id_ciudad, nombre, latitud, longitud, duracion, precio, habilitado, eliminado, creacion) VALUES ((SELECT id FROM TP_P_CIUDADES WHERE nombre = 'Sevilla'), 'La Giralda', 1.1, 1.1, 15, 5, TRUE, FALSE, SYSDATE());
 
 -- Tabla categorías
 

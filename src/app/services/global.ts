@@ -16,5 +16,8 @@ export var GLOBAL = {
     recurs_getMapasPendientes: 'getMapasPendientes/',
     recurs_getHistorialMapas: 'getHistorialMapas/',
     recurs_getMarcadores: 'getMarcadores/',
-    recurs_getConfiguracion: 'getConfiguracion/'
+    recurs_getConfiguracion: 'getConfiguracion/',
+    latidud_defecto:37.389092,
+    longitud_defecto:-5.984459,
+    zoom_defecto:10
 };

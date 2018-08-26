@@ -70,7 +70,7 @@ export class CabeceraComponent {
         break;
 
       case 'MapaComponent':
-        this._router.navigate(['/rutasPendientes']);
+        this._router.navigate(['/menuOpciones']);
         break;
 
       case 'RutaComponent':

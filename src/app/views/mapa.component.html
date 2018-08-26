@@ -1,28 +1,30 @@
 <cabecera></cabecera>
 <div class="component">
-    <div *ngIf="idMapa != null">
-        <div class="row">
-            <nav id="nav" class="navMapas">
-                <ul *ngFor="let dia of marcadores; let i = index">
-                    <li *ngIf="i == 0">
-                        Mapa
-                    </li>
-                    <li *ngIf="i != 0">
-                        Dia {{i}}
-                    </li>
-                </ul>
-            </nav>
-        </div>
-        <div class="mapa">
-            <agm-map [latitude]="latMapa" [longitude]="lngMapa">
-                <agm-marker [latitude]="latMapa" [longitude]="lngMapa"></agm-marker>
-            </agm-map>
-        </div>
-        <div class="btns_mapa">
-            <a class="btn btn-lg clr_orange">Iniciar</a>
-        </div>
+    <div class="row">
+        <nav id="nav" class="navMapas">
+            <ul *ngFor="let numDia of dias">
+                <li *ngIf="numDia == 0">
+                    {{'mapa.opcionMapa' | translate}}
+                </li>
+                <li *ngIf="numDia != 0">
+                    {{'mapa.opcionDia' | translate}} {{numDia}}
+                </li>
+            </ul>
+        </nav>
     </div>
-    <div *ngIf="idMapa == null">
-        <p>No se ha podido cargar el mapa</p>
+
+    <div class="ruta" *ngIf="marcadores">
+        <agm-map [latitude]="latMapa" [longitude]="lngMapa" [zoom]="zoom">
+            <agm-marker *ngFor="let marcador of marcadores" [latitude]="marcador.latitud" [longitude]="marcador.longitud"></agm-marker>
+        </agm-map>
     </div>
+
+    <div class="sinRuta" *ngIf="!marcadores">
+            {{'mapa.noRuta' | translate}} 
+    </div>
+
+    <div class="btns_mapa">
+        <a class="btn btn-lg clr_orange">Iniciar</a>
+    </div>
+
 </div>

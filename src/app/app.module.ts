@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { AgmCoreModule } from '@agm/core';
+import { AgmJsMarkerClustererModule } from '@agm/js-marker-clusterer';
 import { Md5 } from 'ts-md5';
 
 //Servicios
@@ -31,7 +32,6 @@ import { RutasPendientesComponent } from './components/rutasPendientes.component
 import { ConfiguracionComponent } from './components/configuracion.component';
 import { TiendaComponent } from './components/tienda.component';
 import { MapaComponent } from './components/mapa.component';
-import { RutaComponent } from './components/ruta.component';
 
 @NgModule({
   declarations: [
@@ -48,14 +48,14 @@ import { RutaComponent } from './components/ruta.component';
     RutasPendientesComponent,
     ConfiguracionComponent,
     TiendaComponent,
-    MapaComponent,
-    RutaComponent
+    MapaComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
     routing,
+    AgmJsMarkerClustererModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCIO6-Ti2EIP5PMrOZO_hmnr1p4aiHr3AI'
     }),

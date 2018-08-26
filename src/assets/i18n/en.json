@@ -81,12 +81,15 @@
         "mostrarRuta": "Show route"
     },
     "mapa": {
-        "noRutas": "No maps available",
+        "noMapas": "No maps available",
         "destino": "Destination",
         "mapa": "Map",
         "detalle": "Detail",
         "eliminar": "Delete",
         "mostrar": "Show",
-        "ver": "View"
+        "ver": "View",
+        "opcionMapa": "Map",
+        "opcionDia": "Day",
+        "noRuta": "The route could not be loaded"
     }
 }
