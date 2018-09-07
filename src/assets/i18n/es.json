@@ -26,6 +26,7 @@
         "usuario": "Usuario",
         "contrasenia": "Contraseña",
         "repetir_contrasenia": "Repetir contraseña",
+        "campos_obligatorios":"Los campos marcados con * son obligatorios",
         "registrarse": "Registrarse",
         "msgError": "Por favor, rellene todos los campos obligatorios para registrarse"
     },

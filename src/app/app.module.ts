@@ -57,7 +57,7 @@ import { MapaComponent } from './components/mapa.component';
     routing,    
     AgmDirectionModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyCIO6-Ti2EIP5PMrOZO_hmnr1p4aiHr3AI'
+      apiKey: 'AIzaSyAJ-wk5k3bfyFX3xIV_pvzOBnSJMPWxyJs'
     }),
     TranslateModule.forRoot({
       loader: {

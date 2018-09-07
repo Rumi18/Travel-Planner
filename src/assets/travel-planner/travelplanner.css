@@ -393,6 +393,10 @@ form label{
     font-size: 12px;
 }
 
+.tablaMapas a{
+    color: white !important;
+}
+
 .table th{
     border-top: none !important;
 }

@@ -35,7 +35,7 @@ export class MapaComponent implements OnInit {
         this.zoom = 11;
         this.latMapa = GLOBAL.latidud_defecto;
         this.lngMapa = GLOBAL.longitud_defecto;
-        this.marcadores = [new Marcador('', GLOBAL.latidud_defecto, GLOBAL.longitud_defecto, 1)];
+        this.marcadores = [new Marcador('', GLOBAL.latidud_defecto, GLOBAL.longitud_defecto,'', 1)];
     }
 
     // Método que se lanza automáticamente después del constructor del componente 
@@ -54,7 +54,7 @@ export class MapaComponent implements OnInit {
         if (idMapa != null && numDias != null) {
             this.creaMenuDias(numDias);
             this.getMarcadores(idMapa);
-            this.muestraLocalizacionesMapa();
+            
         }
     }
 
@@ -76,6 +76,7 @@ export class MapaComponent implements OnInit {
                         marcador.dia = parseInt(marcador.dia);
                         this.marcadoresMapa.push(marcador);
                     });
+                    this.muestraLocalizacionesMapa();
                 } else { }
             },
             error => {

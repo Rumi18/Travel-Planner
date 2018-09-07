@@ -276,6 +276,160 @@ $app->get('/getPreferencias', function() use($db, $app){
 });
 
 
+//Obtener las preferencias de una configuración dado su id
+$app->get('/getPreferencias/:idConfiguracion', function($id) use($db, $app){
+	$sql = "SELECT preferencia.* FROM TP_R_CONFIG_PREFERENCIA AS conf_pref INNER JOIN TP_P_PREFERENCIAS AS preferencia ON conf_pref.id_preferencia = preferencia.id WHERE conf_pref.id_configuracion = {$id}";
+	
+	$query = $db->query($sql);
+
+	$preferencias = array();
+	while ($preferencia = $query->fetch_assoc()) {	
+		$preferencias[] = $preferencia;
+	}
+
+	$result = array(
+			'status' => 'success',
+			'code'	 => 200,
+			'data' => $preferencias
+		);
+	
+	echo json_encode($result);
+});
+
+
+// Obtener la configuración de un mapa dada su id
+$app->get('/getConfiguracion/:idMapa', function($id) use($db, $app){
+	$sql = "SELECT configuracion.* FROM TP_D_MAPAS AS mapa INNER JOIN TP_D_CONFIGURACIONES AS configuracion ON mapa.id_configuracion = configuracion.id WHERE mapa.id = 1 AND mapa.habilitado = TRUE AND mapa.eliminado = FALSE";	
+    $query= $db->query($sql);
+
+    $result = array(
+        'status' => 'error',
+        'code' => 404,
+        'message' => 'Configuración no encontrada'
+    );
+
+    if($query->num_rows == 1){
+        $configuracion = $query->fetch_assoc();
+
+        $result = array(
+            'status' => 'success',
+            'code' => 200,
+            'data' => $configuracion
+        );
+    }
+
+    echo json_encode($result);
+});
+
+
+/****** MÉTODOS MAPAS ******/
+
+// Obtener todos los mapas pendientes de un usuario dado su id
+$app->get('/getMapasPendientes/:idUsuario', function($id) use($db, $app){
+	$sql = "SELECT mapa.id, ciudad.nombre, mapa.puntuacion, mapa.observacion, configuracion.id AS id_configuracion, configuracion.duracion FROM TP_R_MAPA_USUARIO AS map_us INNER JOIN TP_D_MAPAS AS mapa ON map_us.id_mapa = mapa.id INNER JOIN TP_P_CIUDADES AS ciudad ON mapa.id_ciudad = ciudad.id INNER JOIN TP_D_CONFIGURACIONES AS configuracion ON mapa.id_configuracion = configuracion.id WHERE map_us.id_usuario = {$id} AND mapa.habilitado = TRUE AND mapa.eliminado = FALSE AND mapa.realizado = FALSE ORDER BY ciudad.nombre";
+	
+	$query = $db->query($sql);
+
+	$mapas = array();
+	while ($mapa = $query->fetch_assoc()) {	
+		$mapas[] = $mapa;
+	}
+
+	$result = array(
+			'status' => 'success',
+			'code'	 => 200,
+			'data' => $mapas
+		);
+	
+	echo json_encode($result);
+});
+
+// Obtener todos los mapas realizados de un usuario dado su id
+$app->get('/getHistorialMapas/:idUsuario', function($id) use($db, $app){
+	$sql = "SELECT mapa.id, ciudad.nombre, mapa.puntuacion, mapa.observacion, configuracion.id AS id_configuracion FROM TP_R_MAPA_USUARIO AS map_us INNER JOIN TP_D_MAPAS AS mapa ON map_us.id_mapa = mapa.id INNER JOIN TP_P_CIUDADES AS ciudad ON mapa.id_ciudad = ciudad.id INNER JOIN TP_D_CONFIGURACIONES AS configuracion ON mapa.id_configuracion = configuracion.id WHERE map_us.id_usuario = {$id} AND mapa.habilitado = TRUE AND mapa.eliminado = FALSE AND mapa.realizado = TRUE ORDER BY ciudad.nombre";
+	
+	$query = $db->query($sql);
+
+	$mapas = array();
+	while ($mapa = $query->fetch_assoc()) {	
+		$mapas[] = $mapa;
+	}
+
+	$result = array(
+			'status' => 'success',
+			'code'	 => 200,
+			'data' => $mapas
+		);
+	
+	echo json_encode($result);
+});
+
+
+// Obtener un mapa dado su id
+$app->get('/getMapa/:idMapa', function($id) use($db, $app){
+	$sql = "SELECT * FROM TP_D_MAPAS WHERE id = {$id} AND habilitado = TRUE AND eliminado = FALSE";	
+    $query= $db->query($sql);
+
+    $result = array(
+        'status' => 'error',
+        'code' => 404,
+        'message' => 'Mapa no encontrado'
+    );
+
+    if($query->num_rows == 1){
+        $mapa = $query->fetch_assoc();
+
+        $result = array(
+            'status' => 'success',
+            'code' => 200,
+            'data' => $mapa
+        );
+    }
+
+    echo json_encode($result);
+});
+
+
+//Obtener todos los marcadores de un mapa dado su id
+$app->get('/getMarcadores/:idMapa', function($id) use($db, $app){
+	$sql = "SELECT localizacion.nombre, localizacion.latitud, localizacion.longitud, marcador.dia FROM TP_R_MARCADORES AS marcador INNER JOIN TP_P_LOCALIZACIONES AS localizacion ON marcador.id_localizacion = localizacion.id WHERE marcador.id_mapa = {$id}";
+	
+	$query = $db->query($sql);
+
+	$marcadores = array();
+	while ($marcador = $query->fetch_assoc()) {	
+		$marcadores[] = $marcador;
+	}
+
+	$result = array(
+			'status' => 'success',
+			'code'	 => 200,
+			'data' => $marcadores
+		);
+	
+	echo json_encode($result);
+});
+
+
+//Obtener todos los marcadores de un mapa dado su id y el día
+$app->get('/getMarcadoresPorDia/:idMapa/:dia', function($id, $dia) use($db, $app){
+	$sql = "SELECT localizacion.nombre, localizacion.latitud, localizacion.longitud, marcador.dia FROM TP_R_MARCADORES AS marcador INNER JOIN TP_P_LOCALIZACIONES AS localizacion ON marcador.id_localizacion = localizacion.id WHERE marcador.id_mapa = {$id} AND marcador.dia = {$dia}";
+	
+	$query = $db->query($sql);
+
+	$marcadores = array();
+	while ($marcador = $query->fetch_assoc()) {	
+		$marcadores[] = $marcador;
+	}
+
+	$result = array(
+			'status' => 'success',
+			'code'	 => 200,
+			'data' => $marcadores
+		);
+	
+	echo json_encode($result);
+});
 
 // Se lanza la aplicación de slim, lanzando todos los méetodos anteriores para que estén disponibles las rutas
 $app->run();

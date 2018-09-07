@@ -26,6 +26,7 @@
         "usuario": "Username",
         "contrasenia": "Password",
         "repetir_contrasenia": "Repeat password",
+        "campos_obligatorios":"The fields marked with * are obligatory",
         "registrarse": "Sign up",
         "msgError": "Please, fill all the required fields to sign up"
     },
