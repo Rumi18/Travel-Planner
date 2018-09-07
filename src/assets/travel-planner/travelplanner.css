@@ -1,3 +1,7 @@
+.margin-top_2em{
+    margin-top: 2em !important;
+}
+
 /*Paleta de colores*/
 .clr_orange{
     background:#F58A07;
@@ -72,12 +76,13 @@ form label{
     margin-top: 20px;
 }
 
-.campoObligatorio{
+.campoObligatorio, .condicionObligatoria{
     color: #D7263D;
     font-weight: bold;
     padding-left: 0.5em;
     font-size: 11px;
 }
+
 
 .component form img{
     width: 30px;
@@ -386,6 +391,10 @@ form label{
 #btn-crearRuta{
     text-align: center;
     margin-top: 40px;
+}
+
+.presupuesto{
+    padding-right: 2em !important;
 }
 
 /*Vista rutasPendientes.component.html e historial.component.html*/

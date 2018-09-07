@@ -79,7 +79,8 @@
         "acompaniantes": "Partners",
         "ninios": "Children",
         "turismo": "Preferences",
-        "mostrarRuta": "Show route"
+        "mostrarRuta": "Show route",
+        "presupuestoValido":"The maximum budget value cannot be less than the minimum value."
     },
     "mapa": {
         "noMapas": "No maps available",

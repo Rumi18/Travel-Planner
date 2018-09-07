@@ -37,8 +37,7 @@ export class RecuperacionComponent {
     }
 
     onSubmit() {
-        console.log(this.recuperado.correo);
-
+       
         this._usuarioService.getUsuarioEmail(this.recuperado).subscribe(
             result => {
                 if (result['code'] != 200) {

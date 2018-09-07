@@ -69,7 +69,7 @@ export class RegistroComponent implements OnInit {
             this.msg_error = 'si';
         } else {
             res = true;
-            this.msg_error = 'si';
+            this.msg_error = 'no';
         }
 
         return res;

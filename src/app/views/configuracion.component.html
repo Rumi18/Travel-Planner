@@ -1,41 +1,55 @@
 <cabecera></cabecera>
-<div class="component">
+<div class="component">  
+
     <form id="form-configuracion" #formConfiguracion="ngForm" (ngSubmit)="onSubmit()">
+
         <div id="lbl_configuracion">
             <strong>{{'configuracion.titulo_configuracion' | translate}}</strong>
         </div>
+
         <label>{{'configuracion.destino' | translate}}:</label>
-        <select class="form-control" required>
-            <option>{{'formulario.seleccione' | translate}}</option>
+        <select class="form-control" #destino="ngModel" name="destino" [(ngModel)]="configuracion.destino" required>
+            <option [ngValue]="0">{{'formulario.seleccione' | translate}}</option>
             <option [ngValue]="ciudad.id" *ngFor="let ciudad of ciudades"> {{ciudad.nombre}}</option>
         </select>
 
         <label>{{'configuracion.duracion' | translate}}:</label>
         <div id="slider-value">
-            <input type="range" class="form-control slider" min="1" max="3" step="1" #duracion="ngModel" name="duracion" [(ngModel)]="configuracion.duracion">
+            <input type="range" class="form-control slider" min="1" max="3" step="1" #duracion="ngModel" name="duracion"
+                [(ngModel)]="configuracion.duracion" required>
             <span id="num_duracion">{{configuracion.duracion}}</span>
         </div>
+
         <label>{{'configuracion.presupuesto' | translate}}:</label>
+        <span class="campoObligatorio" *ngIf="(!pres_minimo.valid && pres_minimo.touched) || (!pres_maximo.valid && pres_minimo.touched)">
+            {{'formulario.campoObligatorio' | translate}}</span><br>
+        <span class="condicionObligatoria" *ngIf="pres_minimo.valid && pres_minimo.valid != null && pres_maximo.valid && pres_maximo.valid != null && configuracion.presupuesto_limInf > configuracion.presupuesto_limSup">
+            {{'configuracion.presupuestoValido' | translate}}</span>
         <div id="presupuesto-values">
-            <div class="col-sm-6">
+            <div class="presupuesto">
                 <span>{{'configuracion.minimo' | translate}}:</span>
-                <input type="number" class="form-control" required/>
+                <input type="number" class="form-control" #pres_minimo="ngModel" name="pres_minimo" [(ngModel)]="configuracion.presupuesto_limInf"
+                    required />
             </div>
-            <div class="col-sm-6">
+           
+            <div class="presupuesto">
                 <span>{{'configuracion.maximo' | translate}}:</span>
-                <input type="number" class="form-control" required/>
+                <input type="number" class="form-control" #pres_maximo="ngModel" name="pres_maximo" [(ngModel)]="configuracion.presupuesto_limSup"
+                    required />
             </div>
         </div>
 
         <label>{{'configuracion.mascota' | translate}}:</label>
         <div class="radio-configuracion">
             <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" class="custom-control-input" id="mascotaSi" name="mascotaSi">
+                <input type="radio" class="custom-control-input" id="mascotaSi" value="true" #mascota="ngModel" name="mascota"
+                    [(ngModel)]="configuracion.mascotas">
                 <label class="custom-control-label" for="mascotaSi">{{'formulario.si' | translate}}</label>
             </div>
 
             <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" class="custom-control-input" id="mascotaNo" name="mascotaNo">
+                <input type="radio" class="custom-control-input" id="mascotaNo" value="false" #mascota="ngModel" name="mascota"
+                    [(ngModel)]="configuracion.mascotas">
                 <label class="custom-control-label" for="mascotaNo">{{'formulario.no' | translate}}</label>
             </div>
         </div>
@@ -43,12 +57,14 @@
         <label>{{'configuracion.acompaniantes' | translate}}:</label>
         <div class="radio-configuracion">
             <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" class="custom-control-input" id="acompaniantesSi" name="acompaniantesSi">
+                <input type="radio" class="custom-control-input" id="acompaniantesSi" value="true" #acompaniantes="ngModel"
+                    name="acompaniantes" [(ngModel)]="configuracion.acompaniantes">
                 <label class="custom-control-label" for="acompaniantesSi">{{'formulario.si' | translate}}</label>
             </div>
 
             <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" class="custom-control-input" id="acompaniantesNo" name="acompaniantesNo">
+                <input type="radio" class="custom-control-input" id="acompaniantesNo" value="false" #acompaniantes="ngModel"
+                    name="acompaniantes" [(ngModel)]="configuracion.acompaniantes">
                 <label class="custom-control-label" for="acompaniantesNo">{{'formulario.no' | translate}}</label>
             </div>
         </div>
@@ -56,12 +72,14 @@
         <label>{{'configuracion.ninios' | translate}}:</label>
         <div class="radio-configuracion">
             <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" class="custom-control-input" id="niniosSi" name="niniosSi">
+                <input type="radio" class="custom-control-input" id="niniosSi" value="true" #ninios="ngModel" name="ninios"
+                    [(ngModel)]="configuracion.ninios">
                 <label class="custom-control-label" for="niniosSi">{{'formulario.si' | translate}}</label>
             </div>
 
             <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" class="custom-control-input" id="niniosNo" name="niniosNo">
+                <input type="radio" class="custom-control-input" id="niniosNo" value="false" #ninios="ngModel" name="ninios"
+                    [(ngModel)]="configuracion.ninios">
                 <label class="custom-control-label" for="niniosNo">{{'formulario.no' | translate}}</label>
             </div>
         </div>
@@ -69,13 +87,16 @@
         <label>{{'configuracion.turismo' | translate}}:</label>
         <div class="checkbox-configuracion">
             <label *ngFor="let preferencia of preferencias">
-                <input type="checkbox" name="{{preferencia.nombre}}" value="{{preferencia.id}}" /> {{preferencia.nombre}}
+                <input type="checkbox" name="preferencia.nombre" (change)="onChange(preferencia.id, $event.target.checked)" />
+                {{preferencia.nombre}}
             </label>
         </div>
 
+        <div class="alert alert-danger margin-top_2em" *ngIf="msg_error == 'si'">{{'registro.msgError' | translate}}</div>
+
         <div id="btn-crearRuta">
-            <!--<input type="submit" value="{{'configuracion.mostrarRuta' | translate}}" class="btn btn-lg clr_orange" />-->
-            <a class="btn btn-lg clr_orange">{{'configuracion.mostrarRuta' | translate}}</a>
+            <input type="submit" value="{{'configuracion.mostrarRuta' | translate}}" class="btn btn-lg clr_orange"
+                [disabled]="!formConfiguracion.form.valid || configuracion.destino == 0 || configuracion.presupuesto_limInf == null || configuracion.presupuesto_limSup == null || configuracion.mascotas == null || configuracion.acompaniantes == null || configuracion.ninios == null || configuracion.preferencias.length <= 0 ||  configuracion.presupuesto_limInf > configuracion.presupuesto_limSup" />
         </div>
 
     </form>

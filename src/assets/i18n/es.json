@@ -79,7 +79,8 @@
         "acompaniantes": "Acompañantes",
         "ninios": "Niños",
         "turismo": "Preferencias",
-        "mostrarRuta": "Mostrar Ruta"
+        "mostrarRuta": "Mostrar Ruta",
+        "presupuestoValido":"El valor máximo del presupuesto no puede ser menor que el valor mínimo"
     },
     "mapa": {
         "noMapas": "No existen mapas disponibles",
