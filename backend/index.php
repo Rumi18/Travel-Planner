@@ -56,9 +56,33 @@ $app->post('/addUsuarios', function() use($app, $db){
 	echo json_encode($result);
 });
 
-// Obtener un usuario
+// Obtener un usuario dado su user_name
 $app->get('/getUsuario/:user_name', function($user_name) use($app, $db){
    $sql = "SELECT * FROM `TP_D_USUARIOS` WHERE user_name = '{$user_name}' AND eliminado = FALSE AND habilitado = TRUE";	
+    $query= $db->query($sql);
+
+    $result = array(
+        'status' => 'error',
+        'code' => 404,
+        'message' => 'Usuario no encontrado'
+    );
+
+    if($query->num_rows == 1){
+        $usuario = $query->fetch_assoc();
+
+        $result = array(
+            'status' => 'success',
+            'code' => 200,
+            'data' => $usuario
+        );
+    }
+
+    echo json_encode($result);
+});
+
+// Obtener un usuario dado su id
+$app->get('/getInforUsuario/:id', function($id) use($app, $db){
+   $sql = "SELECT * FROM `TP_D_USUARIOS` WHERE id = '{$id}' AND eliminado = FALSE AND habilitado = TRUE";	
     $query= $db->query($sql);
 
     $result = array(
@@ -178,7 +202,7 @@ $app->post('/subirImagen/:id', function($id) use($app, $db){
 
 // Devolver un solo usuario por el email
 $app->get('/usuario_mail/:email', function($email) use($app, $db){
-    $sql = "SELECT * FROM TP_D_USUARIOS WHERE email = '{$email}' AND eliminado = 'FALSE' AND habilitado = 'TRUE'";
+    $sql = "SELECT * FROM TP_D_USUARIOS WHERE email = '{$email}' AND eliminado = '{FALSE}' AND habilitado = '{TRUE}'";
     $query= $db->query($sql);
     
     $result = array(

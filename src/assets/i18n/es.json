@@ -79,5 +79,19 @@
         "ninios": "Niños",
         "turismo": "Preferencias",
         "mostrarRuta": "Mostrar Ruta"
+    },
+    "mapa": {
+        "noMapas": "No existen mapas disponibles",
+        "destino": "Destino",
+        "mapa": "Mapa",
+        "detalle": "Detalle",
+        "eliminar": "Eliminar",
+        "mostrar": "Mostrar",
+        "ver": "Ver",
+        "opcionMapa": "Mapa",
+        "opcionDia": "Día",
+        "noRuta": "La ruta no se ha podido cargar",
+        "iniciar": "Iniciar",
+        "finalizar": "Finalizar"
     }
 }

@@ -12,5 +12,12 @@ export var GLOBAL = {
     recurs_deleteUsuario: 'deleteUsuario/',
     recurs_uploadImage: 'subirImagen/',
     recurs_getCiudades: 'getCiudades',
-    recurs_getPreferencias: 'getPreferencias'
+    recurs_getPreferencias: 'getPreferencias',
+    recurs_getMapasPendientes: 'getMapasPendientes/',
+    recurs_getHistorialMapas: 'getHistorialMapas/',
+    recurs_getMarcadores: 'getMarcadores/',
+    recurs_getConfiguracion: 'getConfiguracion/',
+    latidud_defecto:37.389092,
+    longitud_defecto:-5.984459,
+    zoom_defecto:10
 };

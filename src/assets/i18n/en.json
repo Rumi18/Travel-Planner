@@ -1,5 +1,5 @@
 {
-    "home": {
+    "inicio": {
         "iniciar_sesion": "Sign in",
         "entrar": "Log in",
         "registrar": "Sign up",
@@ -79,5 +79,19 @@
         "ninios": "Children",
         "turismo": "Preferences",
         "mostrarRuta": "Show route"
+    },
+    "mapa": {
+        "noMapas": "No maps available",
+        "destino": "Destination",
+        "mapa": "Map",
+        "detalle": "Detail",
+        "eliminar": "Delete",
+        "mostrar": "Show",
+        "ver": "View",
+        "opcionMapa": "Map",
+        "opcionDia": "Day",
+        "noRuta": "The route could not be loaded",
+        "iniciar": "Start",
+        "finalizar": "End"
     }
 }

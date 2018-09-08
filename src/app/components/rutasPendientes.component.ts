@@ -3,16 +3,26 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 
 // Servicios
 import { GLOBAL } from '../services/global';
+import { MapaService } from '../services/mapa.service';
+import { AlmacenamientoService } from '../services/almacenamiento.service';
+
+// Modelos
+import { Mapa } from '../models/mapa';
 
 @Component({
     selector: 'rutasPendientes',
-    templateUrl: '../views/rutasPendientes.component.html'
+    templateUrl: '../views/rutasPendientes.component.html',
+    providers: [MapaService]
 })
 export class RutasPendientesComponent implements OnInit {
+    public mapas: Mapa[];
 
     constructor(
         private _router: Router,
-        private _route: ActivatedRoute) {
+        private _route: ActivatedRoute,
+        private _mapaService: MapaService,
+        private _almacenamientoService: AlmacenamientoService
+    ) {
 
     }
 
@@ -20,5 +30,25 @@ export class RutasPendientesComponent implements OnInit {
     ngOnInit() {
         GLOBAL.vistaSeleccionada = this._route.component['name'];
         console.log('Se ha cargado el componente rutasPendientes.component.ts');
+
+        let idUsuario: number = this._almacenamientoService.getUsuarioActual().id;
+        this.getMapasPendientes(idUsuario);
+
+    }
+
+    getMapasPendientes(idUsuario: number) {
+        this._mapaService.getMapasPendientes(idUsuario).subscribe(
+            result => {
+                if (result['code'] == 200) {
+                    if (result['data'].length > 0) {
+                        this.mapas = result['data'];
+                    }
+                }
+            },
+            error => {
+                console.log(<any>error);
+                this._router.navigate(['/error']);
+            }
+        );
     }
 }
