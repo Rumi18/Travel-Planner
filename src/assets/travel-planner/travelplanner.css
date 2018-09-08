@@ -338,6 +338,7 @@ form label{
     text-align: center;
     margin-top: 5em;
     margin-bottom: 1em;
+    color: #448FA3;
 }
 
 .slidecontainer {
@@ -421,6 +422,26 @@ thead{
     color: #D7263D;
 }
 
+.modal{
+    top:10% !important;
+    color: black !important;
+    font-size: 14px;   
+}
+
+.cabecera_detalles{
+    text-align: center !important;
+    width: 100% !important;
+    font-size: 17px;
+    color: #2C99DF;
+}
+
+.div-detalles{
+    padding: 2.5em;
+}
+
+.verPreferencias{
+    padding-left: 2em;
+}
 
 /*Vista mapa.component.html*/
 
@@ -475,3 +496,4 @@ agm-map {
     text-align: center;
     margin-top: 1em;
 }
+

@@ -1,7 +1,7 @@
 <cabecera></cabecera>
 <div class="component">
     <div class="sinMapas" *ngIf="!mapas">
-            <p>{{'mapa.noMapas' | translate}}</p>
+        <p>{{'mapa.noMapas' | translate}}</p>
     </div>
     <div class="tablaMapas table-responsive" *ngIf="mapas">
         <table class="table table-striped table-hover ">
@@ -16,11 +16,71 @@
             <tbody *ngFor="let mapa of mapas">
                 <tr>
                     <td><strong>{{mapa.nombre}}</strong></td>
-                    <td><a [routerLink]="['/mapa', mapa.id, mapa.duracion]" class="mostrarMapa">{{'mapa.mostrar' | translate}}</a></td>
-                    <td><a class="verDetalles">{{'mapa.ver' | translate}}</a></td>
+                    <td><a [routerLink]="['/mapa', mapa.id, mapa.duracion]" class="mostrarMapa">{{'mapa.mostrar' |
+                            translate}}</a></td>
+                    <td><a class="verDetalles" role="button" (click)="verDetalles(mapa.id_configuracion)" data-toggle="modal"
+                            data-target="#ver_detalles">{{'mapa.ver'
+                            | translate}}</a></td>
                     <td><a class="eliminarRuta">{{'mapa.eliminar' | translate}}</a></td>
                 </tr>
+
+                <div class="modal fade" id="ver_detalles" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                    aria-hidden="true" style="display: none;">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+
+                            <div class="modal-header">
+                                <div class="cabecera_detalles"><strong>{{'mapa.detallesMapa' | translate}}</strong></div>
+                            </div>
+
+                            <div class="div-detalles">
+                                <div>
+                                    <strong>{{'configuracion.destino' | translate}}:</strong>
+                                    <span> {{mapa.nombre}} </span>
+                                </div>
+                                <div>
+                                    <strong>{{'configuracion.duracion' | translate}}:</strong>
+                                    <span> {{configuracion.duracion}} {{'configuracion.dias' | translate}}</span>
+                                </div>
+                                <div>
+                                    <strong>{{'configuracion.presupuesto' | translate}}:</strong>
+                                    <span> {{configuracion.presupuesto_min}} - {{configuracion.presupuesto_max}} €</span>
+                                </div>
+                                <div>
+                                    <strong>{{'configuracion.mascota' | translate}}:</strong>
+                                    <span *ngIf="configuracion.mascotas == '1'"> {{'formulario.si' | translate}} </span>
+                                    <span *ngIf="configuracion.mascotas == '0'"> {{'formulario.no' | translate}} </span>
+                                </div>
+                                <div>
+                                    <strong>{{'configuracion.acompaniantes' | translate}}:</strong>
+                                    <span *ngIf="configuracion.acompaniantes == '1'"> {{'formulario.si' | translate}}
+                                    </span>
+                                    <span *ngIf="configuracion.acompaniantes == '0'"> {{'formulario.no' | translate}}
+                                    </span>
+                                </div>
+                                <div>
+                                    <strong>{{'configuracion.ninios' | translate}}:</strong>
+                                    <span *ngIf="configuracion.ninios == '1'"> {{'formulario.si' | translate}} </span>
+                                    <span *ngIf="configuracion.ninios == '0'"> {{'formulario.no' | translate}} </span>
+                                </div>
+                                <div>
+                                    <strong>{{'configuracion.fechaCreación' | translate}}:</strong>
+                                    <span> {{configuracion.creacion}}</span>
+                                </div>
+                                <div>
+                                    <strong>{{'configuracion.turismo' | translate}}:</strong>
+                                    <div class="verPreferencias" *ngFor="let preferencia of preferencias">
+                                        <span>{{preferencia.nombre}}</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </tbody>
         </table>
     </div>
+
 </div>

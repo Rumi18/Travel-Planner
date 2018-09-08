@@ -23,18 +23,18 @@
         <label>{{'configuracion.presupuesto' | translate}}:</label>
         <span class="campoObligatorio" *ngIf="(!pres_minimo.valid && pres_minimo.touched) || (!pres_maximo.valid && pres_minimo.touched)">
             {{'formulario.campoObligatorio' | translate}}</span><br>
-        <span class="condicionObligatoria" *ngIf="pres_minimo.valid && pres_minimo.valid != null && pres_maximo.valid && pres_maximo.valid != null && configuracion.presupuesto_limInf > configuracion.presupuesto_limSup">
+        <span class="condicionObligatoria" *ngIf="pres_minimo.valid && pres_minimo.valid != null && pres_maximo.valid && pres_maximo.valid != null && configuracion.presupuesto_min > configuracion.presupuesto_max">
             {{'configuracion.presupuestoValido' | translate}}</span>
         <div id="presupuesto-values">
             <div class="presupuesto">
                 <span>{{'configuracion.minimo' | translate}}:</span>
-                <input type="number" class="form-control" #pres_minimo="ngModel" name="pres_minimo" [(ngModel)]="configuracion.presupuesto_limInf"
+                <input type="number" class="form-control" #pres_minimo="ngModel" name="pres_minimo" [(ngModel)]="configuracion.presupuesto_min"
                     required />
             </div>
            
-            <div class="presupuesto">
+            <div >
                 <span>{{'configuracion.maximo' | translate}}:</span>
-                <input type="number" class="form-control" #pres_maximo="ngModel" name="pres_maximo" [(ngModel)]="configuracion.presupuesto_limSup"
+                <input type="number" class="form-control" #pres_maximo="ngModel" name="pres_maximo" [(ngModel)]="configuracion.presupuesto_max"
                     required />
             </div>
         </div>
@@ -96,7 +96,7 @@
 
         <div id="btn-crearRuta">
             <input type="submit" value="{{'configuracion.mostrarRuta' | translate}}" class="btn btn-lg clr_orange"
-                [disabled]="!formConfiguracion.form.valid || configuracion.destino == 0 || configuracion.presupuesto_limInf == null || configuracion.presupuesto_limSup == null || configuracion.mascotas == null || configuracion.acompaniantes == null || configuracion.ninios == null || configuracion.preferencias.length <= 0 ||  configuracion.presupuesto_limInf > configuracion.presupuesto_limSup" />
+                [disabled]="!formConfiguracion.form.valid || configuracion.destino == 0 || configuracion.presupuesto_min == null || configuracion.presupuesto_max == null || configuracion.mascotas == null || configuracion.acompaniantes == null || configuracion.ninios == null || configuracion.preferencias.length <= 0 ||  configuracion.presupuesto_min > configuracion.presupuesto_max" />
         </div>
 
     </form>

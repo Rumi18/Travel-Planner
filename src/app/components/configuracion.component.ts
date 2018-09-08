@@ -26,7 +26,7 @@ export class ConfiguracionComponent implements OnInit {
         private _route: ActivatedRoute,
         private _configuracionService: ConfiguracionService
     ) {
-        this.configuracion = new Configuracion(0, 1, null, null, null, null, null, []);
+        this.configuracion = new Configuracion(0, 1, null, null, null, null, null, null, []);
     }
 
     // Método que se lanza automáticamente después del constructor del componente 
@@ -76,11 +76,22 @@ export class ConfiguracionComponent implements OnInit {
     // Método para persistir en BD una nueva configuración
     onSubmit() {
         this.msg_error = 'no';
-        
-        if (this.validaFormulario(this.configuracion)) {
-            console.log(this.configuracion);
-        }
 
+        if (this.validaFormulario(this.configuracion)) {
+            this._configuracionService.addConfiguracion(this.configuracion).subscribe(
+                response => {
+                    if (response['code'] == 200) {
+                        this._router.navigate(['/menuOpciones']);
+                    } else {
+                        this._router.navigate(['/error']);
+                    }
+                },
+                error => {
+                    console.log(<any>error);
+                    this._router.navigate(['/error']);
+                }
+            );
+        }
     }
 
     //Método que actualiza la lista de preferencias que selecciona el usuario
@@ -100,15 +111,15 @@ export class ConfiguracionComponent implements OnInit {
             res = false;
             this.msg_error = 'si';
 
-        } else if (configuracion.presupuesto_limInf == null || isNaN(configuracion.presupuesto_limInf)) {
+        } else if (configuracion.presupuesto_min == null || isNaN(configuracion.presupuesto_min)) {
             res = false;
             this.msg_error = 'si';
 
-        } else if (configuracion.presupuesto_limSup == null || isNaN(configuracion.presupuesto_limSup)) {
+        } else if (configuracion.presupuesto_max == null || isNaN(configuracion.presupuesto_max)) {
             res = false;
             this.msg_error = 'si';
 
-        } else if (configuracion.presupuesto_limSup > configuracion.presupuesto_limSup) {
+        } else if (configuracion.presupuesto_max > configuracion.presupuesto_max) {
             res = false;
             this.msg_error = 'si';
 

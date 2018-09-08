@@ -26,7 +26,7 @@
         "usuario": "Username",
         "contrasenia": "Password",
         "repetir_contrasenia": "Repeat password",
-        "campos_obligatorios":"The fields marked with * are obligatory",
+        "campos_obligatorios": "The fields marked with * are obligatory",
         "registrarse": "Sign up",
         "msgError": "Please, fill all the required fields to sign up"
     },
@@ -80,7 +80,9 @@
         "ninios": "Children",
         "turismo": "Preferences",
         "mostrarRuta": "Show route",
-        "presupuestoValido":"The maximum budget value cannot be less than the minimum value."
+        "presupuestoValido": "The maximum budget value cannot be less than the minimum value.",
+        "dias": "days",
+        "fechaCreación": "Creation date"
     },
     "mapa": {
         "noMapas": "No maps available",
@@ -94,6 +96,7 @@
         "opcionDia": "Day",
         "noRuta": "The route could not be loaded",
         "iniciar": "Start",
-        "finalizar": "End"
+        "finalizar": "End",
+        "detallesMapa": "Map details"
     }
 }

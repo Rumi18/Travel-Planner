@@ -5,25 +5,32 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { GLOBAL } from '../services/global';
 import { MapaService } from '../services/mapa.service';
 import { AlmacenamientoService } from '../services/almacenamiento.service';
+import { ConfiguracionService } from '../services/configuracion.service';
 
 // Modelos
 import { Mapa } from '../models/mapa';
+import { Configuracion } from '../models/configuracion';
+import { Preferencia } from '../models/preferencia';
 
 @Component({
     selector: 'rutasPendientes',
     templateUrl: '../views/rutasPendientes.component.html',
-    providers: [MapaService]
+    providers: [MapaService, ConfiguracionService]
 })
 export class RutasPendientesComponent implements OnInit {
     public mapas: Mapa[];
+    public configuracion: Configuracion;
+    public preferencias: Preferencia[];
 
     constructor(
         private _router: Router,
         private _route: ActivatedRoute,
         private _mapaService: MapaService,
-        private _almacenamientoService: AlmacenamientoService
+        private _almacenamientoService: AlmacenamientoService,
+        private _configuracionService: ConfiguracionService
     ) {
-
+        this.configuracion = new Configuracion(0, 1, null, null, null, null, null, null, []);
+        this.preferencias = [];
     }
 
     // Método que se lanza automáticamente después del constructor del componente 
@@ -43,6 +50,32 @@ export class RutasPendientesComponent implements OnInit {
                     if (result['data'].length > 0) {
                         this.mapas = result['data'];
                     }
+                }
+            },
+            error => {
+                console.log(<any>error);
+                this._router.navigate(['/error']);
+            }
+        );
+    }
+
+    verDetalles(idConfiguracion: number) {
+        this._configuracionService.getConfiguracion(idConfiguracion).subscribe(
+            result => {
+                if (result['code'] == 200) {
+                    this.configuracion = result['data'];                  
+                }
+            },
+            error => {
+                console.log(<any>error);
+                this._router.navigate(['/error']);
+            }
+        );
+
+        this._configuracionService.getPreferenciasConfiguracion(idConfiguracion).subscribe(
+            result => {
+                if (result['code'] == 200) {
+                    this.preferencias = result['data'];                  
                 }
             },
             error => {

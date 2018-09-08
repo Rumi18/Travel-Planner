@@ -321,6 +321,31 @@ $app->get('/getConfiguracion/:idMapa', function($id) use($db, $app){
     echo json_encode($result);
 });
 
+//Añadir una configuración
+$app->post('/addConfiguracion', function() use($app, $db){	
+	$json = $app->request->post('json');		
+	$data = json_decode($json, true);
+	
+	//$sql = "";
+		
+	//$query = $db->query($sql);
+	
+	//if($query){
+		$result = array(
+			'status' => 'success',
+			'code' => 200,
+			'message' => 'Configuracion creada correctamente'
+		);
+	//}else{
+	//	$result = array(
+	//		'status' => 'error',
+	//		'code' => 404,
+	//		'message' => 'La configuracion no se ha podido crear'
+	//	);
+	//}
+	
+	echo json_encode($result);
+});
 
 /****** MÉTODOS MAPAS ******/
 
@@ -392,7 +417,7 @@ $app->get('/getMapa/:idMapa', function($id) use($db, $app){
 
 //Obtener todos los marcadores de un mapa dado su id
 $app->get('/getMarcadores/:idMapa', function($id) use($db, $app){
-	$sql = "SELECT localizacion.nombre, localizacion.latitud, localizacion.longitud, marcador.dia FROM TP_R_MARCADORES AS marcador INNER JOIN TP_P_LOCALIZACIONES AS localizacion ON marcador.id_localizacion = localizacion.id WHERE marcador.id_mapa = {$id}";
+	$sql = "SELECT localizacion.nombre, localizacion.latitud, localizacion.longitud, localizacion.descripcion, marcador.dia FROM TP_R_MARCADORES AS marcador INNER JOIN TP_P_LOCALIZACIONES AS localizacion ON marcador.id_localizacion = localizacion.id WHERE marcador.id_mapa = {$id}";
 	
 	$query = $db->query($sql);
 

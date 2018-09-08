@@ -14,19 +14,30 @@ export class ConfiguracionService {
     constructor(
         public _http: HttpClient
     ) {
-       
+
     }
 
-    getCiudades(){
+    getCiudades() {
         return this._http.get(GLOBAL.uri + GLOBAL.recurs_getCiudades);
     }
 
-    getPreferencias(){
+    getPreferencias() {
         return this._http.get(GLOBAL.uri + GLOBAL.recurs_getPreferencias);
     }
-    
-    getConfiguracion(idMapa:number){
-        return this._http.get(GLOBAL.uri + GLOBAL.recurs_getConfiguracion + idMapa);
+
+    getConfiguracion(idConfiguracion: number) {
+        return this._http.get(GLOBAL.uri + GLOBAL.recurs_getConfiguracion + idConfiguracion);
     }
-    
+
+    getPreferenciasConfiguracion(idConfiguracion: number) {
+        return this._http.get(GLOBAL.uri + GLOBAL.recurs_getPreferenciasConfiguracion + idConfiguracion);
+    }
+
+    addConfiguracion(configuracion: Configuracion) {     
+        let json = JSON.stringify(configuracion);
+        let params = "json=" + json;
+        let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
+
+        return this._http.post(GLOBAL.uri + GLOBAL.recurs_addConfiguracion, params, { headers: headers });
+    }
 }
