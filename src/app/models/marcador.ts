@@ -4,6 +4,7 @@ export class Marcador {
         public nombre: string,
         public latitud: number,
         public longitud: number,
+        public descripcion: string,
         public dia: number
     ) { }
 }

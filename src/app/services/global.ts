@@ -13,10 +13,13 @@ export var GLOBAL = {
     recurs_uploadImage: 'subirImagen/',
     recurs_getCiudades: 'getCiudades',
     recurs_getPreferencias: 'getPreferencias',
+    recurs_getPreferenciasConfiguracion: 'getPreferencias/',
     recurs_getMapasPendientes: 'getMapasPendientes/',
     recurs_getHistorialMapas: 'getHistorialMapas/',
     recurs_getMarcadores: 'getMarcadores/',
     recurs_getConfiguracion: 'getConfiguracion/',
+    recurs_addConfiguracion: 'addConfiguracion',
+    recurs_deleteMapa: 'deleteMapa/',
     latidud_defecto:37.389092,
     longitud_defecto:-5.984459,
     zoom_defecto:10

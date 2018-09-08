@@ -1,3 +1,7 @@
+.margin-top_2em{
+    margin-top: 2em !important;
+}
+
 /*Paleta de colores*/
 .clr_orange{
     background:#F58A07;
@@ -72,12 +76,13 @@ form label{
     margin-top: 20px;
 }
 
-.campoObligatorio{
+.campoObligatorio, .condicionObligatoria{
     color: #D7263D;
     font-weight: bold;
     padding-left: 0.5em;
     font-size: 11px;
 }
+
 
 .component form img{
     width: 30px;
@@ -333,6 +338,7 @@ form label{
     text-align: center;
     margin-top: 5em;
     margin-bottom: 1em;
+    color: #448FA3;
 }
 
 .slidecontainer {
@@ -388,9 +394,17 @@ form label{
     margin-top: 40px;
 }
 
+.presupuesto{
+    padding-right: 2em !important;
+}
+
 /*Vista rutasPendientes.component.html e historial.component.html*/
 .tablaMapas{
     font-size: 12px;
+}
+
+.tablaMapas a{
+    color: white !important;
 }
 
 .table th{
@@ -408,6 +422,26 @@ thead{
     color: #D7263D;
 }
 
+.modal{
+    top:10% !important;
+    color: black !important;
+    font-size: 14px;   
+}
+
+.cabecera_detalles{
+    text-align: center !important;
+    width: 100% !important;
+    font-size: 17px;
+    color: #2C99DF;
+}
+
+.div-detalles{
+    padding: 2.5em;
+}
+
+.verPreferencias{
+    padding-left: 2em;
+}
 
 /*Vista mapa.component.html*/
 
@@ -462,3 +496,4 @@ agm-map {
     text-align: center;
     margin-top: 1em;
 }
+

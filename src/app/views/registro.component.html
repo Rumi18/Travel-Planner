@@ -1,6 +1,5 @@
 <cabecera></cabecera>
-<div class="component">
-    <div class="alert alert-danger" *ngIf="msg_error == 'si'">{{'registro.msgError' | translate}}</div>
+<div class="component">  
 
     <form id="form-registro" #formRegistro="ngForm" (ngSubmit)="onSubmit()">
 
@@ -32,6 +31,8 @@
             required [pattern]="usuario.user_passwd" />
 
         <p>Los campos marcados con * son obligatorios</p>
+
+        <div class="alert alert-danger" *ngIf="msg_error == 'si'">{{'registro.msgError' | translate}}</div>
 
         <div id="btn-registrarse">
             <input type="submit" value="{{'registro.registrarse' | translate}}" [disabled]="!formRegistro.form.valid" class="btn btn-lg clr_blue_ligth"

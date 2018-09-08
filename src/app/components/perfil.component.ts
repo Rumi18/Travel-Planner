@@ -43,11 +43,11 @@ export class PerfilComponent implements OnInit {
 
     private getInforUsuario() {
         console.log(this._almacenamientoService.getUsuarioActual().id);
-        
+
         this._usuarioService.getInforUsuario(this._almacenamientoService.getUsuarioActual().id).subscribe(
             result => {
-                if (result['code'] == 200) {                    
-                    this.usuario = result['data'];                 
+                if (result['code'] == 200) {
+                    this.usuario = result['data'];
                     this.antiguaPass = this.usuario.user_passwd;
                     this.usuario.user_passwd = '';
                     this.usuario.newPasswd = '';
@@ -70,12 +70,13 @@ export class PerfilComponent implements OnInit {
     public subirImagen(fileInput: any) {
         this.filesToUpload = <Array<File>>fileInput.target.files;
     }
-    
+
     onSubmit() {
         this.msg_error = 'no';
         this.msg_warn = 'no';
         this.msg_ok = 'no';
-        if (this.filesToUpload && this.filesToUpload.length >= 1) {          
+
+        if (this.filesToUpload && this.filesToUpload.length >= 1) {
             this._usuarioService.subirImagen(this.usuario.id, [], this.filesToUpload).then((result) => {
                 this.resultUpload = result;
                 this.usuario.nueva_imagen = this.resultUpload.filename;
@@ -91,18 +92,18 @@ export class PerfilComponent implements OnInit {
     }
 
     private guardarUsuario() {
-       
-       if(this.usuario.user_passwd != '' && this.usuario.user_passwd != null){
+
+        if (this.usuario.user_passwd != '' && this.usuario.user_passwd != null) {
             this.usuario.user_passwd = Md5.hashStr(this.usuario.user_passwd).toString();
-       }
-       
+        }
+
         if (this.usuario.user_passwd != '' && this.usuario.user_passwd != null && this.antiguaPass != this.usuario.user_passwd) {
             this.msg_warn = 'si';
             this.usuario.user_passwd = '';
             this.usuario.newPasswd = '';
             this.usuario.repeatPasswd = '';
         } else {
-            if (this.usuario.user_passwd == '' || this.usuario.user_passwd == null) {              
+            if (this.usuario.user_passwd == '' || this.usuario.user_passwd == null) {
                 this.usuario.user_passwd = this.antiguaPass;
             } else {
                 if (this.usuario.newPasswd != '' && this.usuario.newPasswd != null) {
@@ -121,10 +122,10 @@ export class PerfilComponent implements OnInit {
                 response => {
                     if (response['code'] == 200) {
                         this.msg_ok = 'si';
-                        this._almacenamientoService.setSesionActual(new Sesion(this._almacenamientoService.getTokenActual(),this.usuario));                   
-                        this.getInforUsuario();                        
+                        this._almacenamientoService.setSesionActual(new Sesion(this._almacenamientoService.getTokenActual(), this.usuario));
+                        this.getInforUsuario();
                         this._router.navigate(['/perfil']);
-                    } else {                        
+                    } else {
                         this.msg_error = 'si';
                         this._router.navigate(['/perfil']);
                     }
@@ -136,25 +137,26 @@ export class PerfilComponent implements OnInit {
             );
 
         }
-       this.getInforUsuario();
+        this.getInforUsuario();
 
     }
 
-    eliminarUsuario(){
+    eliminarUsuario() {
+        if (confirm("¿Está seguro que desea eliminar su cuenta?\nAre you sure you want to delete your account?")) { }
         this._usuarioService.deleteUsuario(this.usuario.id).subscribe(
-                response => {
-                    if (response['code'] == 200) {          
-                        this._almacenamientoService.borrarSesionActual();                      
-                        this._router.navigate(['/inicio']);
-                    } else {                        
-                        this.msg_error = 'si';
-                        this._router.navigate(['/perfil']);
-                    }
-                },
-                error => {
-                    console.log(<any>error);
-                    this._router.navigate(['/error']);
+            response => {
+                if (response['code'] == 200) {
+                    this._almacenamientoService.borrarSesionActual();
+                    this._router.navigate(['/inicio']);
+                } else {
+                    this.msg_error = 'si';
+                    this._router.navigate(['/perfil']);
                 }
-            );
+            },
+            error => {
+                console.log(<any>error);
+                this._router.navigate(['/error']);
+            }
+        );
     }
 }
