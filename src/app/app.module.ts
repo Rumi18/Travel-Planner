@@ -59,7 +59,7 @@ import { MapaHistorialComponent } from './components/mapaHistorial.component';
     routing,    
     AgmDirectionModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyAJ-wk5k3bfyFX3xIV_pvzOBnSJMPWxyJs'
+      apiKey: 'FALTA'
     }),
     TranslateModule.forRoot({
       loader: {
