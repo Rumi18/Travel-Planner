@@ -141,7 +141,7 @@ $app->post('/setUsuario/:id', function($id) use($app, $db){
 	echo json_encode($result);
 });
 
-// Eliminar virtualmente un usuario
+// Eliminar lógicamente un usuario
 $app->get('/deleteUsuario/:id', function($id) use($app, $db){	
 	
 	$sql = "UPDATE TP_D_USUARIOS SET eliminado = TRUE, modificacion =  SYSDATE() ".
@@ -297,9 +297,9 @@ $app->get('/getPreferencias/:idConfiguracion', function($id) use($db, $app){
 });
 
 
-// Obtener la configuración de un mapa dada su id
-$app->get('/getConfiguracion/:idMapa', function($id) use($db, $app){
-	$sql = "SELECT configuracion.* FROM TP_D_MAPAS AS mapa INNER JOIN TP_D_CONFIGURACIONES AS configuracion ON mapa.id_configuracion = configuracion.id WHERE mapa.id = 1 AND mapa.habilitado = TRUE AND mapa.eliminado = FALSE";	
+// Obtener la configuración dado su id
+$app->get('/getConfiguracion/:idConfiguracion', function($id) use($db, $app){
+	$sql = "SELECT * FROM TP_D_CONFIGURACIONES WHERE id ={$id} AND habilitado = TRUE AND eliminado = FALSE";	
     $query= $db->query($sql);
 
     $result = array(
@@ -452,6 +452,31 @@ $app->get('/getMarcadoresPorDia/:idMapa/:dia', function($id, $dia) use($db, $app
 			'code'	 => 200,
 			'data' => $marcadores
 		);
+	
+	echo json_encode($result);
+});
+
+// Eliminar lógicamente un mapa de un usuario
+$app->get('/deleteMapa/:id', function($id) use($app, $db){	
+	
+	$sql = "UPDATE TP_D_MAPAS SET eliminado = TRUE, modificacion =  SYSDATE() ".
+	"WHERE id = '{$id}'";
+		
+	$query = $db->query($sql);
+	
+	if($query){
+		$result = array(
+			'status' => 'success',
+			'code' => 200,
+			'message' => 'Mapa eliminado correctamente'
+		);
+	}else{
+		$result = array(
+			'status' => 'error',
+			'code' => 404,
+			'message' => 'El mapa no se ha podido eliminar'
+		);
+	}
 	
 	echo json_encode($result);
 });

@@ -16,12 +16,13 @@
             <tbody *ngFor="let mapa of mapas">
                 <tr>
                     <td><strong>{{mapa.nombre}}</strong></td>
-                    <td><a [routerLink]="['/mapaPendiente', mapa.id, mapa.duracion]" class="mostrarMapa">{{'mapa.mostrar' |
+                    <td><a [routerLink]="['/mapaPendiente', mapa.id, mapa.duracion]" class="mostrarMapa">{{'mapa.mostrar'
+                            |
                             translate}}</a></td>
                     <td><a class="verDetalles" role="button" (click)="verDetalles(mapa.id_configuracion)" data-toggle="modal"
                             data-target="#ver_detalles">{{'mapa.ver'
                             | translate}}</a></td>
-                    <td><a class="eliminarRuta">{{'mapa.eliminar' | translate}}</a></td>
+                    <td><a class="eliminarRuta" (click)="eliminarMapa(mapa.id)">{{'mapa.eliminar' | translate}}</a></td>
                 </tr>
 
                 <div class="modal fade" id="ver_detalles" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"

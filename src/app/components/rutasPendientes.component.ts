@@ -63,7 +63,7 @@ export class RutasPendientesComponent implements OnInit {
         this._configuracionService.getConfiguracion(idConfiguracion).subscribe(
             result => {
                 if (result['code'] == 200) {
-                    this.configuracion = result['data'];                  
+                    this.configuracion = result['data'];
                 }
             },
             error => {
@@ -75,7 +75,24 @@ export class RutasPendientesComponent implements OnInit {
         this._configuracionService.getPreferenciasConfiguracion(idConfiguracion).subscribe(
             result => {
                 if (result['code'] == 200) {
-                    this.preferencias = result['data'];                  
+                    this.preferencias = result['data'];
+                }
+            },
+            error => {
+                console.log(<any>error);
+                this._router.navigate(['/error']);
+            }
+        );
+    }
+
+    eliminarMapa(idMapa: number) {
+        if (confirm("¿Está seguro que desea eliminar este mapa?\nAre you sure you want to delete this map?")) { }
+        this._mapaService.deleteMapa(idMapa).subscribe(
+            response => {
+                if (response['code'] == 200) {                  
+                    this._router.navigate(['/mapaPendiente']);
+                } else {                   
+                    this._router.navigate(['/error']);
                 }
             },
             error => {

@@ -28,4 +28,8 @@ export class MapaService {
     getMarcadores(idMapa:number){
         return this._http.get(GLOBAL.uri + GLOBAL.recurs_getMarcadores + idMapa);
     }
+
+    deleteMapa(idMapa:number){
+        return this._http.get(GLOBAL.uri + GLOBAL.recurs_deleteMapa + idMapa);
+    }
 }
