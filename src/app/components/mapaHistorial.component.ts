@@ -9,11 +9,11 @@ import { MapaService } from '../services/mapa.service';
 import { Marcador } from '../models/marcador';
 
 @Component({
-    selector: 'mapa',
+    selector: 'mapaHistorial',
     templateUrl: '../views/mapa.component.html',
     providers: [MapaService]
 })
-export class MapaComponent implements OnInit {
+export class MapaHistorialComponent implements OnInit {
     public dias: number[];
     public marcadoresMapa: Marcador[];
     public marcadores: Marcador[];

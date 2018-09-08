@@ -69,12 +69,12 @@ export class CabeceraComponent {
         this._router.navigate(['/menuOpciones']);
         break;
 
-      case 'MapaComponent':
-        this._router.navigate(['/menuOpciones']);
+      case 'MapaPendienteComponent':
+        this._router.navigate(['/rutasPendientes']);
         break;
 
-      case 'RutaComponent':
-        this._router.navigate(['/rutasPendientes']);
+      case 'MapaHistorialComponent':
+        this._router.navigate(['/historial']);
         break;
 
       default:

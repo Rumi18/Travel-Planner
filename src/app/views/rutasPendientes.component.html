@@ -16,7 +16,7 @@
             <tbody *ngFor="let mapa of mapas">
                 <tr>
                     <td><strong>{{mapa.nombre}}</strong></td>
-                    <td><a [routerLink]="['/mapa', mapa.id, mapa.duracion]" class="mostrarMapa">{{'mapa.mostrar' |
+                    <td><a [routerLink]="['/mapaPendiente', mapa.id, mapa.duracion]" class="mostrarMapa">{{'mapa.mostrar' |
                             translate}}</a></td>
                     <td><a class="verDetalles" role="button" (click)="verDetalles(mapa.id_configuracion)" data-toggle="modal"
                             data-target="#ver_detalles">{{'mapa.ver'

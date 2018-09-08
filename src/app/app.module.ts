@@ -31,7 +31,8 @@ import { HistorialComponent } from './components/historial.component';
 import { RutasPendientesComponent } from './components/rutasPendientes.component';
 import { ConfiguracionComponent } from './components/configuracion.component';
 import { TiendaComponent } from './components/tienda.component';
-import { MapaComponent } from './components/mapa.component';
+import { MapaPendienteComponent } from './components/mapaPendiente.component';
+import { MapaHistorialComponent } from './components/mapaHistorial.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { MapaComponent } from './components/mapa.component';
     RutasPendientesComponent,
     ConfiguracionComponent,
     TiendaComponent,
-    MapaComponent
+    MapaPendienteComponent,
+    MapaHistorialComponent
   ],
   imports: [
     BrowserModule,
