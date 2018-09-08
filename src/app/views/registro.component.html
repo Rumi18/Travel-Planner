@@ -30,7 +30,7 @@
         <input type="password" #repeatPasswd="ngModel" name="repeatPasswd" [(ngModel)]="usuario.repeatPasswd" class="form-control"
             required [pattern]="usuario.user_passwd" />
 
-        <p>Los campos marcados con * son obligatorios</p>
+        <p>{{'registro.campos_obligatorios' | translate}}</p>
 
         <div class="alert alert-danger" *ngIf="msg_error == 'si'">{{'registro.msgError' | translate}}</div>
 

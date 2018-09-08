@@ -8,12 +8,11 @@ export class Autorizado implements CanActivate {
     constructor(
         private _router: Router,
         private _almacenamientoService: AlmacenamientoService
-    ){
+    ) {
 
     }
 
     canActivate() {
-        console.log(this._almacenamientoService.estaAutenticado());
         if (!this._almacenamientoService.estaAutenticado()) {
             this._router.navigate(['/login']);
         }

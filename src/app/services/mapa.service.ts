@@ -6,6 +6,7 @@ import { GLOBAL } from './global';
 
 // Modelos
 import { Mapa } from '../models/mapa';
+import { Valoracion } from '../models/valoracion';
 
 @Injectable()
 export class MapaService {
@@ -14,22 +15,30 @@ export class MapaService {
         public _http: HttpClient
     ) {
 
-    }    
+    }
 
-    getMapasPendientes(idUsuario:number){
+    getMapasPendientes(idUsuario: number) {
         return this._http.get(GLOBAL.uri + GLOBAL.recurs_getMapasPendientes + idUsuario);
     }
 
-    
-    getHistorialMapas(idUsuario:number){
+
+    getHistorialMapas(idUsuario: number) {
         return this._http.get(GLOBAL.uri + GLOBAL.recurs_getHistorialMapas + idUsuario);
     }
 
-    getMarcadores(idMapa:number){
+    getMarcadores(idMapa: number) {
         return this._http.get(GLOBAL.uri + GLOBAL.recurs_getMarcadores + idMapa);
     }
 
-    deleteMapa(idMapa:number){
+    deleteMapa(idMapa: number) {
         return this._http.get(GLOBAL.uri + GLOBAL.recurs_deleteMapa + idMapa);
+    }
+
+    addValoracion(valoracion: Valoracion) {
+        let json = JSON.stringify(valoracion);
+        let params = "json=" + json;
+        let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
+
+        return this._http.post(GLOBAL.uri + GLOBAL.recurs_addValoracion + valoracion.idMapa, params, { headers: headers });
     }
 }

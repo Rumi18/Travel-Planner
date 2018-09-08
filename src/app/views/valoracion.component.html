@@ -1,0 +1,22 @@
+<cabecera></cabecera>
+<div class="component">
+
+    <form id="form-valoracion" #formValoracion="ngForm" (ngSubmit)="onSubmit()">
+        <div id="valoracionMapa">
+            <div id="satisfaccion">
+                <strong>{{'valoracion.gradoSatisfaccion' | translate}}</strong>
+                <div id="rating">
+                    <ngb-rating [(rate)]="valoracion.puntuacion"> </ngb-rating>
+                </div>
+            </div>
+            <div id="comentario">
+                <strong>{{'valoracion.comentario' | translate}}</strong>                
+                <textarea id="lineaComentario" class="form-control" rows="1"></textarea>
+            </div>
+            <div id="btn-salirValoracion">
+                <input type="submit" value="{{'valoracion.salir' | translate}}" class="btn btn-lg clr_blue_ligth"
+                    [disabled]="" />
+            </div>
+        </div>
+    </form>
+</div>

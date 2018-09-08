@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { AgmCoreModule } from '@agm/core';
@@ -33,6 +34,8 @@ import { ConfiguracionComponent } from './components/configuracion.component';
 import { TiendaComponent } from './components/tienda.component';
 import { MapaPendienteComponent } from './components/mapaPendiente.component';
 import { MapaHistorialComponent } from './components/mapaHistorial.component';
+import { GuardarMapaComponent } from './components/guardarMapa.component';
+import { ValoracionComponent } from './components/valoracion.component';
 
 @NgModule({
   declarations: [
@@ -50,12 +53,15 @@ import { MapaHistorialComponent } from './components/mapaHistorial.component';
     ConfiguracionComponent,
     TiendaComponent,
     MapaPendienteComponent,
-    MapaHistorialComponent
+    MapaHistorialComponent,
+    GuardarMapaComponent,
+    ValoracionComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    NgbModule,
     routing,    
     AgmDirectionModule,
     AgmCoreModule.forRoot({

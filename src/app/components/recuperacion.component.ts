@@ -32,7 +32,7 @@ export class RecuperacionComponent {
     }
 
     ngOnInit() {
-        console.log('Componente recuperacion.component.ts cargado');
+        console.log('Se ha cargado el componente recuperacion.component.ts');
         GLOBAL.vistaSeleccionada = this._route.component['name'];
     }
 

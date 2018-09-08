@@ -82,7 +82,8 @@
         "mostrarRuta": "Show route",
         "presupuestoValido": "The maximum budget value cannot be less than the minimum value.",
         "dias": "days",
-        "fechaCreación": "Creation date"
+        "fechaCreación": "Creation date",
+        "msgError": "Please, fill all fields correctly"
     },
     "mapa": {
         "noMapas": "No maps available",
@@ -98,5 +99,10 @@
         "iniciar": "Start",
         "finalizar": "End",
         "detallesMapa": "Map details"
+    },
+    "valoracion": {
+        "gradoSatisfaccion": "Degree of satisfaction",
+        "comentario": "Any comments to help us improve?",
+        "salir": "Exit"
     }
 }

@@ -63,8 +63,7 @@ export class UsuarioService {
     getUsuarioEmail(recuperado: Recuperacion) {
         if (recuperado.correo == '') {
             return this._http.get(GLOBAL.uri + 'error');
-        } else {
-            console.log(GLOBAL.uri + GLOBAL.recurs_usuario_mail + recuperado.correo);
+        } else {            
             return this._http.get(GLOBAL.uri + GLOBAL.recurs_usuario_mail + recuperado.correo);
         }
     }

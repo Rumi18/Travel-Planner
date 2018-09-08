@@ -42,8 +42,6 @@ export class PerfilComponent implements OnInit {
     }
 
     private getInforUsuario() {
-        console.log(this._almacenamientoService.getUsuarioActual().id);
-
         this._usuarioService.getInforUsuario(this._almacenamientoService.getUsuarioActual().id).subscribe(
             result => {
                 if (result['code'] == 200) {
@@ -62,9 +60,7 @@ export class PerfilComponent implements OnInit {
                 console.log(<any>error);
                 this._router.navigate(['/error']);
             }
-        );
-
-        console.log(this.usuario);
+        );      
     }
 
     public subirImagen(fileInput: any) {
