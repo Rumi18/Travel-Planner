@@ -16,6 +16,8 @@ import { LoginComponent } from './components/login.component';
 import { Autorizado } from '../app/helpers/guard';
 import { MapaPendienteComponent } from './components/mapaPendiente.component';
 import { MapaHistorialComponent } from './components/mapaHistorial.component';
+import { GuardarMapaComponent } from './components/guardarMapa.component';
+import { ValoracionComponent } from './components/valoracion.component';
 
 const appRoutes: Routes = [
     { path: '', component: InicioComponent },
@@ -31,6 +33,8 @@ const appRoutes: Routes = [
     { path: 'tienda', component: TiendaComponent, canActivate: [Autorizado] },
     { path: 'mapaPendiente/:id/:numDias', component: MapaPendienteComponent, canActivate: [Autorizado] },
     { path: 'mapaHistorial/:id/:numDias', component: MapaHistorialComponent, canActivate: [Autorizado] },
+    { path: 'guardarMapa', component: GuardarMapaComponent, canActivate: [Autorizado] },
+    { path: 'valoracion/:id', component: ValoracionComponent, canActivate: [Autorizado] },
     { path: '**', component: ErrorComponent }
 ];
 

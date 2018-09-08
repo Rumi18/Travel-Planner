@@ -5,10 +5,10 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { GLOBAL } from '../services/global';
 
 @Component({
-    selector: 'tienda',
-    templateUrl: '../views/tienda.component.html'
+    selector: 'guardarMapa',
+    templateUrl: '../views/guardarMapa.component.html'
 })
-export class TiendaComponent implements OnInit {
+export class GuardarMapaComponent implements OnInit {
 
     constructor(
         private _router: Router,
@@ -20,6 +20,6 @@ export class TiendaComponent implements OnInit {
     // Método que se lanza automáticamente después del constructor del componente 
     ngOnInit() {
         GLOBAL.vistaSeleccionada = this._route.component['name'];
-        console.log('Se ha cargado el componente tienda.component.ts');
+        console.log('Se ha cargado el componente guardarMapa.component.ts');
     }
 }

@@ -497,3 +497,27 @@ agm-map {
     margin-top: 1em;
 }
 
+/*Vista valoracion.component.html*/
+
+#rating{
+    font-size: 46px;
+    color: #F58A07;
+}
+
+#valoracionMapa{
+    text-align: center;
+    margin-top: 10em;
+}
+
+#comentario{
+    margin-top: 2em;
+}
+
+#btn-salirValoracion{
+    margin-top: 2em;
+}
+
+#lineaComentario{
+    margin-top:1em;
+}
+

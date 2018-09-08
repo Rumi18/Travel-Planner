@@ -82,7 +82,8 @@
         "mostrarRuta": "Mostrar Ruta",
         "presupuestoValido": "El valor máximo del presupuesto no puede ser menor que el valor mínimo",
         "dias": "días",
-        "fechaCreación": "Fecha creación"
+        "fechaCreación": "Fecha creación",
+        "msgError": "Por favor, rellene todos los campos correctamente"
     },
     "mapa": {
         "noMapas": "No existen mapas disponibles",
@@ -98,5 +99,10 @@
         "iniciar": "Iniciar",
         "finalizar": "Finalizar",
         "detallesMapa": "Detalles del mapa"
+    },
+    "valoracion": {
+        "gradoSatisfaccion": "Grado de satisfacción",
+        "comentario": "¿Algún comentario que nos ayude a mejorar?",
+        "salir": "Salir"
     }
 }

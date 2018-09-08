@@ -77,6 +77,14 @@ export class CabeceraComponent {
         this._router.navigate(['/historial']);
         break;
 
+      case 'GuardarMapaComponent':
+        this._router.navigate(['/configuracion']);
+        break;
+
+      case 'ValoracionComponent':
+        this._router.navigate(['/rutasPendientes']);
+        break;
+
       default:
         this._router.navigate(['/inicio']);
         break;

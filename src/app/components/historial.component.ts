@@ -62,8 +62,7 @@ export class HistorialComponent implements OnInit {
         this._configuracionService.getConfiguracion(idConfiguracion).subscribe(
             result => {
                 if (result['code'] == 200) {
-                    this.configuracion = result['data'];
-                    console.log(this.configuracion);
+                    this.configuracion = result['data'];                   
                 }
             },
             error => {
