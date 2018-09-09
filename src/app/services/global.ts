@@ -21,6 +21,7 @@ export var GLOBAL = {
     recurs_addConfiguracion: 'addConfiguracion',
     recurs_deleteMapa: 'deleteMapa/',
     recurs_addValoracion: 'addValoracion/',
+    recurs_addMapa: 'habilitarMapa/',
     latidud_defecto:37.389092,
     longitud_defecto:-5.984459,
     zoom_defecto:10

@@ -33,7 +33,7 @@ const appRoutes: Routes = [
     { path: 'tienda', component: TiendaComponent, canActivate: [Autorizado] },
     { path: 'mapaPendiente/:id/:numDias', component: MapaPendienteComponent, canActivate: [Autorizado] },
     { path: 'mapaHistorial/:id/:numDias', component: MapaHistorialComponent, canActivate: [Autorizado] },
-    { path: 'guardarMapa', component: GuardarMapaComponent, canActivate: [Autorizado] },
+    { path: 'guardarMapa/:id', component: GuardarMapaComponent, canActivate: [Autorizado] },
     { path: 'valoracion/:id', component: ValoracionComponent, canActivate: [Autorizado] },
     { path: '**', component: ErrorComponent }
 ];

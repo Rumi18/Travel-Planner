@@ -517,5 +517,33 @@ $app->get('/addValoracion/:id', function($id) use($app, $db){
 	echo json_encode($result);
 });
 
+
+// Habilitar un mapa para añadirlo como uno nuevo
+$app->get('/habilitarMapa/:id', function($id) use($app, $db){	
+	
+	$json = $app->request->post('json');		
+	$data = json_decode($json, true);
+	
+	$sql = "UPDATE TP_D_MAPAS SET habilitado = 1, modificacion =  SYSDATE() WHERE id = '{$id}'";
+			
+	$query = $db->query($sql);
+	
+	if($query){
+		$result = array(
+			'status' => 'success',
+			'code' => 200,
+			'message' => 'Mapa habilitado correctamente'
+		);
+	}else{
+		$result = array(
+			'status' => 'error',
+			'code' => 404,
+			'message' => 'El mapa no se ha podido habilitar'
+		);
+	}
+	
+	echo json_encode($result);
+});
+
 // Se lanza la aplicación de slim, lanzando todos los méetodos anteriores para que estén disponibles las rutas
 $app->run();
