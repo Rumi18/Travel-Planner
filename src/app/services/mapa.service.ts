@@ -41,4 +41,8 @@ export class MapaService {
 
         return this._http.post(GLOBAL.uri + GLOBAL.recurs_addValoracion + valoracion.idMapa, params, { headers: headers });
     }
+
+    addMapa(idMapa){
+        return this._http.get(GLOBAL.uri + GLOBAL.recurs_addMapa + idMapa);
+    }
 }

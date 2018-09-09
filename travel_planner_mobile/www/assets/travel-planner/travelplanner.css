@@ -1,3 +1,7 @@
+.margin-top_2em{
+    margin-top: 2em !important;
+}
+
 /*Paleta de colores*/
 .clr_orange{
     background:#F58A07;
@@ -72,12 +76,13 @@ form label{
     margin-top: 20px;
 }
 
-.campoObligatorio{
+.campoObligatorio, .condicionObligatoria{
     color: #D7263D;
     font-weight: bold;
     padding-left: 0.5em;
     font-size: 11px;
 }
+
 
 .component form img{
     width: 30px;
@@ -249,6 +254,7 @@ form label{
 #tienda{
     top: 56%;
     left: 37%;
+    opacity: 0.5;
 }
 
 #config-ruta{
@@ -332,6 +338,7 @@ form label{
     text-align: center;
     margin-top: 5em;
     margin-bottom: 1em;
+    color: #448FA3;
 }
 
 .slidecontainer {
@@ -385,4 +392,148 @@ form label{
 #btn-crearRuta{
     text-align: center;
     margin-top: 40px;
+}
+
+.presupuesto{
+    padding-right: 2em !important;
+}
+
+/*Vista rutasPendientes.component.html e historial.component.html*/
+.tablaMapas{
+    font-size: 12px;
+}
+
+.tablaMapas a{
+    color: white !important;
+}
+
+.table th{
+    border-top: none !important;
+}
+
+thead{
+    background: #448FA3;
+}
+
+.sinMapas{
+    text-align: center;
+    margin-top: 6em;
+    font-size: 14px;
+    color: #D7263D;
+}
+
+.modal{
+    top:10% !important;
+    color: black !important;
+    font-size: 14px;   
+}
+
+.cabecera_detalles{
+    text-align: center !important;
+    width: 100% !important;
+    font-size: 17px;
+    color: #2C99DF;
+}
+
+.div-detalles{
+    padding: 2.5em;
+}
+
+.verPreferencias{
+    padding-left: 2em;
+}
+
+/*Vista mapa.component.html*/
+
+#nav{
+	padding: 0px;
+    margin: 0px;
+    margin: 0em 0.95em 0em 0.95em !important;
+    width: 100%;
+    background: #448FA3;
+}
+
+#nav ul{
+	margin: 0px;
+	list-style: none;
+    padding-left: 20px;
+    display: inline-block;
+}
+
+#nav ul li{
+	float:left;
+}
+
+#nav ul li a{
+	display: block;
+	color: white;
+	height: 30px;
+	line-height: 29px;
+	padding-left: 10px;
+	padding-right: 10px;
+	transition: all 300ms;
+}
+
+.ruta{
+    margin: 0em;
+    padding: 0em;
+    width: 100%;
+    height: 29em !important;
+}
+
+.sinRuta{
+    text-align: center;
+    margin-top: 6em;
+    font-size: 14px;
+    color: #D7263D;
+}
+
+agm-map {
+    height: 29em;
+}
+
+.btns_mapa{
+    text-align: center;
+    margin-top: 1em;
+}
+
+/*Vista valoracion.component.html*/
+
+#rating{
+    font-size: 46px;
+    color: #F58A07;
+}
+
+#valoracionMapa{
+    text-align: center;
+    margin-top: 10em;
+}
+
+#comentario{
+    margin-top: 2em;
+}
+
+#btn-salirValoracion{
+    margin-top: 2em;
+}
+
+#lineaComentario{
+    margin-top:1em;
+}
+
+/*Vista guardarMapa.component.html*/
+#btns-guardarMapa{
+    text-align: center;
+    margin-top: 4em;
+    display: inline-flex;
+    width: 100%;
+}
+
+#btns-guardarMapa div{
+    width: 50%;
+}
+
+#lbl_guardarMapa{
+    text-align: center;
+    margin-top: 13em;
 }

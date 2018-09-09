@@ -1,4 +1,15 @@
 <cabecera></cabecera>
 <div class="component">
+    <div id="lbl_guardarMapa">
+        <strong>{{'mapa.guardarMapa' | translate}}</strong>
+    </div>
+    <div id="btns-guardarMapa">
+        <div>
+            <a (click)="guardarMapa()" class="btn btn-lg clr_orange">{{'formulario.si' | translate}}</a>
+        </div>
+        <div>
+            <a [routerLink]="['/configuracion']" class="btn btn-lg clr_blue_ligth">{{'formulario.no' | translate}}</a>
+        </div>
+    </div>
 
 </div>
