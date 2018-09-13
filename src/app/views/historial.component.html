@@ -15,9 +15,13 @@
             <tbody *ngFor="let mapa of mapas">
                 <tr>
                     <td><strong>{{mapa.nombre}}</strong></td>
-                    <td><a [routerLink]="['/mapaHistorial', mapa.id, mapa.duracion]" class="mostrarMapa">{{'mapa.mostrar' |
+                    <td><a [routerLink]="['/mapaHistorial', mapa.id, mapa.duracion]" class="mostrarMapa">{{'mapa.mostrar'
+                            |
                             translate}}</a></td>
-                    <td><a class="verDetalles">{{'mapa.ver' | translate}}</a></td>
+
+                    <td><a class="verDetalles" role="button" (click)="verDetalles(mapa.id, mapa.id_configuracion)" data-toggle="modal"
+                            data-target="#ver_detalles">{{'mapa.ver'
+                            | translate}}</a></td>
                 </tr>
 
                 <div class="modal fade" id="ver_detalles" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
@@ -68,6 +72,15 @@
                                     <div class="verPreferencias" *ngFor="let preferencia of preferencias">
                                         <span>{{preferencia.nombre}}</span>
                                     </div>
+                                </div>
+                                <br/>
+                                <div>
+                                    <strong>{{'valoracion.puntuacion' | translate}}:</strong>
+                                    <span> {{valoracion.puntuacion}}</span>
+                                </div>
+                                <div>
+                                    <strong>{{'valoracion.observacion' | translate}}:</strong>
+                                    <span> {{valoracion.observacion}}</span>
                                 </div>
                             </div>
                         </div>

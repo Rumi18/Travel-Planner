@@ -11,7 +11,7 @@
             </div>
             <div id="comentario">
                 <strong>{{'valoracion.comentario' | translate}}</strong>                
-                <textarea id="lineaComentario" class="form-control" rows="1"></textarea>
+                <textarea id="lineaComentario"  #observacion="ngModel" name="observacion" [(ngModel)]="valoracion.observacion" class="form-control" rows="1"></textarea>
             </div>
             <div id="btn-salirValoracion">
                 <input type="submit" value="{{'valoracion.salir' | translate}}" class="btn btn-lg clr_blue_ligth"

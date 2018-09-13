@@ -99,11 +99,14 @@
         "iniciar": "Start",
         "finalizar": "End",
         "detallesMapa": "Map details",
-        "guardarMapa": "Would you like to save the map?"
+        "guardarMapa": "Would you like to save the map?",
+        "btnGuardarMapa": "Save map"
     },
     "valoracion": {
         "gradoSatisfaccion": "Degree of satisfaction",
         "comentario": "Any comments to help us improve?",
-        "salir": "Exit"
+        "salir": "Exit",
+        "puntuacion": "Score",
+        "observacion": "Comments"
     }
 }

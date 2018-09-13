@@ -14,10 +14,13 @@ import { Marcador } from '../models/marcador';
     providers: [MapaService]
 })
 export class MapaHistorialComponent implements OnInit {
+    private idMapa:number;
+
     public dias: number[];
     public marcadoresMapa: Marcador[];
     public marcadores: Marcador[];
     public rutas: {}[][];
+    public estadoRuta: number; //0 -> guardar, 1 -> iniciar, 2 -> Finalizar
 
     latMapa: number;
     lngMapa: number;
@@ -31,6 +34,7 @@ export class MapaHistorialComponent implements OnInit {
         this.dias = [];
         this.marcadoresMapa = [];
         this.rutas = [];
+        this.estadoRuta = 1;
 
         this.zoom = 11;
         this.latMapa = GLOBAL.latidud_defecto;
@@ -43,17 +47,17 @@ export class MapaHistorialComponent implements OnInit {
         GLOBAL.vistaSeleccionada = this._route.component['name'];
         console.log('Se ha cargado el componente mapa.component.ts');
 
-        let idMapa = null;
+        this.idMapa = null;
         let numDias = null;
 
         this._route.params.forEach((params: Params) => {
-            idMapa = params['id'];
+            this.idMapa = params['id'];
             numDias = params['numDias'];
         });
 
-        if (idMapa != null && numDias != null) {
+        if ( this.idMapa != null && numDias != null) {
             this.creaMenuDias(numDias);
-            this.getMarcadores(idMapa);
+            this.getMarcadores( this.idMapa);
             
         }
     }
@@ -88,9 +92,13 @@ export class MapaHistorialComponent implements OnInit {
 
     muestraLocalizacionesMapa() {
         this.marcadores = this.marcadoresMapa;
-        this.latMapa = this.marcadores[0].latitud;
-        this.lngMapa = this.marcadores[0].longitud;
-        this.cargaRuta();
+          if(this.marcadores[0].latitud != null){
+            this.latMapa = this.marcadores[0].latitud;
+        }
+        if(this.marcadores[0].longitud != null){
+            this.lngMapa = this.marcadores[0].longitud;
+        }   
+        //this.cargaRuta();
     }
 
     muestraLocalizacionesDia(dia: number) {
@@ -103,20 +111,35 @@ export class MapaHistorialComponent implements OnInit {
         });
 
         this.marcadores = marcadoresDia;
-        this.latMapa = this.marcadores[0].latitud;
-        this.lngMapa = this.marcadores[0].longitud;
-        this.cargaRuta();
+        if(this.marcadores[0].latitud != null){
+            this.latMapa = this.marcadores[0].latitud;
+        }
+        if(this.marcadores[0].longitud != null){
+            this.lngMapa = this.marcadores[0].longitud;
+        }   
+        //this.cargaRuta();
     }
 
-    cargaRuta() {
-        this.rutas = [];
-        let origen: {};
-        let destino: {};
-        for (let i = 1; i <= this.marcadores.length; i++) { 
+    // cargaRuta() {
+    //     this.rutas = [];
+    //     let origen: {};
+    //     let destino: {};
+    //     for (let i = 1; i <= this.marcadores.length; i++) { 
           
-            origen = { latMapa: this.marcadores[i-1].latitud, lngMapa: this.marcadores[i-1].longitud };
-            destino = { lat: this.marcadores[i].latitud, lng: this.marcadores[i].longitud };           
-            this.rutas.push([origen, destino]);
-        }
+    //         origen = { latMapa: this.marcadores[i-1].latitud, lngMapa: this.marcadores[i-1].longitud };
+    //         destino = { lat: this.marcadores[i].latitud, lng: this.marcadores[i].longitud };           
+    //         this.rutas.push([origen, destino]);
+    //     }
+    // }
+
+    iniciarMapa(){
+        this.estadoRuta = 2;
+        this.muestraLocalizacionesDia(1);
+    }
+
+    finalizarMapa(){
+        this.estadoRuta = 1;
+        this.muestraLocalizacionesMapa();
+        this._router.navigate(['/valoracion/' + this.idMapa]);
     }
 }

@@ -60,7 +60,7 @@ export class PerfilComponent implements OnInit {
                 console.log(<any>error);
                 this._router.navigate(['/error']);
             }
-        );      
+        );
     }
 
     public subirImagen(fileInput: any) {
@@ -138,21 +138,22 @@ export class PerfilComponent implements OnInit {
     }
 
     eliminarUsuario() {
-        if (confirm("¿Está seguro que desea eliminar su cuenta?\nAre you sure you want to delete your account?")) { }
-        this._usuarioService.deleteUsuario(this.usuario.id).subscribe(
-            response => {
-                if (response['code'] == 200) {
-                    this._almacenamientoService.borrarSesionActual();
-                    this._router.navigate(['/inicio']);
-                } else {
-                    this.msg_error = 'si';
-                    this._router.navigate(['/perfil']);
+        if (confirm("¿Está seguro que desea eliminar su cuenta?\nAre you sure you want to delete your account?")) {
+            this._usuarioService.deleteUsuario(this.usuario.id).subscribe(
+                response => {
+                    if (response['code'] == 200) {
+                        this._almacenamientoService.borrarSesionActual();
+                        this._router.navigate(['/inicio']);
+                    } else {
+                        this.msg_error = 'si';
+                        this._router.navigate(['/perfil']);
+                    }
+                },
+                error => {
+                    console.log(<any>error);
+                    this._router.navigate(['/error']);
                 }
-            },
-            error => {
-                console.log(<any>error);
-                this._router.navigate(['/error']);
-            }
-        );
+            );
+        }
     }
 }
