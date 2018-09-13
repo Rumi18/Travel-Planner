@@ -326,23 +326,30 @@ $app->post('/addConfiguracion', function() use($app, $db){
 	$json = $app->request->post('json');		
 	$data = json_decode($json, true);
 	
-	//$sql = "";
+	$sql = "INSERT INTO TP_D_CONFIGURACIONES (duracion, presupuesto_min, presupuesto_max, mascotas, acompaniantes, ninios, habilitado, eliminado, creacion) VALUES (".
+	"{$data['duracion']},". 
+	"{$data['presupuesto_min']},".
+	"{$data['presupuesto_max']},". 
+	"{$data['mascotas']},". 
+	"{$data['acompaniantes']},". 
+	"{$data['ninios']},". 	
+	"TRUE, FALSE, SYSDATE())";
 		
-	//$query = $db->query($sql);
-	
-	//if($query){
+	$query = $db->query($sql);
+		
+	if($query){		
 		$result = array(
 			'status' => 'success',
-			'code' => 200,
+			'code' => 200,			
 			'message' => 'Configuracion creada correctamente'
 		);
-	//}else{
-	//	$result = array(
-	//		'status' => 'error',
-	//		'code' => 404,
-	//		'message' => 'La configuracion no se ha podido crear'
-	//	);
-	//}
+	}else{
+		$result = array(
+			'status' => 'error',
+			'code' => 404,
+			'message' => 'La configuracion no se ha podido crear'
+		);
+	}
 	
 	echo json_encode($result);
 });
@@ -459,7 +466,7 @@ $app->get('/getMarcadoresPorDia/:idMapa/:dia', function($id, $dia) use($db, $app
 // Eliminar lógicamente un mapa de un usuario
 $app->get('/deleteMapa/:id', function($id) use($app, $db){	
 	
-	$sql = "UPDATE TP_D_MAPAS SET eliminado = TRUE, modificacion =  SYSDATE() ".
+	$sql = "UPDATE TP_D_MAPAS SET habilitado = TRUE, eliminado = TRUE, modificacion =  SYSDATE() ".
 	"WHERE id = '{$id}'";
 		
 	$query = $db->query($sql);
@@ -483,7 +490,7 @@ $app->get('/deleteMapa/:id', function($id) use($app, $db){
 
 
 // Añadir una valoración a un mapa
-$app->get('/addValoracion/:id', function($id) use($app, $db){	
+$app->post('/addValoracion/:id', function($id) use($app, $db){	
 	
 	$json = $app->request->post('json');		
 	$data = json_decode($json, true);
@@ -495,7 +502,7 @@ $app->get('/addValoracion/:id', function($id) use($app, $db){
 		$sql .= "observacion = '{$data['observacion']}', ";
 	}
 	
-	$sql.= "modificacion =  SYSDATE() ".
+	$sql.= "modificacion =  SYSDATE(), realizado = TRUE ".
 	"WHERE id = '{$id}'";
 		
 	$query = $db->query($sql);
@@ -544,6 +551,7 @@ $app->get('/habilitarMapa/:id', function($id) use($app, $db){
 	
 	echo json_encode($result);
 });
+
 
 // Se lanza la aplicación de slim, lanzando todos los méetodos anteriores para que estén disponibles las rutas
 $app->run();
