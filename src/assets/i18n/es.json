@@ -99,11 +99,14 @@
         "iniciar": "Iniciar",
         "finalizar": "Finalizar",
         "detallesMapa": "Detalles del mapa",
-        "guardarMapa": "¿Desea guardar el mapa?"
+        "guardarMapa": "¿Desea guardar el mapa?",
+        "btnGuardarMapa": "Guardar mapa"
     },
     "valoracion": {
         "gradoSatisfaccion": "Grado de satisfacción",
         "comentario": "¿Algún comentario que nos ayude a mejorar?",
-        "salir": "Salir"
+        "salir": "Salir",
+        "puntuacion": "Puntuacion",
+        "observacion": "Observaciones"
     }
 }

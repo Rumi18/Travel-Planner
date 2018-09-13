@@ -17,11 +17,11 @@
                 </li>
             </ul>
         </nav>
-    </div>  
+    </div>
 
     <div class="ruta" *ngIf="marcadores">
         <agm-map [latitude]="latMapa" [longitude]="lngMapa" [zoom]="zoom">
-            <agm-marker *ngFor="let marcador of marcadores" [latitude]="marcador.latitud" [longitude]="marcador.longitud"></agm-marker>           
+            <agm-marker *ngFor="let marcador of marcadores" [latitude]="marcador.latitud" [longitude]="marcador.longitud"></agm-marker>
         </agm-map>
     </div>
 
@@ -29,8 +29,14 @@
         {{'mapa.noRuta' | translate}}
     </div>
 
-    <div class="btns_mapa">
-        <a class="btn btn-lg clr_orange"> {{'mapa.iniciar' | translate}}</a>
+    <div class="btns_mapa" *ngIf="estadoRuta == 1">
+        <a class="btn btn-lg clr_orange" (click)="iniciarMapa()"> {{'mapa.iniciar' | translate}}</a>
+    </div>
+    <div class="btns_mapa" *ngIf="estadoRuta == 2">
+        <a class="btn btn-lg clr_orange" (click)="finalizarMapa()"> {{'mapa.finalizar' | translate}}</a>
+    </div>
+    <div class="btns_mapa" *ngIf="estadoRuta == 0">
+        <a class="btn btn-lg clr_orange" > {{'mapa.btnGuardarMapa' | translate}}</a>
     </div>
 
 </div>

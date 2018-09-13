@@ -21,6 +21,9 @@ export class MapaService {
         return this._http.get(GLOBAL.uri + GLOBAL.recurs_getMapasPendientes + idUsuario);
     }
 
+    getMapa(idMapa: number) {
+        return this._http.get(GLOBAL.uri + GLOBAL.recurs_getMapa + idMapa);
+    }
 
     getHistorialMapas(idUsuario: number) {
         return this._http.get(GLOBAL.uri + GLOBAL.recurs_getHistorialMapas + idUsuario);

@@ -11,6 +11,7 @@ import { ConfiguracionService } from '../services/configuracion.service';
 import { Mapa } from '../models/mapa';
 import { Configuracion } from '../models/configuracion';
 import { Preferencia } from '../models/preferencia';
+import { Valoracion } from '../models/valoracion';
 
 @Component({
     selector: 'historial',
@@ -21,6 +22,8 @@ export class HistorialComponent implements OnInit {
     public mapas: Mapa[];
     public configuracion: Configuracion;
     public preferencias: Preferencia[];
+    public valoracion: Valoracion;
+
 
     constructor(
         private _router: Router,
@@ -31,6 +34,7 @@ export class HistorialComponent implements OnInit {
     ) {
         this.configuracion = new Configuracion(0, 1, null, null, null, null, null, null, []);
         this.preferencias = [];
+        this.valoracion = new Valoracion(null, 0, null);
     }
 
     // Método que se lanza automáticamente después del constructor del componente 
@@ -58,11 +62,13 @@ export class HistorialComponent implements OnInit {
         );
     }
 
-    verDetalles(idConfiguracion: number) {
+    verDetalles(idMapa:number, idConfiguracion: number) {
         this._configuracionService.getConfiguracion(idConfiguracion).subscribe(
             result => {
                 if (result['code'] == 200) {
                     this.configuracion = result['data'];                   
+                }else{
+                    this.mapas = null;
                 }
             },
             error => {
@@ -75,6 +81,20 @@ export class HistorialComponent implements OnInit {
             result => {
                 if (result['code'] == 200) {
                     this.preferencias = result['data'];
+                }
+            },
+            error => {
+                console.log(<any>error);
+                this._router.navigate(['/error']);
+            }
+        );
+
+        this._mapaService.getMapa(idMapa).subscribe(
+            result => {
+                if (result['code'] == 200) {
+                    this.valoracion = result['data'];
+                    console.log("aaa");
+                    console.log(this.valoracion);
                 }
             },
             error => {
