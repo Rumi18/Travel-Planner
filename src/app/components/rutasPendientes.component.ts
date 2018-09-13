@@ -89,22 +89,23 @@ export class RutasPendientesComponent implements OnInit {
     }
 
     eliminarMapa(idMapa: number) {
-        if (confirm("¿Está seguro que desea eliminar este mapa?\nAre you sure you want to delete this map?")) { }
-        this._mapaService.deleteMapa(idMapa).subscribe(
-            response => {
-                console.log("Resultado: " + response['code']);
-                if (response['code'] == 200) {                 
-                    this.getMapasPendientes(this.idUsuario); 
-                    this._router.navigate(['/rutasPendientes']);
-                    
-                } else {                   
+        if (confirm("¿Está seguro que desea eliminar este mapa?\nAre you sure you want to delete this map?")) {
+            this._mapaService.deleteMapa(idMapa).subscribe(
+                response => {
+                    console.log("Resultado: " + response['code']);
+                    if (response['code'] == 200) {                 
+                        this.getMapasPendientes(this.idUsuario); 
+                        this._router.navigate(['/rutasPendientes']);
+                        
+                    } else {                   
+                        this._router.navigate(['/error']);
+                    }
+                },
+                error => {
+                    console.log(<any>error);
                     this._router.navigate(['/error']);
                 }
-            },
-            error => {
-                console.log(<any>error);
-                this._router.navigate(['/error']);
-            }
-        );
+            );
+        }
     }
 }
