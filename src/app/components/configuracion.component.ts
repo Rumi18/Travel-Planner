@@ -4,6 +4,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 // Servicios
 import { GLOBAL } from '../services/global';
 import { ConfiguracionService } from '../services/configuracion.service';
+import { AlgoritmoService } from '../services/algoritmo.service';
 
 // Modelos
 import { Configuracion } from '../models/configuracion';
@@ -13,7 +14,7 @@ import { Preferencia } from '../models/preferencia';
 @Component({
     selector: 'configuracion',
     templateUrl: '../views/configuracion.component.html',
-    providers: [ConfiguracionService]
+    providers: [ConfiguracionService, AlgoritmoService]
 })
 export class ConfiguracionComponent implements OnInit {
     public configuracion: Configuracion;
@@ -24,7 +25,8 @@ export class ConfiguracionComponent implements OnInit {
     constructor(
         private _router: Router,
         private _route: ActivatedRoute,
-        private _configuracionService: ConfiguracionService
+        private _configuracionService: ConfiguracionService,
+        private _algoritmoService: AlgoritmoService
     ) {
         this.configuracion = new Configuracion(0, 1, null, null, null, null, null, null, []);
     }
@@ -73,26 +75,63 @@ export class ConfiguracionComponent implements OnInit {
         );
     }
 
-    // Método para persistir en BD una nueva configuración
+    // Método para ejecutar el algoritmo
     onSubmit() {
-        this.msg_error = 'no';
 
-        if (this.validaFormulario(this.configuracion)) {
-            this._configuracionService.addConfiguracion(this.configuracion).subscribe(
-                response => {
-                    if (response['code'] == 200) {
-                        this._router.navigate(['/menuOpciones']);
-                    } else {
-                        this._router.navigate(['/error']);
-                    }
-                },
-                error => {
-                    console.log(<any>error);
-                    this._router.navigate(['/error']);
+        // this._algoritmoService.actualizaBD().subscribe(
+        //     result => {
+        //         if (result['code'] != 200) {
+        //             console.log('No se ha actualizado la base de datos');
+        //         } else {
+        //             console.log('Se ha actualizado la base de datos');
+        //             console.log(result);
+        //         }
+
+        //     },
+        //     error => {
+        //         console.log(<any>error);
+        //         this._router.navigate(['/error']);
+        //     }
+        // );
+
+        this._algoritmoService.extraeLocalizaciones(this.configuracion).subscribe(
+            result => {
+                if (result['code'] != 200) {
+                    console.log('No se han traido datos');
+                } else {
+                    console.log('Se han traido datos');
+                    console.log(result);
                 }
-            );
-        }
+
+            },
+            error => {
+                console.log(<any>error);
+                this._router.navigate(['/error']);
+            }
+        );
+
     }
+
+    // Método para persistir en BD una nueva configuración
+    // onSubmit() {
+    //     this.msg_error = 'no';
+
+    //     if (this.validaFormulario(this.configuracion)) {
+    //         this._configuracionService.addConfiguracion(this.configuracion).subscribe(
+    //             response => {
+    //                 if (response['code'] == 200) {
+    //                     this._router.navigate(['/menuOpciones']);
+    //                 } else {
+    //                     this._router.navigate(['/error']);
+    //                 }
+    //             },
+    //             error => {
+    //                 console.log(<any>error);
+    //                 this._router.navigate(['/error']);
+    //             }
+    //         );
+    //     }
+    // }
 
     //Método que actualiza la lista de preferencias que selecciona el usuario
     onChange(id: number, isChecked: boolean) {
