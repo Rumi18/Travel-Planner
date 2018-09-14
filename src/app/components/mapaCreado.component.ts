@@ -9,21 +9,20 @@ import { MapaService } from '../services/mapa.service';
 import { Marcador } from '../models/marcador';
 
 @Component({
-    selector: 'mapaPendiente',
+    selector: 'mapaCreado',
     templateUrl: '../views/mapa.component.html',
     providers: [MapaService]
 })
-export class MapaPendienteComponent implements OnInit {
-    private idMapa:number;
+export class MapaCreadoComponent implements OnInit {
     public dias: number[];
     public marcadoresMapa: Marcador[];
     public marcadores: Marcador[];
     public rutas: {}[][];
     public estadoRuta: number; //0 -> guardar, 1 -> iniciar, 2 -> Finalizar
 
-    public latMapa: number;
-    public lngMapa: number;
-    public zoom: number;
+    latMapa: number;
+    lngMapa: number;
+    zoom: number;
 
     constructor(
         private _router: Router,
@@ -33,7 +32,7 @@ export class MapaPendienteComponent implements OnInit {
         this.dias = [];
         this.marcadoresMapa = [];
         this.rutas = [];
-        this.estadoRuta = 1;
+        this.estadoRuta = 0;
 
         this.zoom = 11;
         this.latMapa = GLOBAL.latidud_defecto;
@@ -46,17 +45,17 @@ export class MapaPendienteComponent implements OnInit {
         GLOBAL.vistaSeleccionada = this._route.component['name'];
         console.log('Se ha cargado el componente mapa.component.ts');
 
-        this.idMapa = null;
+        let idMapa = null;
         let numDias = null;
 
         this._route.params.forEach((params: Params) => {
-            this.idMapa = params['id'];
+            idMapa = params['id'];
             numDias = params['numDias'];
         });
 
-        if (this.idMapa != null && numDias != null) {
+        if (idMapa != null && numDias != null) {
             this.creaMenuDias(numDias);
-            this.getMarcadores(this.idMapa);
+            this.getMarcadores(idMapa);
             
         }
     }
@@ -91,14 +90,13 @@ export class MapaPendienteComponent implements OnInit {
 
     muestraLocalizacionesMapa() {
         this.marcadores = this.marcadoresMapa;
-        if(this.marcadores[0].latitud != null){
+          if(this.marcadores[0].latitud != null){
             this.latMapa = this.marcadores[0].latitud;
         }
         if(this.marcadores[0].longitud != null){
             this.lngMapa = this.marcadores[0].longitud;
-        }      
-      
-        // this.cargaRuta();
+        }   
+        //this.cargaRuta();
     }
 
     muestraLocalizacionesDia(dia: number) {
@@ -111,14 +109,13 @@ export class MapaPendienteComponent implements OnInit {
         });
 
         this.marcadores = marcadoresDia;
-       
         if(this.marcadores[0].latitud != null){
             this.latMapa = this.marcadores[0].latitud;
         }
         if(this.marcadores[0].longitud != null){
             this.lngMapa = this.marcadores[0].longitud;
         }   
-        // this.cargaRuta();
+        //this.cargaRuta();
     }
 
     // cargaRuta() {
@@ -135,12 +132,9 @@ export class MapaPendienteComponent implements OnInit {
 
     iniciarMapa(){
         this.estadoRuta = 2;
-        this.muestraLocalizacionesDia(1);        
     }
 
     finalizarMapa(){
         this.estadoRuta = 1;
-        this.muestraLocalizacionesMapa();
-        this._router.navigate(['/valoracion/' + this.idMapa]);
     }
 }

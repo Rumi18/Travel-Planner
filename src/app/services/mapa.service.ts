@@ -21,6 +21,9 @@ export class MapaService {
         return this._http.get(GLOBAL.uri + GLOBAL.recurs_getMapasPendientes + idUsuario);
     }
 
+    getMapa(idMapa: number) {
+        return this._http.get(GLOBAL.uri + GLOBAL.recurs_getMapa + idMapa);
+    }
 
     getHistorialMapas(idUsuario: number) {
         return this._http.get(GLOBAL.uri + GLOBAL.recurs_getHistorialMapas + idUsuario);
@@ -42,7 +45,7 @@ export class MapaService {
         return this._http.post(GLOBAL.uri + GLOBAL.recurs_addValoracion + valoracion.idMapa, params, { headers: headers });
     }
 
-    addMapa(idMapa){
-        return this._http.get(GLOBAL.uri + GLOBAL.recurs_addMapa + idMapa);
+    habilitarMapa(idMapa){
+        return this._http.get(GLOBAL.uri + GLOBAL.recurs_habilitarMapa + idMapa);
     }
 }

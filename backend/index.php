@@ -478,47 +478,47 @@ $app->get('/getMarcadoresPorDia/:idMapa/:dia', function($id, $dia) use($db, $app
 });
 
 // Eliminar lógicamente un mapa de un usuario
-$app->get('/deleteMapa/:id', function($id) use($app, $db){ 
- 
- $sql = "UPDATE TP_D_MAPAS SET eliminado = TRUE, modificacion =  SYSDATE() ".
- "WHERE id = '{$id}'";
-  
- $query = $db->query($sql);
- 
- if($query){
-  $result = array(
-   'status' => 'success',
-   'code' => 200,
-   'message' => 'Mapa eliminado correctamente'
-  );
- }else{
-  $result = array(
-   'status' => 'error',
-   'code' => 404,
-   'message' => 'El mapa no se ha podido eliminar'
-  );
- }
- 
- echo json_encode($result);
+$app->get('/deleteMapa/:id', function($id) use($app, $db){	
+	
+	$sql = "UPDATE TP_D_MAPAS SET habilitado = TRUE, eliminado = TRUE, modificacion =  SYSDATE() ".
+	"WHERE id = '{$id}'";
+		
+	$query = $db->query($sql);
+	
+	if($query){
+		$result = array(
+			'status' => 'success',
+			'code' => 200,
+			'message' => 'Mapa eliminado correctamente'
+		);
+	}else{
+		$result = array(
+			'status' => 'error',
+			'code' => 404,
+			'message' => 'El mapa no se ha podido eliminar'
+		);
+	}
+	
+	echo json_encode($result);
 });
 
 // Añadir una valoración a un mapa
-$app->get('/addValoracion/:id', function($id) use($app, $db){ 
- 
- $json = $app->request->post('json');  
- $data = json_decode($json, true);
- 
- $sql = "UPDATE TP_D_MAPAS SET puntuacion = '{$data['puntuacion']}', ";
+$app->post('/addValoracion/:id', function($id) use($app, $db){	
+	
+	$json = $app->request->post('json');		
+	$data = json_decode($json, true);
+	
+	$sql = "UPDATE TP_D_MAPAS SET puntuacion = '{$data['puntuacion']}', ";
 
 
- if(isset($data['observacion'])){
-  $sql .= "observacion = '{$data['observacion']}', ";
- }
- 
- $sql.= "modificacion =  SYSDATE() ".
- "WHERE id = '{$id}'";
-  
- $query = $db->query($sql);
+    if(isset($data['observacion'])){
+		$sql .= "observacion = '{$data['observacion']}', ";
+	}
+	
+	$sql.= "modificacion =  SYSDATE(), realizado = TRUE ".
+	"WHERE id = '{$id}'";
+		
+	$query = $db->query($sql);
  
  if($query){
   $result = array(

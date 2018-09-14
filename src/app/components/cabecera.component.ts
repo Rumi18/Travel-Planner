@@ -77,6 +77,10 @@ export class CabeceraComponent {
         this._router.navigate(['/historial']);
         break;
 
+      case 'MapaCreadoComponent':
+        this._router.navigate(['/configuracion']);
+        break;
+
       case 'GuardarMapaComponent':
         this._router.navigate(['/configuracion']);
         break;

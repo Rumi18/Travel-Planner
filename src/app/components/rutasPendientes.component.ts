@@ -21,7 +21,8 @@ export class RutasPendientesComponent implements OnInit {
     public mapas: Mapa[];
     public configuracion: Configuracion;
     public preferencias: Preferencia[];
-
+    private idUsuario: number;
+   
     constructor(
         private _router: Router,
         private _route: ActivatedRoute,
@@ -30,7 +31,7 @@ export class RutasPendientesComponent implements OnInit {
         private _configuracionService: ConfiguracionService
     ) {
         this.configuracion = new Configuracion(0, 1, null, null, null, null, null, null, []);
-        this.preferencias = [];
+        this.preferencias = [];      
     }
 
     // Método que se lanza automáticamente después del constructor del componente 
@@ -38,8 +39,8 @@ export class RutasPendientesComponent implements OnInit {
         GLOBAL.vistaSeleccionada = this._route.component['name'];
         console.log('Se ha cargado el componente rutasPendientes.component.ts');
 
-        let idUsuario: number = this._almacenamientoService.getUsuarioActual().id;
-        this.getMapasPendientes(idUsuario);
+        this.idUsuario = this._almacenamientoService.getUsuarioActual().id;
+        this.getMapasPendientes(this.idUsuario);
 
     }
 
@@ -49,6 +50,8 @@ export class RutasPendientesComponent implements OnInit {
                 if (result['code'] == 200) {
                     if (result['data'].length > 0) {
                         this.mapas = result['data'];
+                    }else{
+                        this.mapas = null;
                     }
                 }
             },
@@ -86,19 +89,23 @@ export class RutasPendientesComponent implements OnInit {
     }
 
     eliminarMapa(idMapa: number) {
-        if (confirm("¿Está seguro que desea eliminar este mapa?\nAre you sure you want to delete this map?")) { }
-        this._mapaService.deleteMapa(idMapa).subscribe(
-            response => {
-                if (response['code'] == 200) {                  
-                    this._router.navigate(['/mapaPendiente']);
-                } else {                   
+        if (confirm("¿Está seguro que desea eliminar este mapa?\nAre you sure you want to delete this map?")) {
+            this._mapaService.deleteMapa(idMapa).subscribe(
+                response => {
+                    console.log("Resultado: " + response['code']);
+                    if (response['code'] == 200) {                 
+                        this.getMapasPendientes(this.idUsuario); 
+                        this._router.navigate(['/rutasPendientes']);
+                        
+                    } else {                   
+                        this._router.navigate(['/error']);
+                    }
+                },
+                error => {
+                    console.log(<any>error);
                     this._router.navigate(['/error']);
                 }
-            },
-            error => {
-                console.log(<any>error);
-                this._router.navigate(['/error']);
-            }
-        );
+            );
+        }
     }
 }

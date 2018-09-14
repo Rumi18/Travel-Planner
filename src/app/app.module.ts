@@ -34,6 +34,7 @@ import { ConfiguracionComponent } from './components/configuracion.component';
 import { TiendaComponent } from './components/tienda.component';
 import { MapaPendienteComponent } from './components/mapaPendiente.component';
 import { MapaHistorialComponent } from './components/mapaHistorial.component';
+import { MapaCreadoComponent } from './components/mapaCreado.component';
 import { GuardarMapaComponent } from './components/guardarMapa.component';
 import { ValoracionComponent } from './components/valoracion.component';
 
@@ -54,6 +55,7 @@ import { ValoracionComponent } from './components/valoracion.component';
     TiendaComponent,
     MapaPendienteComponent,
     MapaHistorialComponent,
+    MapaCreadoComponent,
     GuardarMapaComponent,
     ValoracionComponent
   ],
@@ -65,7 +67,7 @@ import { ValoracionComponent } from './components/valoracion.component';
     routing,    
     AgmDirectionModule,
     AgmCoreModule.forRoot({
-      apiKey: 'FALTA'
+      apiKey: 'AIzaSyBVj2Sx4KVLFWBuXhK6ypOrSCqPBX_-_fA'
     }),
     TranslateModule.forRoot({
       loader: {
