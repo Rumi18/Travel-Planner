@@ -76,62 +76,55 @@ export class ConfiguracionComponent implements OnInit {
     }
 
     // Método para ejecutar el algoritmo
-    onSubmit() {
+    // onSubmit() {
 
-        // this._algoritmoService.actualizaBD().subscribe(
-        //     result => {
-        //         if (result['code'] != 200) {
-        //             console.log('No se ha actualizado la base de datos');
-        //         } else {
-        //             console.log('Se ha actualizado la base de datos');
-        //             console.log(result);
-        //         }
+    //     // this._algoritmoService.actualizaBD().subscribe(
+    //     //     result => {
+    //     //         if (result['code'] != 200) {
+    //     //             console.log('No se ha actualizado la base de datos');
+    //     //         } else {
+    //     //             console.log('Se ha actualizado la base de datos');
+    //     //             console.log(result);
+    //     //         }
 
-        //     },
-        //     error => {
-        //         console.log(<any>error);
-        //         this._router.navigate(['/error']);
-        //     }
-        // );
+    //     //     },
+    //     //     error => {
+    //     //         console.log(<any>error);
+    //     //         this._router.navigate(['/error']);
+    //     //     }
+    //     // );
 
-        this._algoritmoService.extraeLocalizaciones(this.configuracion).subscribe(
-            result => {
-                if (result['code'] != 200) {
-                    console.log('No se han traido datos');
-                } else {
-                    console.log('Se han traido datos');
-                    console.log(result);
-                }
+    //     this._algoritmoService.extraeLocalizaciones(this.configuracion).subscribe(
+    //         result => {
+    //             if (result['code'] != 200) {
+    //                 console.log('No se han traido datos');
+    //             } else {
+    //                 console.log('Se han traido datos');
+    //                 console.log(result);
+    //             }
 
-            },
-            error => {
-                console.log(<any>error);
-                this._router.navigate(['/error']);
-            }
-        );
+    //         },
+    //         error => {
+    //             console.log(<any>error);
+    //             this._router.navigate(['/error']);
+    //         }
+    //     );
 
-    }
+    // }
 
     // Método para persistir en BD una nueva configuración
-    // onSubmit() {
-    //     this.msg_error = 'no';
+    onSubmit() {
+        this.msg_error = 'no';
 
-    //     if (this.validaFormulario(this.configuracion)) {
-    //         this._configuracionService.addConfiguracion(this.configuracion).subscribe(
-    //             response => {
-    //                 if (response['code'] == 200) {
-    //                     this._router.navigate(['/menuOpciones']);
-    //                 } else {
-    //                     this._router.navigate(['/error']);
-    //                 }
-    //             },
-    //             error => {
-    //                 console.log(<any>error);
-    //                 this._router.navigate(['/error']);
-    //             }
-    //         );
-    //     }
-    // }
+        if (this.validaFormulario(this.configuracion)) {
+           if(this.configuracion.duracion == 1){
+            this._router.navigate(['/mapaCreado/idMapa/1'])
+           }
+           if (this.configuracion.duracion == 2) {
+            this._router.navigate(['/mapaCreado/idMapa/2'])
+           }
+        }
+    }
 
     //Método que actualiza la lista de preferencias que selecciona el usuario
     onChange(id: number, isChecked: boolean) {

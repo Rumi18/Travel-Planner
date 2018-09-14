@@ -36,7 +36,7 @@
         <a class="btn btn-lg clr_orange" (click)="finalizarMapa()"> {{'mapa.finalizar' | translate}}</a>
     </div>
     <div class="btns_mapa" *ngIf="estadoRuta == 0">
-        <a class="btn btn-lg clr_orange" > {{'mapa.btnGuardarMapa' | translate}}</a>
+        <a class="btn btn-lg clr_orange" [routerLink]="['/guardarMapa', mapa.id]" > {{'mapa.btnGuardarMapa' | translate}}</a>
     </div>
 
 </div>
